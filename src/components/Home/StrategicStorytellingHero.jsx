@@ -10,12 +10,12 @@ export default function StrategicStorytellingHero() {
         <div className="relative z-20 flex w-full flex-col justify-center px-6 py-16 sm:px-10 md:px-14 lg:w-[48%] lg:px-14 lg:py-20 xl:px-[60px]">
 
           {/* Eyebrow */}
-          <div className="mb-6 text-[25px] leading-none text-white sm:text-[28px] md:text-[30px] lg:text-[29px] xl:text-[31px]" style={{ fontFamily: "cursive" }}>
+          <div  className="mb-6 text-[25px] leading-none text-white sm:text-[28px] md:text-[30px] lg:text-[29px] xl:text-[31px]" style={{ fontFamily: "cursive" }}>
             Ideas. Culture. Impact.
           </div>
 
           {/* Heading */}
-          <h1 className="max-w-[560px] text-[50px] font-extrabold leading-[0.96] tracking-[-0.045em] sm:text-[60px] md:text-[68px] lg:text-[64px] xl:text-[72px]">
+          <h1 className="max-w-[560px] text-[50px] font-bold leading-[0.96] tracking-[-0.045em] sm:text-[60px] md:text-[68px] lg:text-[64px] xl:text-[72px]">
 
             <span className="block text-white">
               Strategic
@@ -47,7 +47,7 @@ export default function StrategicStorytellingHero() {
 
           {/* CTA */}
           <div className="mt-8 sm:mt-9">
-            <button className="group inline-flex h-[56px] items-center gap-7 rounded-full bg-white px-7 text-[16px] font-semibold text-[#111516] transition-all duration-300 hover:gap-9 hover:bg-[#f5f5f5] sm:h-[58px] sm:px-9 sm:text-[17px]">
+            <button className="animate-bounce group inline-flex h-[56px] items-center gap-7 rounded-full bg-white px-7 text-[16px] font-semibold text-[#111516] transition-all duration-300 hover:gap-9 hover:bg-[#f5f5f5] sm:h-[58px] sm:px-9 sm:text-[17px]">
               <span>Explore Our Services</span>
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.2} />
             </button>
@@ -56,7 +56,13 @@ export default function StrategicStorytellingHero() {
         </div>
 
         {/* ================= RIGHT IMAGE ================= */}
-     
+        <div className="absolute right-0 top-0 hidden h-full w-[56%] lg:block">
+          <img
+            src="images/artwork.png"
+            alt="Strategic storytelling artwork"
+            className="absolute right-0 top-1/2 h-auto w-full max-w-[800px] -translate-y-1/2 object-contain"
+          />
+        </div>
 
       </div>
     </section>

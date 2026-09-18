@@ -5,22 +5,22 @@ const workItems = [
   {
     title: "Political Awareness Campaign",
     category: "Political Intelligence",
-    image: "",
+    image: "images/Hub.png",
   },
   {
     title: "March Campaign for a Lifestyle Brand",
     category: "Market & Moment Marketing",
-    image: "",
+    image: "images/Hub.png",
   },
   {
     title: "Brand Film for a Public Institution",
     category: "Video Production",
-    image: "",
+    image: "images/Hub.png",
   },
   {
     title: "Influencer-Led Social Drive",
     category: "Influencer Partnerships",
-    image: "",
+    image: "images/Hub.png",
   },
 ];
 
@@ -39,7 +39,7 @@ export default function OurWork() {
               Our Work
             </div>
 
-            <h2 className="max-w-[550px] text-[43px] font-extrabold leading-[0.98] tracking-[-0.05em] sm:text-[50px] md:text-[56px] lg:text-[52px] xl:text-[57px]">
+            <h2 className="max-w-[550px] text-[43px] font-bold leading-[0.98] tracking-[-0.05em] sm:text-[50px] md:text-[56px] lg:text-[52px] xl:text-[57px]">
               Campaigns That
               <br />
               Made an Impact

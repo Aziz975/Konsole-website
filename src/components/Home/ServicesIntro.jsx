@@ -1,4 +1,5 @@
 import React from "react";
+import CountUp from "./CountUp";
 
 const stats = [
   {
@@ -36,7 +37,7 @@ export default function ServicesIntro() {
               <span>×</span>
             </div>
 
-            <h2 className="max-w-[500px] text-[42px] font-extrabold leading-[1.02] tracking-[-0.045em] sm:text-[50px] md:text-[55px] lg:text-[48px] xl:text-[54px]">
+            <h2 className="max-w-[500px] text-[42px] font-bold leading-[1.02] tracking-[-0.045em] sm:text-[50px] md:text-[55px] lg:text-[48px] xl:text-[54px]">
               Ideas that
               <br />
               create influence.
@@ -46,15 +47,15 @@ export default function ServicesIntro() {
           {/* Stats */}
           {stats.map((stat, index) => (
             <div key={index} className="border-t border-[#d0d0cd] py-8 lg:border-l lg:border-t-0 lg:px-10 lg:py-0 xl:px-12">
-              <div className="text-[48px] font-extrabold leading-[0.95] tracking-[-0.045em] sm:text-[54px] md:text-[58px] lg:text-[48px] xl:text-[54px]">
-                {stat.number}
-              </div>
 
-              <div className="mt-5 text-[20px] font-normal leading-[1.4] tracking-[-0.02em] sm:text-[21px] md:text-[22px] lg:text-[19px] xl:text-[21px]">
-                {stat.title}
-                <br />
-                {stat.subtitle}
+
+              <div className="text-[48px] font-bold leading-[0.95] tracking-[-0.045em] sm:text-[54px] md:text-[58px] lg:text-[48px] xl:text-[54px]">
+                <CountUp value={stat.number} duration={700} />
+
               </div>
+              {stat.title}
+              <br />
+              {stat.subtitle}
             </div>
           ))}
 
@@ -76,7 +77,7 @@ export default function ServicesIntro() {
 
             {/* Heading */}
             <div>
-              <h2 className="max-w-[580px] text-[48px] font-extrabold leading-[1.02] tracking-[-0.05em] sm:text-[55px] md:text-[62px] lg:text-[58px] xl:text-[64px]">
+              <h2 className="max-w-[580px] text-[48px] font-bold leading-[1.02] tracking-[-0.05em] sm:text-[55px] md:text-[62px] lg:text-[58px] xl:text-[64px]">
                 More Than Just
                 <br />
                 Marketing

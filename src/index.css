@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@400;700&display=swap');
+@import "tailwindcss";
 body {
   font-family: 'Inter', sans-serif;
 }
@@ -24,3 +25,29 @@ body {
 
 /* navbar animation */
 
+
+
+@keyframes jumbleLetter {
+  0% {
+    transform: translateY(18px) rotate(-8deg) scale(0.8);
+    opacity: 0;
+  }
+
+  45% {
+    transform: translateY(-7px) rotate(5deg) scale(1.08);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateY(4px) rotate(-3deg) scale(0.96);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-jumble-letter {
+  animation: jumbleLetter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
