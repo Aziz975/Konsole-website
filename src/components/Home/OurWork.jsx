@@ -5,22 +5,22 @@ const workItems = [
   {
     title: "Political Awareness Campaign",
     category: "Political Intelligence",
-    image: "images/Hub.png",
+    image: "images/real_voices.png",
   },
   {
     title: "March Campaign for a Lifestyle Brand",
     category: "Market & Moment Marketing",
-    image: "images/Hub.png",
+    image: "images/change_cat.png",
   },
   {
     title: "Brand Film for a Public Institution",
     category: "Video Production",
-    image: "images/Hub.png",
+    image: "images/camera_stage.png",
   },
   {
     title: "Influencer-Led Social Drive",
     category: "Influencer Partnerships",
-    image: "images/Hub.png",
+    image: "images/stand_for_change.png",
   },
 ];
 

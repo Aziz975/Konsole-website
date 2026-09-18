@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function StrategicStorytellingHero() {
   return (
-    <section className="relative min-h-[650px] overflow-hidden bg-[#0b0f10] text-white">
+    <section className=" translate-y-8 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] relative min-h-[650px] overflow-hidden bg-[#0b0f10] text-white">
       <div className="mx-auto flex min-h-[650px] w-full max-w-[1440px] flex-col lg:flex-row">
 
         {/* ================= LEFT CONTENT ================= */}
