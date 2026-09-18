@@ -63,7 +63,7 @@ export default function AboutSection() {
       {/* ================= TRUSTED BY SECTION ================= */}
       <div className="border-t border-[#deded9]">
 
-        <div className="mx-auto w-full max-w-[1440px] px-6 py-6 sm:px-10 sm:py-7 md:px-12 lg:px-16 xl:px-20">
+        <div className="mx-auto w-full max-w-[1700px] px-6 py-6 sm:px-10 sm:py-7 md:px-12 lg:px-16 xl:px-20">
 
           {/* Trusted By */}
           <div className="mb-5">
@@ -82,76 +82,87 @@ export default function AboutSection() {
 
 
           {/* ================= LOGOS ================= */}
-          <div className="grid grid-cols-2 items-center gap-x-8 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 lg:gap-x-10 lg:gap-y-0">
+        {/* ================= INFINITE LOGO SLIDER ================= */}
+<div className="relative w-full overflow-hidden">
+  <div className="logo-track flex w-max items-center">
 
-            {/* TATA */}
-            <div className="flex h-[65px] items-center justify-center">
-              <img
-                src=""
-                alt="Tata"
-                className="max-h-[65px] w-auto max-w-[125px] object-contain"
-              />
-            </div>
+    {/* FIRST SET */}
+    <div className="flex shrink-0 items-center gap-12 pr-12 sm:gap-16 sm:pr-16 md:gap-20 md:pr-20 lg:gap-24 lg:pr-24">
 
+      {/* TATA */}
+      <div className="flex h-[65px] w-[145px] shrink-0 items-center justify-center">
+        <img src="images/logo_tata.png" alt="Reliance" className="max-h-[65px] w-auto max-w-[145px] object-contain" />
+      </div>
 
-            {/* Reliance */}
-            <div className="flex h-[65px] items-center justify-center">
-              <img
-                src="images/artwork.png"
-                alt="Reliance"
-                className="max-h-[65px] w-auto max-w-[145px] object-contain"
-              />
-            </div>
+      {/* Reliance */}
+      <div className="flex h-[65px] w-[145px] shrink-0 items-center justify-center">
+        <img src="images/logo_reliance.png" alt="Reliance" className="max-h-[65px] w-auto max-w-[145px] object-contain" />
+      </div>
 
+      {/* SBI */}
+      <div className="flex h-[65px] w-[140px] shrink-0 items-center justify-center">
+        <img src="images/logo_sbi.png" alt="SBI" className="max-h-[65px] w-auto max-w-[140px] object-contain" />
+      </div>
 
-            {/* SBI */}
-            <div className="flex h-[65px] items-center justify-center">
-              <img
-                src=""
-                alt="SBI"
-                className="max-h-[65px] w-auto max-w-[140px] object-contain"
-              />
-            </div>
+      {/* Apollo Tyres */}
+      <div className="flex h-[65px] w-[150px] shrink-0 items-center justify-center">
+        <img src="images/logo_apollo_tyres.png" alt="Apollo Tyres" className="max-h-[70px] w-auto max-w-[150px] object-contain" />
+      </div>
 
+      {/* ONGC */}
+      <div className="flex h-[65px] w-[125px] shrink-0 items-center justify-center">
+        <img src="images/logo_ongc.png" alt="ONGC" className="max-h-[68px] w-auto max-w-[125px] object-contain" />
+      </div>
 
-            {/* Apollo Tyres */}
-            <div className="flex h-[65px] items-center justify-center">
-              <img
-                src=""
-                alt="Apollo Tyres"
-                className="max-h-[70px] w-auto max-w-[150px] object-contain"
-              />
-            </div>
+      {/* Deloitte */}
+      <div className="flex h-[65px] w-[145px] shrink-0 items-center justify-center">
+        <img src="images/logo_deloitte.png" alt="Deloitte" className="max-h-[55px] w-auto max-w-[145px] object-contain" />
+      </div>
 
+     
 
-            {/* ONGC */}
-            <div className="flex h-[65px] items-center justify-center">
-              <img
-                src=""
-                alt="ONGC"
-                className="max-h-[68px] w-auto max-w-[125px] object-contain"
-              />
-            </div>
+    </div>
 
 
-            {/* Deloitte */}
-            <div className="flex h-[65px] items-center justify-center">
-              <img
-                src=""
-                alt="Deloitte"
-                className="max-h-[55px] w-auto max-w-[145px] object-contain"
-              />
-            </div>
+    {/* SECOND IDENTICAL SET */}
+    <div className="flex shrink-0 items-center gap-12 pr-12 sm:gap-16 sm:pr-16 md:gap-20 md:pr-20 lg:gap-24 lg:pr-24">
 
+      {/* TATA */}
+      <div className="flex h-[65px] w-[125px] shrink-0 items-center justify-center">
+        <img src="images/logo_tata.png" alt="Tata" className="max-h-[65px] w-auto max-w-[125px] object-contain" />
+      </div>
 
-            {/* More */}
-            <div className="flex h-[65px] items-center justify-center">
-              <span className="text-[18px] font-semibold text-[#283344] sm:text-[19px]">
-                &amp; More
-              </span>
-            </div>
+      {/* Reliance */}
+      <div className="flex h-[65px] w-[145px] shrink-0 items-center justify-center">
+        <img src="images/logo_reliance.png" alt="Reliance" className="max-h-[65px] w-auto max-w-[145px] object-contain" />
+      </div>
 
-          </div>
+      {/* SBI */}
+      <div className="flex h-[65px] w-[140px] shrink-0 items-center justify-center">
+        <img src="images/logo_sbi.png" alt="SBI" className="max-h-[65px] w-auto max-w-[140px] object-contain" />
+      </div>
+
+      {/* Apollo Tyres */}
+      <div className="flex h-[65px] w-[150px] shrink-0 items-center justify-center">
+        <img src="images/logo_apollo_tyres.png" alt="Apollo Tyres" className="max-h-[70px] w-auto max-w-[150px] object-contain" />
+      </div>
+
+      {/* ONGC */}
+      <div className="flex h-[65px] w-[125px] shrink-0 items-center justify-center">
+        <img src="images/logo_ongc.png" alt="ONGC" className="max-h-[68px] w-auto max-w-[125px] object-contain" />
+      </div>
+
+      {/* Deloitte */}
+      <div className="flex h-[65px] w-[145px] shrink-0 items-center justify-center">
+        <img src="images/logo_deloitte.png" alt="Deloitte" className="max-h-[55px] w-auto max-w-[145px] object-contain" />
+      </div>
+
+    
+
+    </div>
+
+  </div>
+</div>
 
         </div>
 

@@ -51,3 +51,23 @@ body {
 .animate-jumble-letter {
   animation: jumbleLetter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+.logo-track {
+  animation: logoSlide 20s linear infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+@keyframes logoSlide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.logo-track:hover {
+  animation-play-state: paused;
+}
