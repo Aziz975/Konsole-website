@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CountUp from "./CountUp";
 
 const stats = [
@@ -20,8 +20,28 @@ const stats = [
 ];
 
 export default function ServicesIntro() {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="w-full bg-[#faf9f6] text-[#080b0b]">
+    <section ref={sectionRef} className="w-full bg-[#faf9f6] text-[#080b0b]">
 
       {/* ================= STATS ================= */}
       <div className="border-b border-[#d7d7d4] px-5 py-16 sm:px-8 sm:py-20 md:px-10 md:py-24 lg:px-12 lg:py-[105px] xl:px-[60px]">
@@ -30,32 +50,36 @@ export default function ServicesIntro() {
 
           {/* Main statement */}
           <div className="relative flex items-center gap-7 pb-12 lg:pb-0 lg:pr-10">
-            <div className="flex w-[25px] shrink-0 flex-col items-center justify-center gap-1 text-[34px] leading-[0.62] font-light text-[#080b0b] sm:w-[28px] sm:text-[38px]">
+
+            <div className={`flex w-[25px] shrink-0 flex-col items-center justify-center gap-1 text-[34px] leading-[0.62] font-light text-[#080b0b] sm:w-[28px] sm:text-[38px] ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "opacity-0 translate-y-[35px]"}`}>
               <span>×</span>
               <span>×</span>
               <span>×</span>
               <span>×</span>
             </div>
 
-            <h2 className="max-w-[500px] text-[42px] font-bold leading-[1.02] tracking-[-0.045em] sm:text-[50px] md:text-[55px] lg:text-[48px] xl:text-[54px]">
+            <h2 className={`max-w-[500px] text-[42px] font-bold leading-[1.02] tracking-[-0.045em] sm:text-[50px] md:text-[55px] lg:text-[48px] xl:text-[54px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.15s_forwards]" : "opacity-0 translate-y-[35px]"}`}>
               Ideas that
               <br />
               create influence.
             </h2>
+
           </div>
 
           {/* Stats */}
           {stats.map((stat, index) => (
             <div key={index} className="border-t border-[#d0d0cd] py-8 lg:border-l lg:border-t-0 lg:px-10 lg:py-0 xl:px-12">
 
-
-              <div className="text-[48px] font-bold leading-[0.95] tracking-[-0.045em] sm:text-[54px] md:text-[58px] lg:text-[48px] xl:text-[54px]">
+              <div className={`text-[48px] font-bold leading-[0.95] tracking-[-0.045em] sm:text-[54px] md:text-[58px] lg:text-[48px] xl:text-[54px] ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "opacity-0 translate-y-[35px]"}`} style={{ animationDelay: `${0.3 + index * 0.15}s` }}>
                 <CountUp value={stat.number} duration={700} />
-
               </div>
-              {stat.title}
-              <br />
-              {stat.subtitle}
+
+              <div className={`text-[18px] font-normal leading-[1.25] sm:text-[19px] md:text-[20px] ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "opacity-0 translate-y-[35px]"}`} style={{ animationDelay: `${0.4 + index * 0.15}s` }}>
+                {stat.title}
+                <br />
+                {stat.subtitle}
+              </div>
+
             </div>
           ))}
 
@@ -68,7 +92,7 @@ export default function ServicesIntro() {
         <div className="mx-auto max-w-[1440px]">
 
           {/* Handwritten label */}
-          <div className="mb-7 text-[31px] font-normal leading-none tracking-[-0.02em] sm:text-[35px] md:text-[39px] lg:text-[40px] xl:text-[42px]" style={{ fontFamily: "'Caveat', cursive" }}>
+          <div className={`mb-7 text-[31px] font-normal leading-none tracking-[-0.02em] sm:text-[35px] md:text-[39px] lg:text-[40px] xl:text-[42px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.1s_forwards]" : "opacity-0 translate-y-[35px]"}`} style={{ fontFamily: "'Caveat', cursive" }}>
             Our Services
           </div>
 
@@ -77,7 +101,7 @@ export default function ServicesIntro() {
 
             {/* Heading */}
             <div>
-              <h2 className="max-w-[580px] text-[48px] font-bold leading-[1.02] tracking-[-0.05em] sm:text-[55px] md:text-[62px] lg:text-[58px] xl:text-[64px]">
+              <h2 className={`max-w-[580px] text-[48px] font-bold leading-[1.02] tracking-[-0.05em] sm:text-[55px] md:text-[62px] lg:text-[58px] xl:text-[64px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.25s_forwards]" : "opacity-0 translate-y-[35px]"}`}>
                 More Than Just
                 <br />
                 Marketing
@@ -86,7 +110,7 @@ export default function ServicesIntro() {
 
             {/* Description */}
             <div className="flex items-start lg:pt-[25px] xl:pt-[27px]">
-              <p className="max-w-[650px] text-[20px] font-normal leading-[1.5] tracking-[-0.025em] sm:text-[22px] md:text-[24px] lg:text-[21px] xl:text-[24px]">
+              <p className={`max-w-[650px] text-[20px] font-normal leading-[1.5] tracking-[-0.025em] sm:text-[22px] md:text-[24px] lg:text-[21px] xl:text-[24px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.4s_forwards]" : "opacity-0 translate-y-[35px]"}`}>
                 From viral moments to policy conversations, we craft communication that gets noticed, builds credibility and drives real impact.
               </p>
             </div>

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const services = [
   {
     title: "Meme & Moment Marketing",
-    text: "Trends, culture and timing  turned into powerful brand moments.",
+    text: "Trends, culture and timing turned into powerful brand moments.",
     src: "images/icon_meme.png",
     alt: "Meme & Moment Marketing",
   },
@@ -52,14 +52,33 @@ const services = [
 ];
 
 export default function ServicesGrid() {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="w-full overflow-hidden bg-[#faf9f6] px-5 py-10 sm:px-8 sm:py-12 md:px-10 lg:px-12 lg:py-14 xl:px-16">
+    <section ref={sectionRef} className="w-full overflow-hidden bg-[#faf9f6] px-5 py-10 sm:px-8 sm:py-12 md:px-10 lg:px-12 lg:py-14 xl:px-16">
       <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
 
         {services.map((service, index) => (
           <div
             key={service.title}
-            className={`group relative min-h-[290px] overflow-hidden border-[#dcdedb] bg-transparent px-7 py-8 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.015] hover:bg-white hover:shadow-[0_18px_50px_rgba(25,205,181,0.16)] sm:px-8 sm:py-9 lg:min-h-[295px] lg:px-7 lg:py-8 xl:px-8 ${index < 4 ? "border-b" : ""} ${index % 4 !== 3 ? "lg:border-r" : ""} ${index % 2 !== 1 ? "md:border-r" : ""}`}
+            style={{ animationDelay: `${index * 0.1}s` }}
+            className={`group relative min-h-[290px] overflow-hidden border-[#dcdedb] bg-transparent px-7 py-8 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.015] hover:bg-white hover:shadow-[0_18px_50px_rgba(25,205,181,0.16)] sm:px-8 sm:py-9 lg:min-h-[295px] lg:px-7 lg:py-8 xl:px-8 ${index < 4 ? "border-b" : ""} ${index % 4 !== 3 ? "lg:border-r" : ""} ${index % 2 !== 1 ? "md:border-r" : ""} ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-14 opacity-0"}`}
           >
 
             {/* Top glowing line */}

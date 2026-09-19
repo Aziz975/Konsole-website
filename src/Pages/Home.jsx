@@ -6,6 +6,7 @@ import AboutSection from '../components/Home/AboutSection'
 import WhyKonsolde from '../components/Home/WhyKonsolde'
 import ServicesGrid from '../components/Home/ServicesGrid'
 import CreateTogether from '../components/Home/CreateTogether'
+import AnimatedText from '../components/Home/AnimatedText'
 
 
 
@@ -36,6 +37,7 @@ const Home = () => {
       <WhyKonsolde></WhyKonsolde>
 
     <CreateTogether></CreateTogether>
+   
 
      </div>
     </>

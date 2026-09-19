@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
 const workItems = [
@@ -25,8 +25,26 @@ const workItems = [
 ];
 
 export default function OurWork() {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
+      },
+      { threshold: 0.12 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="mt-10 mb-15 w-full bg-[#0b0f10] px-5 py-14 text-white sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-6 lg:py-[42px] xl:px-[23px]">
+    <section ref={sectionRef} className="mt-10 mb-15 w-full bg-[#0b0f10] px-5 py-14 text-white sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-6 lg:py-[42px] xl:px-[23px]">
 
       <div className="mx-auto max-w-[1440px]">
 
@@ -35,21 +53,37 @@ export default function OurWork() {
 
           {/* Left heading */}
           <div>
-            <div className="mb-3 text-[31px] font-normal leading-none tracking-[-0.02em] text-white sm:text-[34px] md:text-[38px] lg:text-[39px] xl:text-[41px]" style={{ fontFamily: "'Caveat', cursive" }}>
+
+            {/* Small heading */}
+            <div
+              className={`mb-3 text-[31px] font-normal leading-none tracking-[-0.02em] text-white sm:text-[34px] md:text-[38px] lg:text-[39px] xl:text-[41px] ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-12 opacity-0"}`}
+              style={{ fontFamily: "'Caveat', cursive" }}
+            >
               Our Work
             </div>
 
-            <h2 className="max-w-[550px] text-[43px] font-bold leading-[0.98] tracking-[-0.05em] sm:text-[50px] md:text-[56px] lg:text-[52px] xl:text-[57px]">
+            {/* Main heading */}
+            <h2
+              className={`max-w-[550px] text-[43px] font-bold leading-[0.98] tracking-[-0.05em] sm:text-[50px] md:text-[56px] lg:text-[52px] xl:text-[57px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.12s_forwards]" : "translate-y-14 opacity-0"}`}
+            >
               Campaigns That
               <br />
               Made an Impact
             </h2>
+
           </div>
 
           {/* View all */}
-          <a href="#" className="group mt-1 inline-flex w-fit items-center gap-5 border-b border-white/80 pb-1 text-[16px] font-medium text-white transition-all duration-300 hover:gap-7 lg:mt-[55px] xl:mr-[4px]">
+          <a
+            href="#"
+            className={`group mt-1 inline-flex w-fit items-center gap-5 border-b border-white/80 pb-1 text-[16px] font-medium text-white transition-all duration-300 hover:gap-7 lg:mt-[55px] xl:mr-[4px] ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.25s_forwards]" : "translate-y-12 opacity-0"}`}
+          >
             <span>View All Work</span>
-            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2} />
+
+            <ArrowRight
+              className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+              strokeWidth={2}
+            />
           </a>
 
         </div>
@@ -58,12 +92,20 @@ export default function OurWork() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-[26px] xl:gap-x-[26px]">
 
           {workItems.map((item, index) => (
-            <article key={index} className="group min-w-0">
+            <article
+              key={index}
+              style={{ animationDelay: `${0.35 + index * 0.12}s` }}
+              className={`group min-w-0 ${visible ? "animate-[fadeUp_0.85s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-16 opacity-0"}`}
+            >
 
               {/* Image */}
               <div className="relative aspect-[1.08/1] w-full overflow-hidden rounded-[8px] bg-[#1a1f20] sm:aspect-[1.05/1] lg:aspect-[1.08/1]">
 
-                <img src={item.image} alt={item.title} className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                />
 
               </div>
 
