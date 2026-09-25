@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Contact = () => {
+const DigitalMedia = () => {
   return (
     <div>
-      Contact
+      
     </div>
   )
 }
 
-export default Contact
+export default DigitalMedia

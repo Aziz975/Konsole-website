@@ -1,11 +1,11 @@
 import React from 'react'
 
-const About = () => {
+const ORM = () => {
   return (
     <div>
-      about
+      
     </div>
   )
 }
 
-export default About
+export default ORM

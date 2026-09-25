@@ -1,11 +1,20 @@
 import React from 'react'
-import StrategicStorytellingHero from '../components/Home/StrategicStorytellingHero'
+
+
+import Introduction from '../components/About/Introduction'
+import AboutUs from '../components/About/AboutUs'
+import ManagementTeam from '../components/About/ManagementTeam'
+import WhyDifferent from '../components/About/WhyDifferent'
+
 
 
 const About = () => {
   return (
    <>
-   <StrategicStorytellingHero></StrategicStorytellingHero>
+<AboutUs></AboutUs>
+{/* <Introduction></Introduction> */}
+<ManagementTeam></ManagementTeam>
+<WhyDifferent></WhyDifferent>
    
    </>
   )
