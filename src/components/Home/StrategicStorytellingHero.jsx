@@ -29,23 +29,36 @@ export default function StrategicStorytellingHero() {
 
           {/* ================= EYEBROW - FADE UP ================= */}
           <div className={`mb-6 text-[25px] leading-none text-white sm:text-[28px] md:text-[30px] lg:text-[29px] xl:text-[31px] ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.1s_forwards]" : "translate-y-12 opacity-0"}`} style={{ fontFamily: "cursive" }}>
-            Ideas. Culture. Impact.
+           If you follow the
           </div>
 
           {/* ================= H1 - WORD BY WORD REVEAL ONLY ================= */}
 <h1 className="max-w-[560px] text-[50px] font-bold leading-[0.96] tracking-[-0.045em] sm:text-[60px] md:text-[68px] lg:text-[64px] xl:text-[72px]">
 
-  <span className="block ">
-    {"Strategic".split("").map((letter, index) => (
-      <span key={index} className={`inline-block ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${index * 0.045}s` }}>
-        {letter}
-      </span>
-    ))}
-  </span>
+ <span className="block">
+  {"Sherpa Strategy,".split("").map((letter, index) => (
+    <span
+      key={index}
+      className={`inline-block ${
+        visible
+          ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]"
+          : "translate-y-[120%] opacity-0"
+      }`}
+      style={{
+        animationDelay: `${index * 0.045}s`,
+        ...(letter === " " ? { width: "12px" } : {}),
+      }}
+    >
+      {letter}
+    </span>
+  ))}
+</span>
+  
 
-  <span className="block overflow-hidden">
-    {"Storytelling".split("").map((letter, index) => (
-      <span key={index} className={`inline-block ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${0.4 + index * 0.045}s` }}>
+  <span className="block ">
+    {"the destination".split("").map((letter, index) => (
+      <span key={index} className={`inline-block text-[#ffd21c] ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${0.4 + index * 0.045}s` ,
+      ...(letter === " " ? { width: "12px" } : {}), }}>
         {letter}
       </span>
     ))}
@@ -53,33 +66,34 @@ export default function StrategicStorytellingHero() {
 
   <span className="block overflow-hidden">
     <span className="inline-block">
-      {"for".split("").map((letter, index) => (
-        <span key={index} className={`inline-block text-[#ff6969] ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${0.95 + index * 0.045}s` }}>
+      {"will".split("").map((letter, index) => (
+        <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${0.95 + index * 0.045}s` }}>
           {letter}
         </span>
       ))}
     </span>
 
     <span className="inline-block ml-[0.2em]">
-      {"a".split("").map((letter, index) => (
-        <span key={index} className={`inline-block text-[#ff6969] ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${1.1 + index * 0.045}s` }}>
+      {"follow".split("").map((letter, index) => (
+        <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${1.1 + index * 0.045}s` }}>
           {letter}
         </span>
       ))}
     </span>
 
     <span className="inline-block ml-[0.2em]">
-      {"Louder".split("").map((letter, index) => (
-        <span key={index} className={`inline-block text-[#ffd21c] ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ fontFamily: "cursive", animationDelay: `${1.2 + index * 0.045}s` }}>
+      {"you".split("").map((letter, index) => (
+        <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ fontFamily: "cursive", animationDelay: `${1.2 + index * 0.045}s` }}>
           {letter}
         </span>
       ))}
     </span>
   </span>
 
-  <span className="block overflow-hidden">
-    {"Tomorrow.".split("").map((letter, index) => (
-      <span key={index} className={`inline-block ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${1.55 + index * 0.045}s` }}>
+  <span className="block">
+    {"my brother.".split("").map((letter, index) => (
+      <span key={index} className={` text-[#ff6969] inline-block ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${1.55 + index * 0.045}s`,
+      ...(letter === " " ? { width: "12px" } : {}), }}>
         {letter}
       </span>
     ))}
@@ -109,7 +123,7 @@ export default function StrategicStorytellingHero() {
             <img
               src="images/artwork.png"
               alt="Strategic storytelling artwork"
-              className="absolute right-0 top-1/2 h-auto w-full max-w-[800px] -translate-y-1/2 object-contain"
+               className="absolute  top-[50%] h-[600px] w-[700px] -translate-y-1/2 object-contain sm:h-[600px] sm:w-[800px] md:h-[650px] md:w-[900px] lg:h-[900px] lg:w-[1050px] xl:h-[760px] xl:w-[1150px]"
             />
           </div>
         </div>

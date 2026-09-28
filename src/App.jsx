@@ -11,6 +11,9 @@ import MobileMarketing from './components/Services/MobileMarketing';
 import ContentCreation from './components/Services/ContentCreation';
 import VideoProduction from './components/Services/VideoProduction';
 import MemeAndMarketing from './components/Services/MemeAndMarketing';
+import GovernmentProjects from './components/Services/GovernmentProjects';
+import PoliticalIntelligence from './components/Services/PoliticalIntelligence';
+import DigitalMedia from './components/Services/DigitalMedia';
 
 
 
@@ -34,8 +37,8 @@ const App = () => {
           <Route path="/services/memeandmomentmarketing" element={<MemeAndMarketing/>} />
           <Route path="/services/contentcreation"        element={<ContentCreation />} />
           <Route path="/services//services/videoproduction" element={<VideoProduction />} />
-          <Route path="/services/memeandmomentmarketing" element={<MobileMarketing />} />
-          <Route path="/services/memeandmomentmarketing" element={<MobileMarketing />} />
+          <Route path="/services/governmentprojects" element={<GovernmentProjects />} />
+          <Route path="/services/digitalpr" element={<DigitalMedia />} />
           <Route path="/services/memeandmomentmarketing" element={<MobileMarketing />} />
            
           </Route>
