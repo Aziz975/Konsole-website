@@ -70,7 +70,7 @@ const Navbar = () => {
               </Link>
 
               <Link
-                to="/services/onlinereputation"
+                to="/services/orm"
                 className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
               >
                Online Reputation Management(ORM)

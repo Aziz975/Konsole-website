@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer';
 import Home from './Pages/Home';
 import About from './Pages/About';
 
+
 import Insights from './Pages/Insights';
 import Contact from './Pages/Contact';
 import MobileMarketing from './components/Services/MobileMarketing';
@@ -14,6 +15,7 @@ import MemeAndMarketing from './components/Services/MemeAndMarketing';
 import GovernmentProjects from './components/Services/GovernmentProjects';
 import PoliticalIntelligence from './components/Services/PoliticalIntelligence';
 import DigitalMedia from './components/Services/DigitalMedia';
+import ORM from './components/Services/ORM';
 
 
 
@@ -40,7 +42,8 @@ const App = () => {
           <Route path="/services/governmentprojects" element={<GovernmentProjects />} />
           <Route path="/services/digitalpr" element={<DigitalMedia />} />
           <Route path="/services/memeandmomentmarketing" element={<MobileMarketing />} />
-           
+           <Route path="/services/politicalintelligence" element={<PoliticalIntelligence />} />
+           <Route path="/services/orm" element={<ORM />} />
           </Route>
 
           <Route path="/about" element={<About />} />
