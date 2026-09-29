@@ -264,21 +264,21 @@ const PoliticalIntelligence = () => {
           {/* Dark quote block — background image PLACEHOLDER */}
           <div className="relative rounded-xl overflow-hidden min-h-[220px] bg-[#121212] text-white">
             <img
-              src="/images/quote-block-bg.jpeg"
+              src="/images/image5.png"
               alt="Speaker at a podium — political communication"
-              className="absolute inset-0 w-full h-full object-cover opacity-60"
+              className="absolute inset-0 w-full h-full object-contain opacity-60"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
               }}
             />
-            <div className="relative p-6 flex flex-col justify-between h-full min-h-[220px]">
+            {/* <div className="relative p-6 flex flex-col justify-between h-full min-h-[220px]">
               <Quote size={24} className="text-[#F5C518]" />
               <p className="text-lg font-semibold leading-snug mt-4">
                 In politics, timing is everything.
                 <br />
                 And so is insight.
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

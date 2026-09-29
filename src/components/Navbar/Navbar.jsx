@@ -42,7 +42,7 @@ const Navbar = () => {
               to="/services"
               className="text-[14px] font-semibold text-[#171717] transition-opacity duration-300 hover:opacity-60"
             >
-              Services
+              Menu Card
             </Link>
 
             {/* Dropdown */}
@@ -104,21 +104,21 @@ const Navbar = () => {
             to="/about"
             className="text-[14px] font-semibold text-[#171717] transition-opacity duration-300 hover:opacity-60"
           >
-            about
+            Our Adhaar Card
           </Link>
 
           <Link
             to="/insights"
             className="text-[14px] font-semibold text-[#171717] transition-opacity duration-300 hover:opacity-60"
           >
-            insights
+            Insights
           </Link>
 
           <Link
             to="/contact"
             className="text-[14px] font-semibold text-[#171717] transition-opacity duration-300 hover:opacity-60"
           >
-            Contact
+            Hello Friends
           </Link>
 
         </div>

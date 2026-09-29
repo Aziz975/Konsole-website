@@ -123,7 +123,7 @@ export default function StrategicStorytellingHero() {
             <img
               src="images/artwork.png"
               alt="Strategic storytelling artwork"
-               className="absolute  top-[50%] h-[600px] w-[700px] -translate-y-1/2 object-contain sm:h-[600px] sm:w-[800px] md:h-[650px] md:w-[900px] lg:h-[900px] lg:w-[1050px] xl:h-[760px] xl:w-[1150px]"
+               className="absolute  top-[40%] h-[600px] w-[700px] -translate-y-1/2 object-contain sm:h-[600px] sm:w-[800px] md:h-[650px] md:w-[900px] lg:h-[900px] lg:w-[1050px] xl:h-[600px] xl:w-[1150px]"
             />
           </div>
         </div>
