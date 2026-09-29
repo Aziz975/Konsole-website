@@ -9,7 +9,7 @@ export default function GovernmentProjects() {
       <section className=" bg-[#FAFAF5] border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Content */}
             <div className="lg:col-span-5 space-y-6">
               <span className="italic text-neutral-600 font-serif text-lg">Our Services</span>
@@ -31,9 +31,9 @@ export default function GovernmentProjects() {
             {/* Right Image Container (Space Reserved) */}
             <div className="lg:col-span-7">
               <div className="relative w-full  overflow-hidden">
-                <img 
-                  src="/images/image4.jpeg" 
-                  alt="Government Communication Banner" 
+                <img
+                  src="/images/image4.jpeg"
+                  alt="Government Communication Banner"
                   className="w-full h-full object-contain"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
@@ -50,13 +50,13 @@ export default function GovernmentProjects() {
       <section className="py-16 md:py-24 bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Image Container (Space Reserved) */}
             <div className="lg:col-span-6 order-2 lg:order-1">
               <div className="relative w-full overflow-hidden">
-                <img 
-                  src="/images/image7.jpeg" 
-                  alt="Communication for Stronger Society" 
+                <img
+                  src="/images/image7.jpeg"
+                  alt="Communication for Stronger Society"
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
@@ -107,7 +107,7 @@ export default function GovernmentProjects() {
       {/* ================= SECTION 3: Project Examples & Bottom Banner ================= */}
       <section className="py-16 md:py-24 bg-[#FAFAF5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
+
           {/* Top Heading */}
           <div className="space-y-2">
             <span className="italic text-neutral-600 font-serif text-base">Project Examples</span>
@@ -118,11 +118,11 @@ export default function GovernmentProjects() {
 
           {/* 3 Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
+
             {/* Card 1 */}
             <div className="bg-white border-2 border-neutral-900 rounded-2xl p-4 shadow-[6px_6px_0px_#FFB900] flex flex-col justify-between space-y-4">
-              <div className="w-full">
-                <img src="/images/image8.jpeg" alt="Public Awareness Campaign" className="w-full h-full object-cover" />
+              <div className="w-full aspect-video bg-neutral-100 rounded-lg overflow-hidden border border-neutral-300">
+                <img src="/images/image8.jpeg" alt="Citizen Engagement Program" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Public Awareness Campaign</h3>
@@ -133,7 +133,7 @@ export default function GovernmentProjects() {
             {/* Card 2 */}
             <div className="bg-white border-2 border-neutral-900 rounded-2xl p-4 shadow-[6px_6px_0px_#FFB900] flex flex-col justify-between space-y-4">
               <div className="w-full aspect-video bg-neutral-100 rounded-lg overflow-hidden border border-neutral-300">
-                <img src="/images/project2.jpeg" alt="Citizen Engagement Program" className="w-full h-full object-cover" />
+                <img src="/images/image9.png" alt="Citizen Engagement Program" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Citizen Engagement Program</h3>
@@ -144,7 +144,7 @@ export default function GovernmentProjects() {
             {/* Card 3 */}
             <div className="bg-white border-2 border-neutral-900 rounded-2xl p-4 shadow-[6px_6px_0px_#FFB900] flex flex-col justify-between space-y-4">
               <div className="w-full aspect-video bg-neutral-100 rounded-lg overflow-hidden border border-neutral-300">
-                <img src="/images/project3.jpeg" alt="Information Campaign Videos" className="w-full h-full object-cover" />
+                <img src="/images/image10.png" alt="Citizen Engagement Program" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Information Campaign Videos</h3>
