@@ -453,7 +453,7 @@ export default function DigitalMedia() {
       {/* THE HINDU */}
       <div className="flex h-[48px] items-center justify-start border-b border-[#d8d8d0] px-0 sm:h-[52px] sm:border-r sm:px-4 sm:py-2">
         <img
-          src="/Service"
+          src="/Service/the-hindu.png"
           alt="The Hindu"
           className="h-auto w-[68px] max-w-full object-contain sm:w-[78px] md:w-[84px]"
         />
