@@ -37,68 +37,82 @@ const Navbar = () => {
             Home
           </Link>
 
-          <div className="group relative">
-            <Link
-              to="/services"
-              className="text-[14px] font-semibold text-[#171717] transition-opacity duration-300 hover:opacity-60"
-            >
-              Menu Card
-            </Link>
+       <div className="group relative">
+  <Link
+    to="/services"
+    className="relative text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
+  >
+    Menu Card
+  </Link>
 
-            {/* Dropdown */}
-            <div className="invisible absolute left-1/2 top-full z-50 mt-4 w-[260px] -translate-x-1/2 translate-y-2 rounded-xl border border-[#e5e5e5] bg-white p-2 opacity-0 shadow-xl transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+  {/* Dropdown */}
+  <div
+    className="
+      invisible absolute left-1/2 top-full z-[9999]
+      w-[280px] -translate-x-1/2 translate-y-2
+      pt-3
+      opacity-0
+      transition-all duration-200 ease-out
 
-              <Link
-                to="/services/memeandmomentmarketing"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-                Meme & Moment Marketing
-              </Link>
+      group-hover:visible
+      group-hover:translate-y-0
+      group-hover:opacity-100
+    "
+  >
+    <div className="rounded-xl border border-[#e5e5e5] bg-white p-2 shadow-xl">
 
-              <Link
-                to="/services/contentcreation"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-               Content Creation
-              </Link>
+      <Link
+        to="/services/memeandmomentmarketing"
+        className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
+      >
+        Meme & Moment Marketing
+      </Link>
 
-              <Link
-                to="/services/videoproduction"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-                Video Production
-              </Link>
+      <Link
+        to="/services/contentcreation"
+        className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
+      >
+        Content Creation
+      </Link>
 
-              <Link
-                to="/services/orm"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-               Online Reputation Management(ORM)
-              </Link>
+      <Link
+        to="/services/videoproduction"
+        className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
+      >
+        Video Production
+      </Link>
 
-              <Link
-                to="/services/digitalpr"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-                Digital PR & Media Outreach
-              </Link>
+      <Link
+        to="/services/orm"
+        className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
+      >
+        Online Reputation Management (ORM)
+      </Link>
 
-              <Link
-                to="/services/politicalintelligence"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-               Political Intelligence
-              </Link>
+      <Link
+        to="/services/digitalpr"
+        className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
+      >
+        Digital PR & Media Outreach
+      </Link>
 
-               <Link
-                to="/services/governmentprojects"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-               Government Communication Projects
-              </Link>
+      <Link
+        to="/services/politicalintelligence"
+        className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
+      >
+        Political Intelligence
+      </Link>
 
-            </div>
-          </div>
+      <Link
+        to="/services/governmentprojects"
+        className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
+      >
+        Government Communication Projects
+      </Link>
+
+    </div>
+  </div>
+</div>
 
           <Link
             to="/about"
