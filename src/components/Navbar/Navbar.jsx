@@ -49,9 +49,9 @@ const Navbar = () => {
   return (
     <nav className="relative z-[9999] w-full rounded-b-[24px] bg-white shadow-sm">
 
-      {/* =====================================================
+      {/* ================================
           DESKTOP / MAIN NAVBAR
-      ===================================================== */}
+      ================================= */}
 
       <div className="flex h-[71px] w-full items-center justify-between px-5 sm:px-8 md:px-10 lg:px-[58px]">
 
@@ -59,18 +59,27 @@ const Navbar = () => {
         <Link
           to="/"
           onClick={closeMenu}
-          className="flex shrink-0 items-center"
+          className="flex shrink-0 items-center gap-3"
         >
-          <img
-            src="/image.png"
-            alt="Konsole Group"
-            className="logo-animation h-[36px] w-auto object-contain sm:h-[40px] md:h-[42px]"
-          />
+          <div className="flex h-7 items-center gap-1 sm:h-8">
+            <div className="w-2 h-full -skew-x-12 rounded-sm bg-red-500 sm:w-2.5" />
+            <div className="w-2 h-full -skew-x-12 rounded-sm bg-blue-500 sm:w-2.5" />
+            <div className="w-2 h-full -skew-x-12 rounded-sm bg-green-500 sm:w-2.5" />
+          </div>
+
+          <div>
+            <h2 className="text-xl font-black leading-none tracking-wider text-slate-900 sm:text-2xl">
+              Konsole
+            </h2>
+            <p className="mt-0.5 text-[9px] font-semibold tracking-widest text-gray-500 sm:text-[10px]">
+              Group
+            </p>
+          </div>
         </Link>
 
-        {/* =====================================================
+        {/* ================================
             DESKTOP NAVIGATION
-        ===================================================== */}
+        ================================= */}
 
         <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 lg:flex xl:gap-[48px]">
 
@@ -82,17 +91,15 @@ const Navbar = () => {
             Home
           </Link>
 
-          {/* =================================================
-              SERVICES / MENU CARD
-          ================================================= */}
+          {/* ================================
+              MENU CARD
+          ================================= */}
 
           <div
             className="group relative"
             onMouseEnter={() => setIsServicesOpen(true)}
             onMouseLeave={() => setIsServicesOpen(false)}
           >
-
-            {/* CLICKABLE MENU CARD */}
             <button
               type="button"
               onClick={toggleServices}
@@ -100,73 +107,32 @@ const Navbar = () => {
             >
               Menu Card
 
-            {/* Dropdown */}
-            <div className="invisible absolute left-1/2 top-full z-50 mt-4 w-[260px] -translate-x-1/2 translate-y-2 rounded-xl border border-[#e5e5e5] bg-white p-2 opacity-0 shadow-xl transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+              <ChevronDown
+                size={15}
+                className={`transition-transform duration-300 ${
+                  isServicesOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
 
-              <Link
-                to="/services/memeandmomentmarketing"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-                Meme & Moment Marketing
-              </Link>
-
-              <Link
-                to="/services/contentcreation"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-                Content Creation
-              </Link>
-
-              <Link
-                to="/services/videoproduction"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-                Video Production
-              </Link>
-
-              <Link
-                to="/services/orm"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-                Online Reputation Management(ORM)
-              </Link>
-
-              <Link
-                to="/services/digitalpr"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-                Digital PR & Media Outreach
-              </Link>
-
-              <Link
-                to="/services/politicalintelligence"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-                Political Intelligence
-              </Link>
-
-              <Link
-                to="/services/governmentprojects"
-                className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
-              >
-                Government Communication Projects
-              </Link>
-
-              {/* DROPDOWN CONTENT */}
-              <div className="rounded-xl border border-[#e5e5e5] bg-white p-2 shadow-xl">
-
-                {services.map((service) => (
-                  <Link
-                    key={service.path}
-                    to={service.path}
-                    onClick={() => setIsServicesOpen(false)}
-                    className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-all duration-200 hover:bg-[#f3f3f3] hover:translate-x-1"
-                  >
-                    {service.name}
-                  </Link>
-                ))}
-
-              </div>
+            {/* DESKTOP DROPDOWN */}
+            <div
+              className={`absolute left-1/2 top-full z-50 mt-4 w-[280px] -translate-x-1/2 rounded-xl border border-[#e5e5e5] bg-white p-2 shadow-xl transition-all duration-300 ${
+                isServicesOpen
+                  ? "visible translate-y-0 opacity-100"
+                  : "invisible translate-y-2 opacity-0"
+              }`}
+            >
+              {services.map((service) => (
+                <Link
+                  key={service.path}
+                  to={service.path}
+                  onClick={() => setIsServicesOpen(false)}
+                  className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-all duration-200 hover:translate-x-1 hover:bg-[#f3f3f3]"
+                >
+                  {service.name}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -178,14 +144,15 @@ const Navbar = () => {
             Our Adhaar Card
           </Link>
 
-          {/* INSIGHTS */}
+          {/* OUR TEAM */}
           <Link
             to="/ourteam"
-            className="text-[14px] font-semibold text-[#171717] transition-opacity duration-300 hover:opacity-60"
+            className="text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
           >
             Kitne Aadmi hai
           </Link>
 
+          {/* INSIGHTS */}
           <Link
             to="/insights"
             className="text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
@@ -201,18 +168,11 @@ const Navbar = () => {
             Hello Friends
           </Link>
 
-          {/* <Link
-            to="/hiring"
-            className="text-[14px] font-semibold text-[#171717] transition-opacity duration-300 hover:opacity-60"
-          >
-            Looking for sherpa
-          </Link> */}
-
         </div>
 
-        {/* =====================================================
+        {/* ================================
             DESKTOP LET'S TALK
-        ===================================================== */}
+        ================================= */}
 
         <Link
           to="/contact"
@@ -227,9 +187,9 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* =====================================================
+        {/* ================================
             MOBILE MENU BUTTON
-        ===================================================== */}
+        ================================= */}
 
         <button
           type="button"
@@ -244,21 +204,17 @@ const Navbar = () => {
             <Menu size={20} strokeWidth={2} />
           )}
         </button>
-
       </div>
 
-      {/* =====================================================
+      {/* ================================
           MOBILE MENU
-      ===================================================== */}
+      ================================= */}
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out lg:hidden ${
-          isOpen
-            ? "max-h-[800px] opacity-100"
-            : "max-h-0 opacity-0"
+          isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-
         <div className="border-t border-gray-100 px-5 pb-6 pt-4 sm:px-8">
 
           <div className="flex flex-col">
@@ -272,21 +228,25 @@ const Navbar = () => {
               Home
             </Link>
 
-            {/* =================================================
-                MOBILE MENU CARD
-            ================================================= */}
-
+            {/* MOBILE MENU CARD */}
             <button
               type="button"
               onClick={toggleServices}
-              className="flex w-full items-center justify-between border-b border-gray-100 py-4 text-left text-sm font-semibold text-[#171717]"
+              className="group relative flex w-full items-center justify-between overflow-hidden border-b border-gray-100 py-4 text-left text-sm font-semibold text-[#171717] transition-all duration-300 hover:text-[#35a99b]"
             >
-              <span>Menu Card</span>
+              <span className="pointer-events-none absolute left-[-40px] top-1/2 h-8 w-20 -translate-y-1/2 rounded-full bg-[#35a99b]/30 opacity-0 blur-xl transition-all duration-500 group-hover:left-[15%] group-hover:opacity-100" />
+              <span className="pointer-events-none absolute bottom-0 left-0 h-[1px] w-0 bg-[#35a99b] shadow-[0_0_10px_#35a99b] transition-all duration-500 group-hover:w-full" />
+
+              <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-1">
+                Menu Card
+              </span>
 
               <ChevronDown
                 size={17}
-                className={`transition-transform duration-300 ${
-                  isServicesOpen ? "rotate-180" : ""
+                className={`relative z-10 transition-all duration-300 ${
+                  isServicesOpen
+                    ? "rotate-180 text-[#35a99b]"
+                    : "group-hover:rotate-180 group-hover:text-[#35a99b]"
                 }`}
               />
             </button>
@@ -300,18 +260,16 @@ const Navbar = () => {
               }`}
             >
               <div className="border-b border-gray-100 py-2">
-
                 {services.map((service) => (
                   <Link
                     key={service.path}
                     to={service.path}
                     onClick={closeMenu}
-                    className="block rounded-lg px-3 py-3 text-[13px] font-medium text-[#555] transition-colors hover:bg-[#f5f5f5] hover:text-[#35a99b]"
+                    className="block rounded-lg px-3 py-3 text-[14px] font-bold text-[#555] transition-colors hover:bg-[#f5f5f5] hover:text-[#35a99b]"
                   >
                     {service.name}
                   </Link>
                 ))}
-
               </div>
             </div>
 
@@ -322,6 +280,15 @@ const Navbar = () => {
               className="border-b border-gray-100 py-4 text-sm font-semibold text-[#171717] transition-colors hover:text-[#35a99b]"
             >
               Our Adhaar Card
+            </Link>
+
+            {/* OUR TEAM */}
+            <Link
+              to="/ourteam"
+              onClick={closeMenu}
+              className="border-b border-gray-100 py-4 text-sm font-semibold text-[#171717] transition-colors hover:text-[#35a99b]"
+            >
+              Kitne Aadmi hai
             </Link>
 
             {/* INSIGHTS */}

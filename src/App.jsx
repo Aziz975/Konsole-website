@@ -7,7 +7,7 @@ import About from './Pages/About';
 import ScrollToTop from './components/ScrollToTop';
 
 
-import Insights from './Pages/Insights';
+import Insights from './Pages/Insight';
 import Contact from './Pages/Contact';
 import MobileMarketing from './components/Services/MobileMarketing';
 import ContentCreation from './components/Services/ContentCreation';
