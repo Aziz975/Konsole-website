@@ -59,7 +59,7 @@ const Navbar = () => {
                 to="/services/contentcreation"
                 className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
               >
-               Content Creation
+                Content Creation
               </Link>
 
               <Link
@@ -73,7 +73,7 @@ const Navbar = () => {
                 to="/services/orm"
                 className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
               >
-               Online Reputation Management(ORM)
+                Online Reputation Management(ORM)
               </Link>
 
               <Link
@@ -87,14 +87,14 @@ const Navbar = () => {
                 to="/services/politicalintelligence"
                 className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
               >
-               Political Intelligence
+                Political Intelligence
               </Link>
 
-               <Link
+              <Link
                 to="/services/governmentprojects"
                 className="block rounded-lg px-4 py-3 text-[14px] font-medium text-[#171717] transition-colors hover:bg-[#f3f3f3]"
               >
-               Government Communication Projects
+                Government Communication Projects
               </Link>
 
             </div>
@@ -105,6 +105,13 @@ const Navbar = () => {
             className="text-[14px] font-semibold text-[#171717] transition-opacity duration-300 hover:opacity-60"
           >
             Our Adhaar Card
+          </Link>
+
+          <Link
+            to="/ourteam"
+            className="text-[14px] font-semibold text-[#171717] transition-opacity duration-300 hover:opacity-60"
+          >
+            Kitne Aadmi hai
           </Link>
 
           <Link
