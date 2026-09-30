@@ -201,6 +201,13 @@ const Navbar = () => {
             Hello Friends
           </Link>
 
+          {/* <Link
+            to="/hiring"
+            className="text-[14px] font-semibold text-[#171717] transition-opacity duration-300 hover:opacity-60"
+          >
+            Looking for sherpa
+          </Link> */}
+
         </div>
 
         {/* =====================================================

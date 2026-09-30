@@ -100,7 +100,7 @@ const Footer = () => {
               <h2 className="text-2xl font-black tracking-wider text-white leading-none">
                 Konsole
               </h2>
-              <p className="text-[10px] tracking-widest text-gray-300 font-semibold mt-0.5">
+              <p className="text-[10px] px-[70px] tracking-widest text-gray-300 font-semibold mt-0.5">
                 Group
               </p>
             </div>
