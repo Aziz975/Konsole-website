@@ -763,7 +763,7 @@ const PoliticalIntelligence = () => {
             className="relative min-h-[220px] overflow-hidden rounded-xl bg-[#121212] text-white"
           >
             <motion.img
-              src="/images/quote-block-bg.jpeg"
+              src="/images/image5.png"
               alt="Speaker at a podium"
               className="absolute inset-0 h-full w-full object-cover opacity-60"
               whileHover={{
