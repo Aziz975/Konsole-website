@@ -1,11 +1,13 @@
 import React from "react";
+import { motion } from "motion/react";
+import CountUp from "./CountUp";
 
 export default function AboutUs() {
   return (
     <div className="min-h-screen w-full   bg-[#faf8f3] text-[#080b0e]">
       {/* ================= ABOUT HERO ================= */}
       <section className="relative mx-[3px] h-[565px] overflow-hidden rounded-[7px] border border-[#222] bg-[#d9d9d9]">
-        
+
         {/* Background Image */}
         <img
           src="images/aboutimg.jpg"
@@ -20,9 +22,29 @@ export default function AboutUs() {
         <div className="absolute inset-0 flex flex-col items-center justify-center px-5 text-center">
           <p className="mb-5 text-[12px] font-bold tracking-[1px] text-white/80">A YOUNG AGENCY</p>
 
-          <h1 className="text-[42px] font-bold leading-[1] tracking-[-1.5px] text-white sm:text-[48px]">
+          <motion.h1
+            initial={{
+              opacity: 0,
+              y: 50,
+              filter: "blur(8px)",
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              filter: "blur(0px)",
+            }}
+            viewport={{
+              once: false,
+              amount: 0.2,
+            }}
+            transition={{
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="text-[42px] font-bold leading-[1] tracking-[-1.5px] text-white sm:text-[48px]"
+          >
             About Us
-          </h1>
+          </motion.h1>
         </div>
 
         {/* Bottom Dark Gradient */}
@@ -48,7 +70,7 @@ export default function AboutUs() {
 
       {/* ================= INTRODUCTION ================= */}
       <section className="relative px-[18px] pb-[38px] pt-[72px] text-center">
-        
+
 
         <h2 className="mx-auto max-w-[390px] text-[27px] font-extrabold leading-[1.25] tracking-[-0.8px] text-[#080808] sm:text-[32px]">
           We are a full service
@@ -66,11 +88,11 @@ export default function AboutUs() {
       {/* ================= STATS ================= */}
       <section className="mx-[3px] overflow-hidden rounded-[5px] border-[2px] border-black bg-[#ffc900]">
         <div className="grid grid-cols-3 divide-x-[1px] divide-black">
-          
+
           {/* Stat 1 */}
           <div className="flex min-h-[53px] flex-col items-center justify-center px-1 text-center">
             <div className="text-[22px] font-extrabold leading-none tracking-[-0.5px] text-black">
-              100+
+              <CountUp end={100} duration={1200} />+
             </div>
             <div className="mt-[3px] text-[8px] font-extrabold uppercase leading-none text-black">
               Team Members
@@ -80,7 +102,7 @@ export default function AboutUs() {
           {/* Stat 2 */}
           <div className="flex min-h-[53px] flex-col items-center justify-center px-1 text-center">
             <div className="text-[22px] font-extrabold leading-none tracking-[-0.5px] text-black">
-              1450+
+            <CountUp end={1450} duration={1200} />+
             </div>
             <div className="mt-[3px] text-[8px] font-extrabold uppercase leading-none text-black">
               Completed Projects
@@ -90,7 +112,7 @@ export default function AboutUs() {
           {/* Stat 3 */}
           <div className="flex min-h-[53px] flex-col items-center justify-center px-1 text-center">
             <div className="text-[22px] font-extrabold leading-none tracking-[-0.5px] text-black">
-              9+
+              <CountUp end={9} duration={1200} />+
             </div>
             <div className="mt-[3px] text-[8px] font-extrabold uppercase leading-none text-black">
               Years Experience
