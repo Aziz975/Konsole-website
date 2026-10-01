@@ -1267,7 +1267,110 @@ export default function DigitalMedia() {
           </div>
 
         </div>
+
       </section>
+
+
+{/* part 3 */}
+
+<section className="w-full overflow-hidden bg-[#f7f6ee] px-5 py-8 sm:px-8 sm:py-10 md:px-10 lg:px-12 lg:py-11 xl:px-14">
+  <div className="relative mx-auto w-full max-w-[1440px]">
+
+    {/* YELLOW HAND-DRAWN LINE */}
+    <svg
+      viewBox="0 0 80 35"
+      className="absolute right-2 top-0 h-[32px] w-[68px] sm:right-4 sm:h-[38px] sm:w-[80px] md:right-8"
+      fill="none"
+    >
+      <path
+        d="M3 29C10 19 15 9 22 7C29 5 22 25 30 25C39 24 42 6 49 4C57 2 49 25 58 23C65 21 69 10 77 5"
+        stroke="#F5C928"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+    </svg>
+
+    {/* EYEBROW */}
+    <p className="mb-2 text-[8px] font-extrabold uppercase tracking-[0.03em] text-[#343b3e] sm:text-[9px] md:text-[10px]">
+      MEDIA OUTLETS WE WORK WITH
+    </p>
+
+    {/* HEADING */}
+    <h2 className="max-w-[500px] text-[26px] font-bold leading-[0.98] tracking-[-0.04em] text-[#101920] sm:text-[30px] md:text-[34px] lg:text-[36px]">
+      From top publications
+      <br />
+      to trusted platforms.
+    </h2>
+
+    {/* LOGOS */}
+    <div className="mt-6 grid grid-cols-2 sm:grid-cols-3">
+
+      {/* THE HINDU */}
+      <div className="flex h-[48px] items-center justify-start border-b border-[#d8d8d0] px-0 sm:h-[52px] sm:border-r sm:px-4 sm:py-2">
+        <img
+          src="/images/thehindu.png"
+          alt="The Hindu"
+          className="h-auto w-[68px] max-w-full object-contain sm:w-[78px] md:w-[84px]"
+        />
+      </div>
+
+      {/* NDTV */}
+      <div className="flex h-[48px] items-center justify-start border-b border-[#d8d8d0] px-4 sm:h-[52px] sm:border-r sm:py-2">
+        <img
+          src="/images/ndtv.png"
+          alt="NDTV"
+          className="h-auto w-[55px] max-w-full object-contain sm:w-[65px] md:w-[72px]"
+        />
+      </div>
+
+      {/* BUSINESS TODAY */}
+      <div className="flex h-[48px] items-center justify-start border-b border-[#d8d8d0] px-4 sm:h-[52px] sm:px-4 sm:py-2">
+        <img
+          src="/images/businesstoday.png"
+          alt="Business Today"
+          className="h-auto w-[105px] max-w-full object-contain sm:w-[120px] md:w-[135px]"
+        />
+      </div>
+
+      {/* MINT */}
+      <div className="flex h-[48px] items-center justify-start px-0 sm:h-[52px] sm:border-r sm:border-[#d8d8d0] sm:px-4 sm:py-2">
+        <img
+          src="/images/mint.png"
+          alt="Mint"
+          className="h-auto w-[55px] max-w-full object-contain sm:w-[65px] md:w-[72px]"
+        />
+      </div>
+
+      {/* FORBES */}
+      <div className="flex h-[48px] items-center justify-start px-4 sm:h-[52px] sm:border-r sm:border-[#d8d8d0] sm:py-2">
+        <img
+          src="/images/forbes.png"
+          alt="Forbes"
+          className="h-auto w-[62px] max-w-full object-contain sm:w-[72px] md:w-[82px]"
+        />
+      </div>
+
+      {/* TIMES NOW */}
+      <div className="flex h-[48px] items-center justify-start px-4 sm:h-[52px] sm:py-2">
+        <img
+          src="/images/timesnow.png"
+          alt="Times Now"
+          className="h-auto w-[55px] max-w-full object-contain sm:w-[65px] md:w-[72px]"
+        />
+      </div>
+
+    </div>
+
+    {/* MORE
+    <div className="flex justify-end pt-1">
+      <span className="text-[20px] font-bold leading-none tracking-[0.18em] text-[#101010] sm:text-[22px]">
+        ...
+      </span>
+    </div> */}
+
+  </div>
+</section>
+
     </>
   );
 }

@@ -18,6 +18,7 @@ import PoliticalIntelligence from './components/Services/PoliticalIntelligence';
 import DigitalMedia from './components/Services/DigitalMedia';
 import ORM from './components/Services/ORM';
 import OurTeam from './components/Team/OurTeam';
+import Hiring from './components/Hiring/Hiring';
 
 
 
@@ -52,6 +53,7 @@ const App = () => {
           <Route path="/insights" element={<Insights />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/ourteam" element={<OurTeam />} />
+          <Route path="/hiring" element={<Hiring />} />
 
 
         </Routes>
