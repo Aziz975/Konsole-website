@@ -47,7 +47,7 @@ const stats = [
   },
   {
     number: "3X",
-    label: "Average Growth",
+    label: "Average Growthtt",
     numberColor: "#18c9e5",
     icon: "↗",
     index: "04",
