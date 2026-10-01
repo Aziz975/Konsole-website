@@ -65,7 +65,7 @@ export default function Footer() {
   ];
 
   const companyLinks = [
-    { name: "Our Story", path: "/our-story" },
+    { name: "Looking For Sherpa", path: "/hiring" },
     { name: "Kitne Aadmi hai", path: "/ourteam" },
     { name: "Careers", path: "/careers" },
     { name: "Why Choose Us", path: "/why-choose-us" },
