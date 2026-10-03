@@ -61,20 +61,19 @@ const Navbar = () => {
           onClick={closeMenu}
           className="flex shrink-0 items-center gap-3"
         >
-          <div className="flex h-7 items-center gap-1 sm:h-8">
+          {/* <div className="flex h-7 items-center gap-1 sm:h-8">
             <div className="w-2 h-full -skew-x-12 rounded-sm bg-red-500 sm:w-2.5" />
             <div className="w-2 h-full -skew-x-12 rounded-sm bg-blue-500 sm:w-2.5" />
             <div className="w-2 h-full -skew-x-12 rounded-sm bg-green-500 sm:w-2.5" />
-          </div>
+          </div> */}
 
-          <div>
-            <h2 className="text-xl font-black leading-none tracking-wider text-slate-900 sm:text-2xl">
-              Konsole
-            </h2>
-            <p className="mt-0.5 text-[9px] font-semibold tracking-widest text-gray-500 sm:text-[10px]">
-              Group
-            </p>
-          </div>
+      <div>
+  <img 
+    src="/image.png" 
+    alt="Konsole Group Logo" 
+    className="h-8 w-auto object-contain sm:h-10" 
+  />
+</div>
         </Link>
 
         {/* ================================
