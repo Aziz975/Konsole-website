@@ -142,7 +142,7 @@ const deliverables = {
   right: [
     {
       title: "Digital Trust Building",
-      text: "Foster online credibility through transparency and engagement.",
+      text: "Earn credibility among your stakeholders through transparency and engagement.",
     },
   ],
 };
@@ -712,17 +712,16 @@ export default function ORM() {
             {/* LEFT */}
             <div>
 
-              {/* EYEBROW */}
-              <p
-                ref={heroEyebrowRef}
-                className={`${
-                  heroEyebrowVisible
-                    ? "orm-visible"
-                    : ""
-                } orm-eyebrow mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f04444] sm:text-[11px] md:text-[12px]`}
-              >
-                Our Services
-              </p>
+            {/* EYEBROW */}
+<div ref={heroEyebrowRef}>
+  <p
+    className={`${
+      heroEyebrowVisible ? "orm-visible" : ""
+    } orm-eyebrow mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f04444] sm:text-[11px] md:text-[12px]`}
+  >
+    Online Reputation Management (ORM)
+  </p>
+</div>
 
               {/* H1 */}
               <h1
@@ -735,31 +734,26 @@ export default function ORM() {
               >
                 <span className="orm-heading-line">
                   <span className="text-black">
-                    Managing reputation
-                  </span>
-                </span>
-
-                <span className="orm-heading-line">
-                  <span className="text-black">
-                    builds credibility.
-                  </span>
-                </span>
-
-                <span className="orm-heading-line">
-                  <span className="text-[#FBBF24]">
-                    Real perceptions builds
+                    Protecting and
                   </span>
                 </span>
 
                 <span className="orm-heading-line">
                   <span className="text-[#E8553D]">
-                    building trust.
+                    Elevating Your
                   </span>
                 </span>
+
+                <span className="orm-heading-line">
+                  <span className="text-[#FBBF24]">
+                     Digital Footprint.
+                  </span>
+                </span>
+
               </h1>
 
               {/* DESCRIPTION */}
-              <p
+              {/* <p
                 ref={heroTextRef}
                 className={`${bodyStyle} ${
                   heroTextVisible
@@ -768,7 +762,22 @@ export default function ORM() {
                 } orm-hero-text mt-8 max-w-[500px] text-[17px] text-neutral-800 sm:text-[18px] md:text-[19px]`}
               >
                 Strategies to shape and protect your digital perception
-              </p>
+              </p> */}
+
+              {/* DESCRIPTION */}
+<div ref={heroTextRef}>
+  <p
+    className={`${bodyStyle} ${
+      heroTextVisible ? "orm-visible" : ""
+    } orm-hero-text mt-8 max-w-[560px] text-[16px] text-neutral-800 sm:text-[17px] md:text-[18px]`}
+  >
+    Your brand’s reputation is its most valuable asset. We actively monitor
+    digital channels to see what people are saying about you, ensuring
+    positive narratives are highlighted while swiftly mitigating negative
+    feedback or crises. We build resilient brand images that inspire trust
+    and credibility among your stakeholders.
+  </p>
+</div>
 
               {/* CTA */}
               <div
@@ -822,17 +831,16 @@ export default function ORM() {
         <section className="bg-white">
           <div className="mx-auto max-w-6xl px-6 py-10 lg:px-10">
 
-            {/* HEADING */}
-            <h2
-              ref={deliverablesHeadingRef}
-              className={`${h2Style} ${
-                deliverablesHeadingVisible
-                  ? "orm-visible"
-                  : ""
-              } orm-section-heading text-center text-[30px] sm:text-[38px] md:text-[42px]`}
-            >
-              Core ORM Deliverables
-            </h2>
+           {/* HEADING */}
+<div ref={deliverablesHeadingRef}>
+  <h2
+    className={`${h2Style} ${
+      deliverablesHeadingVisible ? "orm-visible" : ""
+    } orm-section-heading text-center text-[30px] sm:text-[38px] md:text-[42px]`}
+  >
+    Core ORM Deliverables
+  </h2>
+</div>
 
             {/* DELIVERABLES */}
             <div
@@ -882,9 +890,9 @@ export default function ORM() {
 
         <section className="relative bg-white pb-16">
           <div className="mx-auto max-w-6xl px-6 lg:px-10">
-
+<div ref={ctaRef}>
             <div
-              ref={ctaRef}
+              
               className={`${
                 ctaVisible
                   ? "orm-visible"
@@ -903,14 +911,13 @@ export default function ORM() {
                 {/* TEXT */}
                 <div className="orm-cta-content">
                   <h3 className="text-[24px] font-bold leading-[1.05] tracking-[-0.04em] text-neutral-900 sm:text-[28px]">
-                    Let&apos;s Protect Your Institutional Legacy.
+                    Let's Protect Your Brand's Reputation.
                   </h3>
 
                   <p
                     className={`${bodyStyle} mt-1 text-[15px] text-neutral-900 sm:text-[16px]`}
                   >
-                    Partner with us to build digital trust and enhance your
-                    public perception.
+                    Partner with us to build a resilient brand image and earn lasting trust with your stakeholders.
                   </p>
                 </div>
               </div>
@@ -926,6 +933,7 @@ export default function ORM() {
                   <ArrowIcon />
                 </span>
               </button>
+            </div>
             </div>
           </div>
 

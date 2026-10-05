@@ -174,20 +174,20 @@ export default function ContentCreation() {
             <h1 className="max-w-[560px] text-[48px] font-bold leading-[0.96] tracking-[-0.045em] text-[#101920] sm:text-[58px] md:text-[50px] lg:text-[70px] xl:text-[60px]">
 
               <span className="block overflow-hidden">
-                {revealText("Great content", 0)}
+                {revealText("Crafting", 0)}
               </span>
 
               <span className="block overflow-hidden">
-                {revealText("builds brands.", 0.45, "text-[#101920]")}
+                {revealText("Compelling", 0.45, "text-[#ff6969]")}
               </span>
 
               <span className="block overflow-hidden">
-                {revealText("Real content", 0.9, "text-[#ffd21c]")}
+                {revealText("Narratives.", 0.9, "text-[#ffd21c]")}
               </span>
 
-              <span className="block overflow-hidden">
+              {/* <span className="block overflow-hidden">
                 {revealText("builds trust.", 1.35, "text-[#ff6969]")}
-              </span>
+              </span> */}
 
             </h1>
 
@@ -200,8 +200,7 @@ export default function ContentCreation() {
                   : "translate-y-10 opacity-0"
               }`}
             >
-              We create scroll-stopping content that informs, entertains and
-              inspires — turning your brand into a story people want to follow.
+             Content is the foundation of your digital identity. Our creative team develops high-quality, tailored content that resonates with your target audience and aligns perfectly with your brand voice. From insightful blog posts and persuasive copy to striking graphics and interactive media, we create assets that educate, entertain, and convert.
             </p>
 
             {/* HERO BUTTON */}
@@ -299,14 +298,13 @@ export default function ContentCreation() {
             </p>
 
             <h2 className="max-w-[560px] text-[48px] font-bold leading-[0.96] tracking-[-0.045em] text-[#f5f7f7] sm:text-[58px] md:text-[50px] lg:text-[70px] xl:text-[60px]">
-              Content that
+              Content that    
               <br />
-              sparks conversation.
+              Educates and Entertains.
             </h2>
 
             <p className="mt-7 max-w-[500px] text-[15px] font-normal leading-[1.5] tracking-[-0.01em] text-[#8b9699] sm:text-[16px] md:text-[17px] lg:mt-8 lg:text-[18px]">
-              From brand stories to viral moments, we create content that
-              people don&apos;t just see — they share, like and remember.
+              From blog posts and persuasive copy to striking graphics and interactive media, we create assets that resonate with your audience and drive action.
             </p>
 
             <motion.button
@@ -585,18 +583,17 @@ export default function ContentCreation() {
             <p className="mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f05b5e] sm:text-[11px] md:text-[12px]">
               LET&apos;S CREATE
             </p>
-
+ 
             <h2 className="max-w-[560px] text-[48px] font-bold leading-[0.96] tracking-[-0.045em] text-[#111a21] sm:text-[58px] md:text-[50px] lg:text-[70px] xl:text-[60px]">
-              Your story deserves
+              Your brand voice
               <br />
-              the right content.
+              deserves the right story.
             </h2>
 
             <p className="mt-7 max-w-[500px] text-[15px] font-normal leading-[1.5] tracking-[-0.01em] text-[#687075] sm:text-[16px] md:text-[17px] lg:mt-8 lg:text-[18px]">
-              Whether you&apos;re launching a new product, rebranding or just
-              want to stay relevant — we&apos;re here to help you tell it
-              better.
+              Whether you're launching a product, rebranding or building a steady content calendar, we create content that fits your brand voice and connects with your audience.
             </p>
+            
 
             <motion.button
               whileHover={{

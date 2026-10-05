@@ -279,10 +279,10 @@ const PoliticalIntelligence = () => {
               transition={{ delay: 0.12 }}
               className="mt-2 text-[50px] font-bold leading-[0.96] tracking-[-0.035em] sm:text-[58px] md:text-[50px] lg:text-[70px] xl:text-[60px]"
             >
-              Deeper insights.
+              Data-Driven Strategies
               <br />
-              Smarter decisions.
-            </motion.h1>
+              for the Political Landscape.
+                          </motion.h1>
 
             <motion.span
               initial={{ opacity: 0, scaleX: 0 }}
@@ -303,9 +303,7 @@ const PoliticalIntelligence = () => {
               transition={{ delay: 0.42 }}
               className="mt-5 max-w-sm text-sm leading-relaxed text-gray-600 sm:text-base"
             >
-              We decode the political landscape, track public sentiment, and
-              turn complex information into clear, actionable insights for
-              better strategy and stronger outcomes.
+              Navigating the complex world of politics requires sharp insights and real-time data. We provide political leaders and organizations with in-depth public sentiment analysis, demographic tracking, and strategic intelligence. Our reports empower you to make informed decisions, tailor your messaging, and stay steps ahead in the political arena.
             </motion.p>
 
             <motion.a
