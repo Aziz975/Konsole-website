@@ -155,6 +155,36 @@ export default function Footer() {
                 </svg>
               </motion.a>
 
+                    {/* Twitter */}
+
+                            <motion.a
+                href="https://x.com/konsolegroup"
+                target="_blank"
+                rel="noreferrer"
+                whileHover={socialHover}
+                whileTap={{ scale: 0.95 }}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/70 transition-colors duration-300 hover:border-[#249d8d]/40 hover:bg-[#249d8d] hover:text-white"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </motion.a>
+
+                                  {/* Youtube */}
+
+                            <motion.a
+                href="https://youtube.com/@konsolegroup?si=wRHzYLf9kBXb72MV"
+                target="_blank"
+                rel="noreferrer"
+                whileHover={socialHover}
+                whileTap={{ scale: 0.95 }}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/70 transition-colors duration-300 hover:border-[#249d8d]/40 hover:bg-[#249d8d] hover:text-white"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+              </motion.a>
+
               {/* Instagram */}
               <motion.a
                 href="https://www.instagram.com/konsolegroup?stkn=MWxmYmsyM25wbDBp"
@@ -170,6 +200,7 @@ export default function Footer() {
               </motion.a>
             </div>
           </motion.div>
+
 
           {/* MENU CARD / SERVICES COLUMN */}
           <motion.div variants={itemVariants}>
