@@ -102,22 +102,22 @@ const steps = [
   {
     no: "01",
     title: "Discovery and briefing",
-    text: "We learn your goals, audience, and challenges.",
+    text: "We learn your goals, audience, and the story you want to tell.",
   },
   {
     no: "02",
-    title: "Strategy and concept",
-    text: "We shape a tailored plan and creative direction.",
+    title: "Scripting and concept",
+    text: "We shape the script, storyboard and creative direction.",
   },
   {
     no: "03",
-    title: "Execution",
-    text: "We put the plan into action with regular updates.",
+    title: "Shooting and editing",
+    text: "Our in-house team shoots and edits with regular updates.",
   },
   {
     no: "04",
-    title: "Review and optimize",
-    text: "We measure results and keep improving.",
+    title: "Post-production and delivery",
+    text: "We polish every frame and deliver stories that stop the scroll.",
     highlight: true,
   },
 ];
@@ -136,7 +136,7 @@ const metrics = [
   {
     title: "Lead Conversion",
     value: "4.5 / 5.0",
-    text: "Distribution, Analytics, Performance Tracking",
+    text: "Visitors turned into qualified leads.",
   },
 ];
 
@@ -148,6 +148,10 @@ export default function VideoProduction() {
   /* =======================================================
      HERO
   ======================================================= */
+
+  const [heroEyebrowRef, heroEyebrowVisible] = useReveal({
+  threshold: 0.2,
+});
 
   const [heroHeadingRef, heroHeadingVisible] = useReveal({
     threshold: 0.2,
@@ -378,15 +382,15 @@ export default function VideoProduction() {
             {/* LEFT CONTENT */}
             <div>
 
-              {/* Eyebrow */}
-              <p
-                className="mb-5 vp-reveal-up text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f04444] sm:text-[11px] md:text-[12px]"
-                style={{
-                  transitionDelay: heroHeadingVisible ? "0s" : "0s",
-                }}
-              >
-                Our Services
-              </p>
+         {/* Eyebrow */}
+<p
+  ref={heroEyebrowRef}
+  className={`${
+    heroEyebrowVisible ? "vp-visible" : ""
+  } vp-reveal-up mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f04444] sm:text-[11px] md:text-[12px]`}
+>
+  Video Production
+</p>
 
               {/* H1 */}
               <h1
@@ -396,24 +400,15 @@ export default function VideoProduction() {
                 } text-[50px] sm:text-[55px] md:text-[62px] lg:text-[60px] xl:text-[65px]`}
               >
                 <span className="vp-heading-line">
-                  <span className="text-black">Creating impact</span>
-                </span>
-
-                <span className="vp-heading-line">
-                  <span className="text-black">builds presence.</span>
+                  <span className="text-black">Visual Storytelling</span>
                 </span>
 
                 <span className="vp-heading-line">
                   <span className="text-[#F2A900]">
-                    Visual storytelling builds
+                    that Captivates.
                   </span>
                 </span>
 
-                <span className="vp-heading-line">
-                  <span className="text-[#B3361F]">
-                    building audiences.
-                  </span>
-                </span>
               </h1>
 
               {/* Description */}
@@ -423,8 +418,7 @@ export default function VideoProduction() {
                   heroTextVisible ? "vp-visible" : ""
                 } vp-reveal-up mt-8 max-w-[500px] text-[17px] text-neutral-900 sm:text-[18px] md:text-[19px]`}
               >
-                Tailored video content to captivate and engage your target
-                market.
+                Video is the most powerful tool for digital engagement. Whether you need short-form reels for Instagram, comprehensive corporate documentaries, or high-impact commercial ads, our in-house production team handles it all. We manage scripting, shooting, editing, and post-production to deliver visually stunning stories that stop the scroll.
               </p>
 
               {/* CTA */}
@@ -497,8 +491,7 @@ export default function VideoProduction() {
                   howTextVisible ? "vp-visible" : ""
                 } vp-reveal-up mx-auto mt-6 max-w-2xl text-[17px] text-neutral-900 sm:text-[18px] md:text-[19px]`}
               >
-                From first conversation to measurable impact, here is how we
-                work with you.
+                From first conversation to the final cut, here is how we bring your story to life.
               </p>
             </div>
 
