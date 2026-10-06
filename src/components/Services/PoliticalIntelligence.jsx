@@ -312,7 +312,7 @@ const approachSteps = [
   ];
 
   return (
-    <div className="overflow-x-hidden bg-[#F7F5EF] font-sans text-[#121212]">
+    <div className="bg-[#F7F5EF] font-sans text-[#121212]">
 
       {/* =====================================================
           1. HERO
