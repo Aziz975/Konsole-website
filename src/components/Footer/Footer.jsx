@@ -102,23 +102,12 @@ export default function Footer() {
         className="relative mx-auto max-w-[1500px] px-5 py-16 sm:px-8 lg:px-10 xl:px-12"
       >
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_0.8fr_1.2fr] lg:gap-8 xl:gap-12">
-          
+
           {/* BRAND COLUMN */}
           <motion.div variants={itemVariants}>
-            <div className="mb-5 flex items-center gap-3">
-              <div className="flex items-center gap-1 h-8">
-                <div className="w-2.5 h-full bg-red-500 -skew-x-12 rounded-sm" />
-                <div className="w-2.5 h-full bg-blue-500 -skew-x-12 rounded-sm" />
-                <div className="w-2.5 h-full bg-green-500 -skew-x-12 rounded-sm" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-black tracking-wider text-white leading-none">
-                  Konsole
-                </h2>
-                <p className="text-[10px] tracking-widest text-gray-300 font-semibold mt-0.5 ml-14">
-                  Group
-                </p>
-              </div>
+
+            <div className="mb-5 flex  items-center">
+              <img src="/images/konsole_group_white.png" alt="Konsole Group" className="h-[50px] w-auto object-contain" />
             </div>
 
             <p className="max-w-[280px] text-[14px] leading-6 text-white/55">
@@ -155,9 +144,9 @@ export default function Footer() {
                 </svg>
               </motion.a>
 
-                    {/* Twitter */}
+              {/* Twitter */}
 
-                            <motion.a
+              <motion.a
                 href="https://x.com/konsolegroup"
                 target="_blank"
                 rel="noreferrer"
@@ -170,9 +159,9 @@ export default function Footer() {
                 </svg>
               </motion.a>
 
-                                  {/* Youtube */}
+              {/* Youtube */}
 
-                            <motion.a
+              <motion.a
                 href="https://youtube.com/@konsolegroup?si=wRHzYLf9kBXb72MV"
                 target="_blank"
                 rel="noreferrer"
@@ -297,7 +286,7 @@ export default function Footer() {
 
         {/* BOTTOM BAR */}
         <div className="mt-16 border-t border-white/10 pt-6 text-center md:text-left text-xs text-white/40">
-          <p>© 2025 Konsole Group. All rights reserved.</p>
+          <p>© 2026 Konsole Group. All rights reserved.</p>
         </div>
       </motion.div>
     </footer>
