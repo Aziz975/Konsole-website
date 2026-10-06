@@ -139,7 +139,6 @@ export default function GovernmentProjects() {
 
   return (
     <div className="overflow-x-hidden bg-white font-sans text-neutral-900 antialiased">
-
       {/* =========================================================
           SECTION 1: GOVERNMENT COMMUNICATION PROJECTS
       ========================================================= */}
@@ -147,7 +146,6 @@ export default function GovernmentProjects() {
       <section className="border-b border-neutral-200 bg-[#FAFAF5]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-
             {/* LEFT CONTENT */}
             <motion.div
               variants={staggerContainer}
@@ -161,18 +159,18 @@ export default function GovernmentProjects() {
                 variants={fadeUpFast}
                 className="block font-serif text-lg italic text-neutral-600"
               >
-                Our Services
+                Government Communication Projects
               </motion.span>
 
               {/* Heading */}
               <motion.h2
                 variants={fadeUp}
-                className="text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl"
+                className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
               >
-                Government Communication{" "}
-                <br />
+                Bridging the Gap Between <br />
+                Policy and{" "}
                 <span className="text-amber-500 underline decoration-red-500 decoration-wavy">
-                  Projects
+                  Public
                 </span>
               </motion.h2>
 
@@ -181,9 +179,12 @@ export default function GovernmentProjects() {
                 variants={fadeUpFast}
                 className="max-w-xl text-sm leading-relaxed text-neutral-600 sm:text-base"
               >
-                We support communication initiatives that help institutions
-                present information clearly, engage stakeholders and strengthen
-                communication between institutions and the public.
+                Effective governance relies on transparent and impactful
+                communication. We partner with government bodies to design and
+                execute large-scale awareness campaigns, policy rollouts, and
+                citizen engagement initiatives. Our strategies ensure that vital
+                information reaches the right demographics in a clear,
+                accessible, and engaging manner.
               </motion.p>
 
               {/* Button */}
@@ -250,7 +251,6 @@ export default function GovernmentProjects() {
                 />
               </motion.div>
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -262,7 +262,6 @@ export default function GovernmentProjects() {
       <section className="border-b border-neutral-200 bg-neutral-50 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-
             {/* LEFT IMAGE */}
             <motion.div
               initial="hidden"
@@ -321,9 +320,7 @@ export default function GovernmentProjects() {
                 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl"
               >
                 Communication for a{" "}
-                <span className="text-amber-500">
-                  Stronger Society
-                </span>
+                <span className="text-amber-500">Stronger Society</span>
               </motion.h2>
 
               {/* Paragraph */}
@@ -331,23 +328,20 @@ export default function GovernmentProjects() {
                 variants={fadeUpFast}
                 className="text-sm leading-relaxed text-neutral-600 sm:text-base"
               >
-                We design and execute strategic communication projects for
-                government institutions, public sector organizations and civic
-                initiatives to create awareness, inform citizens and drive
-                meaningful engagement.
+                We partner with government bodies, public sector organizations
+                and civic initiatives to design and execute campaigns that
+                inform citizens, support policy rollouts and drive meaningful
+                engagement.
               </motion.p>
 
               {/* CHECKLIST */}
-              <motion.ul
-                variants={staggerContainer}
-                className="space-y-3 pt-2"
-              >
+              <motion.ul variants={staggerContainer} className="space-y-3 pt-2">
                 {[
-                  "Communication strategy & campaign planning",
-                  "Public awareness initiatives",
-                  "Stakeholder engagement programs",
+                  "Large-scale awareness campaigns",
+                  "Policy rollout communication",
+                  "Citizen engagement initiatives",
+                  "Audience and demographic targeting",
                   "Multimedia content creation (digital, print, video)",
-                  "Event communication support",
                   "Monitoring, reporting and impact assessment",
                 ].map((item, index) => (
                   <motion.li
@@ -380,10 +374,7 @@ export default function GovernmentProjects() {
               </motion.ul>
 
               {/* BUTTON */}
-              <motion.div
-                variants={fadeUpFast}
-                className="pt-4"
-              >
+              <motion.div variants={fadeUpFast} className="pt-4">
                 <motion.button
                   whileHover={{
                     y: -4,
@@ -410,7 +401,6 @@ export default function GovernmentProjects() {
                 </motion.button>
               </motion.div>
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -421,7 +411,6 @@ export default function GovernmentProjects() {
 
       <section className="bg-[#FAFAF5] py-16 md:py-24">
         <div className="mx-auto max-w-7xl space-y-16 px-4 sm:px-6 lg:px-8">
-
           {/* TOP HEADING */}
           <motion.div
             variants={staggerContainer}
@@ -459,7 +448,6 @@ export default function GovernmentProjects() {
             }}
             className="grid grid-cols-1 gap-8 md:grid-cols-3"
           >
-
             {/* CARD 1 */}
             <motion.div
               variants={cardVariants}
@@ -473,12 +461,10 @@ export default function GovernmentProjects() {
               }}
               className="group flex flex-col justify-between space-y-4 rounded-2xl border-2 border-neutral-900 bg-white p-4 shadow-[6px_6px_0px_#FFB900]"
             >
-              <motion.div
-                className="w-full overflow-hidden rounded-lg border border-neutral-300 bg-neutral-100 aspect-video"
-              >
+              <motion.div className="w-full overflow-hidden rounded-lg border border-neutral-300 bg-neutral-100 aspect-video">
                 <motion.img
                   src="/images/image8.jpeg"
-                  alt="Citizen Engagement Program"
+                  alt="Public Awareness Campaign"
                   className="h-full w-full object-cover"
                   whileHover={{
                     scale: 1.08,
@@ -490,17 +476,14 @@ export default function GovernmentProjects() {
                 />
               </motion.div>
 
-              <motion.div
-                whileHover={{ x: 3 }}
-                transition={{ duration: 0.2 }}
-              >
+              <motion.div whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
                 <h3 className="mb-1 text-lg font-bold">
                   Public Awareness Campaign
                 </h3>
 
                 <p className="text-xs leading-relaxed text-neutral-600 sm:text-sm">
-                  Multi-platform campaign to educate citizens on key
-                  government initiatives.
+                  Large-scale, multi-platform campaigns that educate citizens on
+                  key government initiatives.
                 </p>
               </motion.div>
             </motion.div>
@@ -533,16 +516,13 @@ export default function GovernmentProjects() {
                 />
               </motion.div>
 
-              <motion.div
-                whileHover={{ x: 3 }}
-                transition={{ duration: 0.2 }}
-              >
+              <motion.div whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
                 <h3 className="mb-1 text-lg font-bold">
                   Citizen Engagement Program
                 </h3>
 
                 <p className="text-xs leading-relaxed text-neutral-600 sm:text-sm">
-                  On-ground and digital engagement to increase participation
+                  On-ground and digital engagement that increases participation
                   and awareness.
                 </p>
               </motion.div>
@@ -576,21 +556,17 @@ export default function GovernmentProjects() {
                 />
               </motion.div>
 
-              <motion.div
-                whileHover={{ x: 3 }}
-                transition={{ duration: 0.2 }}
-              >
+              <motion.div whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
                 <h3 className="mb-1 text-lg font-bold">
                   Information Campaign Videos
                 </h3>
 
                 <p className="text-xs leading-relaxed text-neutral-600 sm:text-sm">
-                  Engaging video content to explain policies and services in a
+                  Clear, engaging videos that explain policies and services in a
                   simple way.
                 </p>
               </motion.div>
             </motion.div>
-
           </motion.div>
 
           {/* =====================================================
@@ -618,7 +594,6 @@ export default function GovernmentProjects() {
             }}
             className="relative flex flex-col items-center justify-between gap-8 overflow-hidden rounded-3xl border-2 border-neutral-900 bg-amber-400 p-8 shadow-[8px_8px_0px_#000] sm:p-12 md:flex-row"
           >
-
             {/* Decorative Background */}
             <motion.div
               initial={{
@@ -660,8 +635,8 @@ export default function GovernmentProjects() {
               </h2>
 
               <p className="text-sm leading-relaxed text-neutral-800 sm:text-base">
-                Partner with us to build communication that informs, engages
-                and strengthens our communities.
+                Partner with us to build communication that reaches the right
+                audience and turns policy into public understanding.
               </p>
             </motion.div>
 
@@ -711,12 +686,9 @@ export default function GovernmentProjects() {
                 </motion.span>
               </motion.button>
             </motion.div>
-
           </motion.div>
-
         </div>
       </section>
-
     </div>
   );
 }
