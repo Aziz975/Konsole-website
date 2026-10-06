@@ -129,100 +129,164 @@ const PoliticalIntelligence = () => {
      DATA
   ========================================================= */
 
-  const badges = [
-    {
-      icon: Scale,
-      label: "Policy Changes",
-      bg: "bg-[#E4483A]",
-    },
-    {
-      icon: Users,
-      label: "Public Sentiment",
-      bg: "bg-[#F5C518]",
-    },
-    {
-      icon: Share2,
-      label: "Electoral Trends",
-      bg: "bg-[#3BA7DB]",
-    },
-    {
-      icon: Target,
-      label: "Stakeholder Mapping",
-      bg: "bg-[#121212]",
-    },
-  ];
+  // const badges = [
+  //   {
+  //     icon: Scale,
+  //     label: "Policy Changes",
+  //     bg: "bg-[#E4483A]",
+  //   },
+  //   {
+  //     icon: Users,
+  //     label: "Public Sentiment",
+  //     bg: "bg-[#F5C518]",
+  //   },
+  //   {
+  //     icon: Share2,
+  //     label: "Electoral Trends",
+  //     bg: "bg-[#3BA7DB]",
+  //   },
+  //   {
+  //     icon: Target,
+  //     label: "Stakeholder Mapping",
+  //     bg: "bg-[#121212]",
+  //   },
+  // ];
 
-  const intelligenceCards = [
-    {
-      icon: Search,
-      title: "Real-Time Monitoring",
-      text: "Track political developments, policy updates and key statements as they happen.",
-      accent: "bg-[#F5C518]",
-      underline: "bg-[#F5C518]",
-    },
-    {
-      icon: Users,
-      title: "Public Sentiment Analysis",
-      text: "Understand what people think, feel and expect — across regions, demographics and platforms.",
-      accent: "bg-[#3BA7DB]",
-      underline: "bg-[#3BA7DB]",
-    },
-    {
-      icon: TrendingUp,
-      title: "Election Insights",
-      text: "Analyze voter behavior, campaign trends and electoral dynamics with data-driven intelligence.",
-      accent: "bg-[#E4483A]",
-      underline: "bg-[#E4483A]",
-    },
-    {
-      icon: Share2,
-      title: "Stakeholder Intelligence",
-      text: "Map key players, alliances and influencers to identify opportunities and risks early.",
-      accent: "bg-[#121212]",
-      underline: "bg-[#121212]",
-    },
-  ];
+const badges = [
+  {
+    icon: Scale,
+    label: "Policy Changes",
+    bg: "bg-[#E4483A]",
+  },
+  {
+    icon: MessageCircle,   // pehle Users tha
+    label: "Public Sentiment",
+    bg: "bg-[#F5C518]",
+  },
+  {
+    icon: TrendingUp,     
+    label: "Electoral Trends",
+    bg: "bg-[#3BA7DB]",
+  },
+  {
+    icon: Share2,          
+    label: "Stakeholder Mapping",
+    bg: "bg-[#121212]",
+  },
+];
 
-  const approachSteps = [
-    {
-      icon: Search,
-      step: "01",
-      title: "Monitor",
-      text: "Track developments in real time.",
-      bg: "bg-[#F5C518]",
-      dark: true,
-    },
-    {
-      icon: FileText,
-      step: "02",
-      title: "Analyze",
-      text: "Decode trends, sentiment and signals.",
-      bg: "bg-[#3BA7DB]",
-    },
-    {
-      icon: Lightbulb,
-      step: "03",
-      title: "Interpret",
-      text: "Turn data into meaningful insights.",
-      bg: "bg-[#E4483A]",
-    },
-    {
-      icon: PenTool,
-      step: "04",
-      title: "Advise",
-      text: "Provide strategic recommendations.",
-      bg: "bg-white",
-      dark: true,
-    },
-    {
-      icon: Target,
-      step: "05",
-      title: "Enable",
-      text: "Help you take the right action.",
-      bg: "bg-[#F5C518]",
-      dark: true,
-    },
-  ];
+ const intelligenceCards = [
+  {
+    icon: Search,
+    title: "Real-Time Monitoring",
+    text: "Track political developments, policy updates and key statements as they happen.",
+    accent: "bg-[#F5C518]",
+    underline: "bg-[#F5C518]",
+  },
+  {
+    icon: MessageCircle, // pehle Users tha
+    title: "Public Sentiment Analysis",
+    text: "In-depth analysis of what people think, feel and expect across regions and platforms.",
+    accent: "bg-[#3BA7DB]",
+    underline: "bg-[#3BA7DB]",
+  },
+  {
+    icon: Users, // pehle TrendingUp tha
+    title: "Demographic Tracking",
+    text: "Understand voter groups, shifts and priorities with data you can act on.",
+    accent: "bg-[#E4483A]",
+    underline: "bg-[#E4483A]",
+  },
+  {
+    icon: Target, // pehle Share2 tha
+    title: "Strategic Intelligence",
+    text: "Turn complex information into clear insights that sharpen your strategy.",
+    accent: "bg-[#121212]",
+    underline: "bg-[#121212]",
+  },
+];
+
+  // const approachSteps = [
+  //   {
+  //     icon: Search,
+  //     step: "01",
+  //     title: "Monitor",
+  //     text: "Track developments in real time.",
+  //     bg: "bg-[#F5C518]",
+  //     dark: true,
+  //   },
+  //   {
+  //     icon: FileText,
+  //     step: "02",
+  //     title: "Analyze",
+  //     text: "Decode trends, sentiment and signals.",
+  //     bg: "bg-[#3BA7DB]",
+  //   },
+  //   {
+  //     icon: Lightbulb,
+  //     step: "03",
+  //     title: "Interpret",
+  //     text: "Turn data into meaningful insights.",
+  //     bg: "bg-[#E4483A]",
+  //   },
+  //   {
+  //     icon: PenTool,
+  //     step: "04",
+  //     title: "Advise",
+  //     text: "Provide strategic recommendations.",
+  //     bg: "bg-white",
+  //     dark: true,
+  //   },
+  //   {
+  //     icon: Target,
+  //     step: "05",
+  //     title: "Enable",
+  //     text: "Help you take the right action.",
+  //     bg: "bg-[#F5C518]",
+  //     dark: true,
+  //   },
+  // ];
+
+const approachSteps = [
+  {
+    icon: Search,
+    step: "01",
+    title: "Monitor",
+    text: "Track developments in real time.",
+    bg: "bg-[#F5C518]",
+    dark: true,
+  },
+  {
+    icon: FileText,
+    step: "02",
+    title: "Analyze",
+    text: "Decode trends, sentiment and signals.",
+    bg: "bg-[#3BA7DB]",
+  },
+  {
+    icon: Lightbulb,
+    step: "03",
+    title: "Interpret",
+    text: "Turn data into meaningful insights.",
+    bg: "bg-[#E4483A]",
+  },
+  {
+    icon: MessageCircle, // pehle PenTool tha
+    step: "04",
+    title: "Advise",
+    text: "Deliver reports that guide informed decisions.",
+    bg: "bg-white",
+    dark: true,
+  },
+  {
+    icon: Target,
+    step: "05",
+    title: "Enable",
+    text: "Tailor your messaging and stay steps ahead.",
+    bg: "bg-[#F5C518]",
+    dark: true,
+  },
+];
 
   const featuredInsights = [
     {
@@ -241,10 +305,10 @@ const PoliticalIntelligence = () => {
       text: "Mood tracking, social listening, issue mapping.",
     },
     {
-      icon: UserCheck,
-      title: "Political Stakeholders",
-      text: "Key players, alliances, influence networks.",
-    },
+    icon: Users, 
+    title: "Demographic Trends", 
+    text: "Voter groups, regional shifts, key priorities.",
+  },
   ];
 
   return (
@@ -255,7 +319,7 @@ const PoliticalIntelligence = () => {
       ===================================================== */}
 
       <section className="px-[4%] py-14">
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[380px_1fr_190px]">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[480px_1fr_190px]">
 
           {/* LEFT CONTENT */}
           <motion.div
@@ -277,7 +341,7 @@ const PoliticalIntelligence = () => {
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.12 }}
-              className="mt-2 text-[50px] font-bold leading-[0.96] tracking-[-0.035em] sm:text-[58px] md:text-[50px] lg:text-[70px] xl:text-[60px]"
+              className="mt-2 text-[50px] font-bold leading-[0.96] tracking-[-0.035em] sm:text-[58px] md:text-[50px] lg:text-[42px] xl:text-[46px]"
             >
               Data-Driven Strategies
               <br />
@@ -301,7 +365,7 @@ const PoliticalIntelligence = () => {
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.42 }}
-              className="mt-5 max-w-sm text-sm leading-relaxed text-gray-600 sm:text-base"
+              className="mt-5 max-w-md text-sm leading-relaxed text-gray-600"
             >
               Navigating the complex world of politics requires sharp insights and real-time data. We provide political leaders and organizations with in-depth public sentiment analysis, demographic tracking, and strategic intelligence. Our reports empower you to make informed decisions, tailor your messaging, and stay steps ahead in the political arena.
             </motion.p>
@@ -421,9 +485,7 @@ const PoliticalIntelligence = () => {
             </h2>
 
             <p className="mt-4 text-sm leading-relaxed text-gray-600">
-              From elections to policy shifts, every move in the political
-              sphere creates ripple effects. We help you stay informed, stay
-              ahead, and make decisions with confidence.
+             Every move in politics creates ripple effects. We give you the data, sentiment and strategic intelligence to stay informed and stay ahead.
             </p>
 
             <motion.svg
@@ -525,9 +587,7 @@ const PoliticalIntelligence = () => {
             </h2>
 
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
-              We combine research, technology and human expertise to deliver
-              sharp, reliable political intelligence that helps you plan,
-              respond and lead.
+              We combine real-time data, research and human expertise into reports that help you decide with confidence.
             </p>
 
             <motion.svg
@@ -676,9 +736,7 @@ const PoliticalIntelligence = () => {
             </h2>
 
             <p className="mt-4 text-sm leading-relaxed text-gray-600">
-              From election campaigns to policy debates, our political
-              intelligence helps brands, institutions and organizations make
-              sense of the noise — and focus on what truly matters.
+              Our reports help political leaders and organizations read the public mood, sharpen their messaging and act before the conversation moves on.
             </p>
 
             <motion.a
@@ -846,8 +904,7 @@ const PoliticalIntelligence = () => {
         </motion.div>
 
         <p className="max-w-xs text-center text-sm text-gray-400 sm:border-l sm:border-white/10 sm:pl-6 sm:text-left">
-          Partner with us for political intelligence that gives you the
-          clarity, context and confidence to move forward.
+          Partner with us for the data, clarity and confidence to lead in the political arena.
         </p>
 
         <motion.a
