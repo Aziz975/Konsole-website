@@ -58,6 +58,10 @@ export default function Footer() {
       name: "Political Intelligence",
       path: "/services/politicalintelligence",
     },
+     {
+      name: "Influencer Partnership",
+      path: "/services/InfluencerPartnership",
+    },
     {
       name: "Government Communication Projects",
       path: "/services/governmentprojects",

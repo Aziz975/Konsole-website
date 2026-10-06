@@ -184,21 +184,21 @@ const badges = [
     underline: "bg-[#F5C518]",
   },
   {
-    icon: MessageCircle, // pehle Users tha
+    icon: MessageCircle, 
     title: "Public Sentiment Analysis",
     text: "In-depth analysis of what people think, feel and expect across regions and platforms.",
     accent: "bg-[#3BA7DB]",
     underline: "bg-[#3BA7DB]",
   },
   {
-    icon: Users, // pehle TrendingUp tha
+    icon: Users, 
     title: "Demographic Tracking",
     text: "Understand voter groups, shifts and priorities with data you can act on.",
     accent: "bg-[#E4483A]",
     underline: "bg-[#E4483A]",
   },
   {
-    icon: Target, // pehle Share2 tha
+    icon: Target, 
     title: "Strategic Intelligence",
     text: "Turn complex information into clear insights that sharpen your strategy.",
     accent: "bg-[#121212]",
