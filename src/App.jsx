@@ -21,6 +21,7 @@ import InfluencerPartnership from './components/Services/InfluencerPartnership';
 import ORM from './components/Services/ORM';
 import OurTeam from './components/Team/OurTeam';
 import Hiring from './components/Hiring/Hiring';
+import OurManagement from './components/Management/ManagementTeam';
 
 
 
@@ -57,6 +58,7 @@ const App = () => {
           <Route path="/insights" element={<Insights />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/ourteam" element={<OurTeam />} />
+          <Route path="/ourmanagement" element={<OurManagement />} />
           <Route path="/hiring" element={<Hiring />} />
 
 
