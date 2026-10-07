@@ -262,7 +262,6 @@ export default function VideoProduction() {
 
         .vp-heading-line {
           display: block;
-          overflow: hidden;
         }
 
         .vp-heading-line > span {

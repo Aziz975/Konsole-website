@@ -151,8 +151,8 @@ export default function ContentCreation() {
         ref={heroRef}
         className="relative w-full overflow-hidden border-t border-[#15191c] bg-[#f7f6ee] text-[#111a21]"
       >
-        <div className="mx-auto grid min-h-[650px] max-w-[1300px] grid-cols-1 items-center px-4 py-14 sm:px-6 md:grid-cols-2 md:px-8 md:py-0 lg:min-h-[650px] lg:px-10 xl:min-h-[700px] xl:px-8">
-
+        {/* <div className="mx-auto grid min-h-[650px] max-w-[1300px] grid-cols-1 items-center px-4 py-14 sm:px-6 md:grid-cols-2 md:px-8 md:py-0 lg:min-h-[650px] lg:px-10 xl:min-h-[700px] xl:px-8"> */}
+<div className="mx-auto grid w-full max-w-[1540px] grid-cols-1 items-center px-5 py-12 sm:px-8 sm:py-14 md:px-10 md:py-16 lg:min-h-[680px] lg:grid-cols-2 lg:px-[6.5%] lg:py-12 xl:px-[7%]">
           {/* HERO LEFT */}
 
           <div className="relative z-20 flex w-full flex-col items-start justify-center">
