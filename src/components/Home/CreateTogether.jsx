@@ -22,7 +22,7 @@ export default function CreateTogether() {
 
   return (
     <section ref={sectionRef} className="relative w-full overflow-hidden bg-[#faf9f6]">
-      <div className="relative mx-auto flex min-h-[190px] w-full max-w-[1440px] items-center justify-center px-5 py-8 sm:min-h-[200px] sm:px-8 md:min-h-[210px] lg:min-h-[220px] lg:px-12 xl:px-16">
+      <div className="relative mx-auto flex min-h-[190px] w-full max-w-[1440px] flex-col items-center justify-center px-5 py-8 sm:min-h-[200px] sm:flex-row sm:px-8 md:min-h-[210px] lg:min-h-[220px] lg:px-12 xl:px-16">
 
         {/* ================= LEFT DOODLE ================= */}
         <div className={`absolute left-[22%] top-1/2 hidden h-[90px] w-[90px] -translate-y-1/2 sm:block md:left-[23%] lg:left-[24%] xl:left-[25%] ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.1s_forwards]" : "translate-y-12 opacity-0"}`}>
