@@ -89,7 +89,7 @@ export default function StrategicStorytellingHero() {
               ))}
             </span>
 
-            <span className="block overflow-hidden">
+            <span className="block">
               <span className="inline-block">
                 {"will".split("").map((letter, index) => (
                   <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${0.95 + index * 0.045}s` }}>
