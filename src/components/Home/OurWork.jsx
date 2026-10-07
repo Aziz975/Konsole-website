@@ -44,7 +44,7 @@ export default function OurWork() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="mt-10 mb-15 w-full bg-[#0b0f10] px-5 py-14 text-white sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-6 lg:py-[42px] xl:px-[23px]">
+    <section ref={sectionRef} className="w-full bg-[#0b0f10] px-5 py-14 text-white sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-6 lg:py-[42px] xl:px-[23px]">
 
       <div className="mx-auto max-w-[1440px]">
 

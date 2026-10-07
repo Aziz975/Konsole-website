@@ -49,7 +49,7 @@ export default function ServicesIntro() {
         <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center lg:grid-cols-[minmax(420px,1.5fr)_repeat(3,minmax(180px,0.75fr))]">
 
           {/* Main statement */}
-          <div className="relative flex items-center gap-7 pb-12 lg:pb-0 lg:pr-10">
+          <div className="relative flex items-center justify-center gap-7 pb-12 lg:justify-start lg:pb-0 lg:pr-10">
 
             <div className={`flex w-[25px] shrink-0 flex-col items-center justify-center gap-1 text-[34px] leading-[0.62] font-light text-[#080b0b] sm:w-[28px] sm:text-[38px] ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "opacity-0 translate-y-[35px]"}`}>
               <span>×</span>
@@ -58,7 +58,7 @@ export default function ServicesIntro() {
               <span>×</span>
             </div>
 
-            <h2 className={`max-w-[500px] text-[42px] font-bold leading-[1.02] tracking-[-0.045em] sm:text-[50px] md:text-[55px] lg:text-[48px] xl:text-[54px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.15s_forwards]" : "opacity-0 translate-y-[35px]"}`}>
+            <h2 className={`max-w-[500px] text-center text-[42px] font-bold leading-[1.02] tracking-[-0.045em] sm:text-[50px] md:text-[55px] lg:text-left lg:text-[48px] xl:text-[54px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.15s_forwards]" : "opacity-0 translate-y-[35px]"}`}>
               Ideas that
               <br />
               create influence.
@@ -68,8 +68,7 @@ export default function ServicesIntro() {
 
           {/* Stats */}
           {stats.map((stat, index) => (
-            <div key={index} className="border-t border-[#d0d0cd] py-8 lg:border-l lg:border-t-0 lg:px-10 lg:py-0 xl:px-12">
-
+            <div key={index} className="border-t border-[#d0d0cd] py-8 text-center lg:border-l lg:border-t-0 lg:px-10 lg:py-0 lg:text-left xl:px-12">
               <div className={`text-[48px] font-bold leading-[0.95] tracking-[-0.045em] sm:text-[54px] md:text-[58px] lg:text-[48px] xl:text-[54px] ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "opacity-0 translate-y-[35px]"}`} style={{ animationDelay: `${0.3 + index * 0.15}s` }}>
                 <CountUp value={stat.number} duration={700} />
               </div>

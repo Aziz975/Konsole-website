@@ -21,7 +21,7 @@ export default function CreateTogether() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative mb-15 w-full overflow-hidden bg-[#faf9f6]">
+    <section ref={sectionRef} className="relative w-full overflow-hidden bg-[#faf9f6]">
       <div className="relative mx-auto flex min-h-[190px] w-full max-w-[1440px] items-center justify-center px-5 py-8 sm:min-h-[200px] sm:px-8 md:min-h-[210px] lg:min-h-[220px] lg:px-12 xl:px-16">
 
         {/* ================= LEFT DOODLE ================= */}
@@ -73,7 +73,7 @@ export default function CreateTogether() {
         {/* ================= MOBILE BUTTON ================= */}
         <a
           href="#contact"
-          className={`mt-5 flex items-center gap-6 rounded-full bg-[#111a1f] px-7 py-3.5 text-[14px] font-semibold text-white sm:hidden ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.45s_forwards]" : "translate-y-10 opacity-0"}`}
+          className={`mt-5 flex items-center gap-4 whitespace-nowrap self-center rounded-full bg-[#111a1f] px-7 py-3.5 text-[14px] font-semibold text-white sm:hidden ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.45s_forwards]" : "translate-y-10 opacity-0"}`}
         >
           <span>Get in Touch</span>
           <ArrowRight size={20} strokeWidth={1.8} />
