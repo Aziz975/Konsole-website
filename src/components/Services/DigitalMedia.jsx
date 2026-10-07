@@ -57,24 +57,16 @@ function useReveal(options = {}) {
 
 export default function DigitalMedia() {
   /* =======================================================
-     HERO
+     REVEALS
   ======================================================= */
 
   const [heroRef, heroVisible] = useReveal({
     threshold: 0.15,
   });
 
-  /* =======================================================
-     PROCESS
-  ======================================================= */
-
   const [processRef, processVisible] = useReveal({
     threshold: 0.12,
   });
-
-  /* =======================================================
-     MEDIA OUTLETS
-  ======================================================= */
 
   const [mediaRef, mediaVisible] = useReveal({
     threshold: 0.15,
@@ -110,6 +102,15 @@ export default function DigitalMedia() {
 
       <style>
         {`
+          /* =================================================
+             GLOBAL
+          ================================================= */
+
+          .digital-page {
+            width: 100%;
+            overflow-x: hidden;
+          }
+
           /* =================================================
              HERO LETTER REVEAL
           ================================================= */
@@ -156,7 +157,6 @@ export default function DigitalMedia() {
               forwards;
           }
 
-
           /* =================================================
              FADE UP
           ================================================= */
@@ -186,7 +186,6 @@ export default function DigitalMedia() {
               cubic-bezier(0.22, 1, 0.36, 1)
               forwards;
           }
-
 
           /* =================================================
              HERO IMAGE
@@ -225,7 +224,6 @@ export default function DigitalMedia() {
               forwards;
           }
 
-
           /* =================================================
              HERO UNDERLINE
           ================================================= */
@@ -239,13 +237,14 @@ export default function DigitalMedia() {
           .digital-hero-visible .digital-underline {
             transform: scaleX(1);
             opacity: 1;
+
             transition:
               transform 0.75s
                 cubic-bezier(0.16, 1, 0.3, 1),
               opacity 0.45s ease;
+
             transition-delay: 0.65s;
           }
-
 
           /* =================================================
              PROCESS SECTION
@@ -345,7 +344,6 @@ export default function DigitalMedia() {
               forwards;
           }
 
-
           /* =================================================
              PROCESS ICON
           ================================================= */
@@ -417,7 +415,6 @@ export default function DigitalMedia() {
             animation-delay: 0.6s;
           }
 
-
           /* =================================================
              PROCESS CONNECTING LINE
           ================================================= */
@@ -426,6 +423,22 @@ export default function DigitalMedia() {
             transform-origin: left center;
             transform: scaleX(0);
             opacity: 0;
+          }
+
+          @keyframes lineDraw {
+            0% {
+              transform: scaleX(0);
+              opacity: 0;
+            }
+
+            30% {
+              opacity: 1;
+            }
+
+            100% {
+              transform: scaleX(1);
+              opacity: 1;
+            }
           }
 
           .digital-process-visible
@@ -472,39 +485,20 @@ export default function DigitalMedia() {
               forwards;
           }
 
-          @keyframes lineDraw {
-            0% {
-              transform: scaleX(0);
-              opacity: 0;
-            }
-
-            30% {
-              opacity: 1;
-            }
-
-            100% {
-              transform: scaleX(1);
-              opacity: 1;
-            }
-          }
-
-
           /* =================================================
-             MEDIA SECTION
+             MEDIA HEADING
           ================================================= */
 
           @keyframes mediaHeadingReveal {
             0% {
               opacity: 0;
-              transform:
-                translate3d(0, 35px, 0);
+              transform: translate3d(0, 35px, 0);
               clip-path: inset(100% 0 0 0);
             }
 
             100% {
               opacity: 1;
-              transform:
-                translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
               clip-path: inset(0 0 0 0);
             }
           }
@@ -520,7 +514,6 @@ export default function DigitalMedia() {
               cubic-bezier(0.16, 1, 0.3, 1)
               forwards;
           }
-
 
           /* =================================================
              MEDIA LOGOS
@@ -548,8 +541,7 @@ export default function DigitalMedia() {
             opacity: 0;
           }
 
-          .digital-media-visible
-            .digital-media-logo:nth-child(1) {
+          .digital-media-visible .digital-media-logo:nth-child(1) {
             animation:
               mediaLogoReveal
               0.65s
@@ -558,8 +550,7 @@ export default function DigitalMedia() {
               forwards;
           }
 
-          .digital-media-visible
-            .digital-media-logo:nth-child(2) {
+          .digital-media-visible .digital-media-logo:nth-child(2) {
             animation:
               mediaLogoReveal
               0.65s
@@ -568,8 +559,7 @@ export default function DigitalMedia() {
               forwards;
           }
 
-          .digital-media-visible
-            .digital-media-logo:nth-child(3) {
+          .digital-media-visible .digital-media-logo:nth-child(3) {
             animation:
               mediaLogoReveal
               0.65s
@@ -578,8 +568,7 @@ export default function DigitalMedia() {
               forwards;
           }
 
-          .digital-media-visible
-            .digital-media-logo:nth-child(4) {
+          .digital-media-visible .digital-media-logo:nth-child(4) {
             animation:
               mediaLogoReveal
               0.65s
@@ -588,8 +577,7 @@ export default function DigitalMedia() {
               forwards;
           }
 
-          .digital-media-visible
-            .digital-media-logo:nth-child(5) {
+          .digital-media-visible .digital-media-logo:nth-child(5) {
             animation:
               mediaLogoReveal
               0.65s
@@ -598,8 +586,7 @@ export default function DigitalMedia() {
               forwards;
           }
 
-          .digital-media-visible
-            .digital-media-logo:nth-child(6) {
+          .digital-media-visible .digital-media-logo:nth-child(6) {
             animation:
               mediaLogoReveal
               0.65s
@@ -608,12 +595,12 @@ export default function DigitalMedia() {
               forwards;
           }
 
-
           /* =================================================
-             DECORATIVE DRAWN LINES
+             DOODLE
           ================================================= */
 
-          .digital-doodle {
+          .digital-doodle,
+          .digital-media-doodle {
             stroke-dasharray: 180;
             stroke-dashoffset: 180;
             opacity: 0;
@@ -653,7 +640,6 @@ export default function DigitalMedia() {
             }
           }
 
-
           /* =================================================
              MEDIA EYEBROW
           ================================================= */
@@ -669,14 +655,14 @@ export default function DigitalMedia() {
 
             transition:
               opacity 0.65s ease,
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+              transform 0.75s
+                cubic-bezier(0.16, 1, 0.3, 1);
 
             transition-delay: 0.08s;
           }
 
-
           /* =================================================
-             MORE DOTS
+             MORE
           ================================================= */
 
           .digital-more {
@@ -690,26 +676,26 @@ export default function DigitalMedia() {
 
             transition:
               opacity 0.6s ease,
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+              transform 0.6s
+                cubic-bezier(0.16, 1, 0.3, 1);
 
             transition-delay: 0.85s;
           }
 
-
           /* =================================================
-             BUTTON HOVER
+             BUTTON
           ================================================= */
 
           .digital-story-button {
             transition:
-              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s
+                cubic-bezier(0.16, 1, 0.3, 1),
               background-color 0.3s ease,
               box-shadow 0.35s ease;
           }
 
           .digital-story-button:hover {
-            transform:
-              translate3d(4px, -3px, 0);
+            transform: translate3d(4px, -3px, 0);
           }
 
           .digital-story-button:active {
@@ -718,25 +704,25 @@ export default function DigitalMedia() {
               scale(0.97);
           }
 
-
           /* =================================================
-             PROCESS CARD HOVER
+             PROCESS CARD
           ================================================= */
 
           .digital-process-card {
             transition:
-              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+              transform 0.35s
+                cubic-bezier(0.16, 1, 0.3, 1);
           }
 
           .digital-process-card:hover {
-            transform:
-              translate3d(0, -4px, 0);
+            transform: translate3d(0, -4px, 0);
           }
 
           .digital-process-card
             .digital-process-icon {
             transition:
-              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+              transform 0.4s
+                cubic-bezier(0.16, 1, 0.3, 1);
           }
 
           .digital-process-card:hover
@@ -746,12 +732,91 @@ export default function DigitalMedia() {
               rotate(3deg);
           }
 
+          /* =================================================
+             TABLET
+          ================================================= */
+
+          @media (min-width: 768px) and (max-width: 1023px) {
+
+            .digital-process-card {
+              min-height: 165px;
+            }
+
+            .digital-process-card p {
+              max-width: 190px;
+            }
+
+            .digital-pr-image img {
+              max-width: 700px;
+            }
+          }
+
+          /* =================================================
+             MOBILE
+          ================================================= */
+
+          @media (max-width: 767px) {
+
+            .digital-pr-image {
+              transform:
+                translate3d(0, 30px, 0)
+                scale(0.96);
+            }
+
+            .digital-pr-image.is-visible {
+              animation:
+                digitalImageReveal
+                0.95s
+                cubic-bezier(0.16, 1, 0.3, 1)
+                0.1s
+                forwards;
+            }
+
+            .digital-pr-image img {
+              width: 100%;
+              max-width: 620px;
+            }
+
+            .digital-process-card {
+              min-height: 145px;
+            }
+
+            .digital-process-card p {
+              max-width: 260px;
+            }
+
+            .digital-process-icon {
+              height: 50px;
+              width: 50px;
+            }
+
+            .digital-media-logo {
+              min-height: 60px;
+            }
+          }
+
+          /* =================================================
+             VERY SMALL MOBILE
+          ================================================= */
+
+          @media (max-width: 380px) {
+
+            .digital-process-card {
+              min-height: 135px;
+            }
+
+            .digital-story-button {
+              width: 100%;
+              justify-content: space-between;
+            }
+          }
 
           /* =================================================
              REDUCED MOTION
           ================================================= */
 
           @media (prefers-reduced-motion: reduce) {
+
             .digital-letter,
             .digital-fade-up,
             .digital-pr-image,
@@ -774,479 +839,580 @@ export default function DigitalMedia() {
               transition: none !important;
             }
           }
-
-
-          /* =================================================
-             MOBILE
-          ================================================= */
-
-          @media (max-width: 767px) {
-            .digital-pr-image {
-              transform:
-                translate3d(0, 30px, 0)
-                scale(0.96);
-            }
-          }
         `}
       </style>
 
-      {/* =====================================================
-          PART 1 — HERO
-      ===================================================== */}
+      <main className="digital-page">
 
-      <section
-        ref={heroRef}
-        className={`${
-          heroVisible ? "digital-hero-visible" : ""
-        } relative min-h-[650px] w-full overflow-hidden bg-[#f7f6ee] text-[#111a21] lg:min-h-[100px]`}
-      >
-        <div className="mx-auto flex min-h-[650px] w-full max-w-[1440px] flex-col lg:grid lg:min-h-[700px] lg:grid-cols-[42%_58%]">
+        {/* =====================================================
+            PART 1 — HERO
+        ===================================================== */}
 
-          {/* LEFT CONTENT */}
+        <section
+          ref={heroRef}
+          className={`
+            ${heroVisible ? "digital-hero-visible" : ""}
+            relative
+            w-full
+            overflow-hidden
+            bg-[#f7f6ee]
+            text-[#111a21]
+          `}
+        >
+          <div
+            className="
+              mx-auto
+              grid
+              w-full
+              max-w-[1440px]
+              grid-cols-1
+              lg:min-h-[700px]
+              lg:grid-cols-[42%_58%]
+            "
+          >
 
-          <div className="relative z-10 flex flex-col justify-center px-6 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12 lg:min-h-[700px] lg:px-12 lg:py-10 xl:px-14 xl:py-12 2xl:px-16">
+            {/* =============================================
+                LEFT CONTENT
+            ============================================= */}
+
+            <div
+              className="
+                relative
+                z-10
+                flex
+                flex-col
+                justify-center
+                px-5
+                py-14
+                sm:px-8
+                sm:py-16
+                md:px-10
+                md:py-20
+                lg:min-h-[700px]
+                lg:px-12
+                lg:py-10
+                xl:px-14
+                2xl:px-16
+              "
+            >
+
+              {/* EYEBROW */}
+
+              <div
+                className={`
+                  digital-fade-up
+                  ${heroVisible ? "is-visible" : ""}
+                  mb-5
+                  text-[10px]
+                  font-extrabold
+                  uppercase
+                  tracking-[0.03em]
+                  text-[#f04444]
+                  sm:text-[11px]
+                  md:text-[12px]
+                `}
+                style={{
+                  animationDelay: "0.05s",
+                }}
+              >
+                DIGITAL PR &amp; MEDIA OUTREACH
+              </div>
+
+              {/* HEADING */}
+
+              <h1
+                className="
+                  max-w-[600px]
+                  text-[clamp(42px,8vw,70px)]
+                  font-bold
+                  leading-[0.94]
+                  tracking-[-0.045em]
+                  text-[#101920]
+                "
+              >
+                <span className="block">
+                  {revealText("Real stories.")}
+                </span>
+
+                <span className="relative block">
+                  {revealText("Bigger reach.")}
+
+                  <span
+                    className="
+                      digital-underline
+                      absolute
+                      bottom-[-5px]
+                      left-0
+                      h-[4px]
+                      w-[95px]
+                      rounded-full
+                      bg-[#f5c928]
+                      sm:h-[5px]
+                      sm:w-[115px]
+                      md:w-[125px]
+                    "
+                  />
+                </span>
+              </h1>
+
+              {/* DESCRIPTION */}
+
+              <p
+                className={`
+                  digital-fade-up
+                  ${heroVisible ? "is-visible" : ""}
+                  mt-6
+                  max-w-[510px]
+                  text-[14px]
+                  font-normal
+                  leading-[1.55]
+                  tracking-[-0.01em]
+                  text-[#59636a]
+                  sm:mt-7
+                  sm:text-[16px]
+                  md:text-[17px]
+                  lg:mt-8
+                  lg:text-[18px]
+                `}
+                style={{
+                  animationDelay: "0.5s",
+                }}
+              >
+                We help brands get noticed, get talked about and get the right
+                kind of attention. Through strategic media outreach, compelling
+                storytelling and meaningful relationships with journalists,
+                creators and industry voices.
+              </p>
+
+              {/* BUTTON */}
+
+              <div
+                className={`
+                  digital-fade-up
+                  ${heroVisible ? "is-visible" : ""}
+                  mt-7
+                  w-full
+                  sm:mt-8
+                  sm:w-auto
+                `}
+                style={{
+                  animationDelay: "0.7s",
+                }}
+              >
+                <button
+                  type="button"
+                  className="
+                    digital-story-button
+                    group
+                    inline-flex
+                    w-full
+                    items-center
+                    justify-between
+                    gap-5
+                    rounded-full
+                    bg-[#101920]
+                    px-6
+                    py-3.5
+                    text-[11px]
+                    font-bold
+                    text-white
+                    hover:bg-[#18262d]
+                    hover:shadow-lg
+                    sm:w-auto
+                    sm:px-7
+                    sm:py-4
+                    sm:text-[12px]
+                  "
+                >
+                  <span>Let's Build Your Story</span>
+
+                  <span
+                    className="
+                      text-[17px]
+                      leading-none
+                      transition-transform
+                      duration-300
+                      group-hover:translate-x-1
+                    "
+                  >
+                    →
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            {/* =============================================
+                RIGHT ARTWORK
+            ============================================= */}
+
+            <div
+              className={`
+                digital-pr-image
+                ${heroVisible ? "is-visible" : ""}
+                relative
+                flex
+                min-h-[300px]
+                items-center
+                justify-center
+                overflow-hidden
+                px-4
+                pb-10
+                sm:min-h-[380px]
+                sm:px-6
+                sm:pb-12
+                md:min-h-[440px]
+                md:px-8
+                lg:min-h-[700px]
+                lg:px-0
+                lg:pb-0
+              `}
+            >
+              <img
+                src="/Service/digital-pr-right-side.png"
+                alt=""
+                className="
+                  h-auto
+                  w-full
+                  max-w-[620px]
+                  object-contain
+                  sm:max-w-[700px]
+                  md:max-w-[780px]
+                  lg:max-w-[900px]
+                  xl:max-w-[1000px]
+                "
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================
+            PART 2 — PROCESS
+        ===================================================== */}
+
+        <section
+          ref={processRef}
+          className={`
+            ${processVisible ? "digital-process-visible" : ""}
+            w-full
+            overflow-hidden
+            bg-[#071014]
+            px-5
+            py-12
+            text-white
+            sm:px-8
+            sm:py-14
+            md:px-10
+            lg:px-12
+            lg:py-16
+            xl:px-14
+          `}
+        >
+          <div
+            className="
+              mx-auto
+              grid
+              w-full
+              max-w-[1440px]
+              grid-cols-1
+              gap-10
+              lg:grid-cols-[210px_1fr]
+              lg:gap-8
+              xl:grid-cols-[220px_1fr]
+              xl:gap-10
+            "
+          >
+
+            {/* LEFT CONTENT */}
+
+            <div className="digital-process-intro relative">
+
+              <p
+                className="
+                  mb-3
+                  text-[9px]
+                  font-extrabold
+                  uppercase
+                  tracking-[0.03em]
+                  text-[#f5d01b]
+                  sm:text-[10px]
+                "
+              >
+                OUR PROCESS
+              </p>
+
+              <h2
+                className="
+                  max-w-[250px]
+                  text-[clamp(28px,4vw,34px)]
+                  font-bold
+                  leading-[0.98]
+                  tracking-[-0.04em]
+                  text-[#f5f7f6]
+                "
+              >
+                From story
+                <br />
+                to spotlight.
+              </h2>
+
+              <p
+                className="
+                  mt-4
+                  max-w-[270px]
+                  text-[10px]
+                  font-normal
+                  leading-[1.45]
+                  text-[#c2c9cb]
+                  sm:text-[11px]
+                "
+              >
+                We combine media intelligence, creative storytelling and
+                strategic outreach to get your brand featured where it matters
+                most.
+              </p>
+
+              <svg
+                viewBox="0 0 70 20"
+                className="
+                  mt-4
+                  h-[16px]
+                  w-[58px]
+                  sm:h-[18px]
+                  sm:w-[65px]
+                "
+                fill="none"
+              >
+                <path
+                  className="digital-doodle"
+                  d="M2 15C7 8 10 18 15 11C20 4 23 16 28 10C33 4 37 15 42 9C47 3 51 13 56 8C61 3 65 8 68 5"
+                  stroke="#F5D01B"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+
+            {/* PROCESS STEPS */}
+
+            <div className="grid w-full grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 md:grid-cols-3 md:gap-x-8 md:gap-y-10 lg:grid-cols-5 lg:gap-0">
+
+              {/* 01 */}
+              <div className="digital-process-card relative flex min-w-0 flex-col">
+                <div className="relative flex items-center">
+                  <div className="digital-process-icon flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full bg-[#ff4055] sm:h-[55px] sm:w-[55px]">
+                    <Search size={22} strokeWidth={2} className="text-[#11181d] sm:h-6 sm:w-6" />
+                  </div>
+
+                  <div className="absolute left-[60px] right-[8px] top-1/2 hidden -translate-y-1/2 items-center lg:flex">
+                    <div className="digital-process-line h-px w-full bg-[#626b6e]" />
+                    <ArrowRight size={13} strokeWidth={1.5} className="shrink-0 text-[#9da4a6]" />
+                  </div>
+                </div>
+
+                <span className="mt-2 text-[8px] font-medium text-[#aeb6b8] sm:text-[9px]">
+                  01
+                </span>
+
+                <h3 className="mt-1 text-[12px] font-extrabold leading-[1.15] tracking-[-0.01em] text-[#f4f6f5] sm:text-[14px] md:text-[15px]">
+                  Research
+                </h3>
+
+                <p className="mt-1.5 max-w-[160px] text-[9px] font-medium leading-[1.45] text-[#aeb6b8] sm:max-w-[180px] sm:text-[10px]">
+                  Identify the right media, journalists and platforms.
+                </p>
+              </div>
+
+              {/* 02 */}
+              <div className="digital-process-card relative flex min-w-0 flex-col">
+                <div className="relative flex items-center">
+                  <div className="digital-process-icon flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full bg-[#ffd21c] sm:h-[55px] sm:w-[55px]">
+                    <FileText size={22} strokeWidth={2} className="text-[#11181d] sm:h-6 sm:w-6" />
+                  </div>
+
+                  <div className="absolute left-[60px] right-[8px] top-1/2 hidden -translate-y-1/2 items-center lg:flex">
+                    <div className="digital-process-line h-px w-full bg-[#626b6e]" />
+                    <ArrowRight size={13} strokeWidth={1.5} className="shrink-0 text-[#9da4a6]" />
+                  </div>
+                </div>
+
+                <span className="mt-2 text-[8px] font-medium text-[#aeb6b8] sm:text-[9px]">
+                  02
+                </span>
+
+                <h3 className="mt-1 text-[12px] font-extrabold leading-[1.15] tracking-[-0.01em] text-[#f4f6f5] sm:text-[14px] md:text-[15px]">
+                  Craft
+                </h3>
+
+                <p className="mt-1.5 max-w-[160px] text-[9px] font-medium leading-[1.45] text-[#aeb6b8] sm:max-w-[180px] sm:text-[10px]">
+                  Build a compelling story and key messages.
+                </p>
+              </div>
+
+              {/* 03 */}
+              <div className="digital-process-card relative flex min-w-0 flex-col">
+                <div className="relative flex items-center">
+                  <div className="digital-process-icon flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full bg-[#29bceb] sm:h-[55px] sm:w-[55px]">
+                    <Mail size={22} strokeWidth={2} className="text-[#11181d] sm:h-6 sm:w-6" />
+                  </div>
+
+                  <div className="absolute left-[60px] right-[8px] top-1/2 hidden -translate-y-1/2 items-center lg:flex">
+                    <div className="digital-process-line h-px w-full bg-[#626b6e]" />
+                    <ArrowRight size={13} strokeWidth={1.5} className="shrink-0 text-[#9da4a6]" />
+                  </div>
+                </div>
+
+                <span className="mt-2 text-[8px] font-medium text-[#aeb6b8] sm:text-[9px]">
+                  03
+                </span>
+
+                <h3 className="mt-1 text-[12px] font-extrabold leading-[1.15] tracking-[-0.01em] text-[#f4f6f5] sm:text-[14px] md:text-[15px]">
+                  Outreach
+                </h3>
+
+                <p className="mt-1.5 max-w-[160px] text-[9px] font-medium leading-[1.45] text-[#aeb6b8] sm:max-w-[180px] sm:text-[10px]">
+                  Pitch to journalists, editors and media partners.
+                </p>
+              </div>
+
+              {/* 04 */}
+              <div className="digital-process-card relative flex min-w-0 flex-col">
+                <div className="relative flex items-center">
+                  <div className="digital-process-icon flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full bg-[#f5f5ef] sm:h-[55px] sm:w-[55px]">
+                    <Star size={22} strokeWidth={2} className="text-[#11181d] sm:h-6 sm:w-6" />
+                  </div>
+
+                  <div className="absolute left-[60px] right-[8px] top-1/2 hidden -translate-y-1/2 items-center lg:flex">
+                    <div className="digital-process-line h-px w-full bg-[#626b6e]" />
+                    <ArrowRight size={13} strokeWidth={1.5} className="shrink-0 text-[#9da4a6]" />
+                  </div>
+                </div>
+
+                <span className="mt-2 text-[8px] font-medium text-[#aeb6b8] sm:text-[9px]">
+                  04
+                </span>
+
+                <h3 className="mt-1 text-[12px] font-extrabold leading-[1.15] tracking-[-0.01em] text-[#f4f6f5] sm:text-[14px] md:text-[15px]">
+                  Coverage
+                </h3>
+
+                <p className="mt-1.5 max-w-[160px] text-[9px] font-medium leading-[1.45] text-[#aeb6b8] sm:max-w-[180px] sm:text-[10px]">
+                  Secure features, interviews and placements.
+                </p>
+              </div>
+
+              {/* 05 */}
+              <div className="digital-process-card relative flex min-w-0 flex-col">
+                <div className="relative flex items-center">
+                  <div className="digital-process-icon flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full bg-[#ffd21c] sm:h-[55px] sm:w-[55px]">
+                    <BarChart3 size={22} strokeWidth={2} className="text-[#11181d] sm:h-6 sm:w-6" />
+                  </div>
+                </div>
+
+                <span className="mt-2 text-[8px] font-medium text-[#aeb6b8] sm:text-[9px]">
+                  05
+                </span>
+
+                <h3 className="mt-1 text-[12px] font-extrabold leading-[1.15] tracking-[-0.01em] text-[#f4f6f5] sm:text-[14px] md:text-[15px]">
+                  Amplify
+                </h3>
+
+                <p className="mt-1.5 max-w-[160px] text-[9px] font-medium leading-[1.45] text-[#aeb6b8] sm:max-w-[180px] sm:text-[10px]">
+                  Share across digital channels for greater impact.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================
+            PART 3 — MEDIA OUTLETS
+        ===================================================== */}
+
+        <section
+          ref={mediaRef}
+          className={`
+            ${mediaVisible ? "digital-media-visible" : ""}
+            w-full
+            overflow-hidden
+            bg-[#f7f6ee]
+            px-5
+            py-12
+            sm:px-8
+            sm:py-14
+            md:px-10
+            lg:px-12
+            lg:py-16
+            xl:px-14
+          `}
+        >
+          <div className="relative mx-auto w-full max-w-[1440px]">
+
+            {/* YELLOW DRAWN LINE */}
+
+            <svg viewBox="0 0 80 35" className="digital-media-doodle pointer-events-none absolute right-0 top-0 h-[28px] w-[60px] sm:right-2 sm:h-[34px] sm:w-[72px] md:right-5 md:h-[38px] md:w-[80px] lg:right-8" fill="none">
+              <path d="M3 29C10 19 15 9 22 7C29 5 22 25 30 25C39 24 42 6 49 4C57 2 49 25 58 23C65 21 69 10 77 5" stroke="#F5C928" strokeWidth="2.5" strokeLinecap="round" />
+            </svg>
 
             {/* EYEBROW */}
 
-            <div
-              className={`digital-fade-up ${
-                heroVisible ? "is-visible" : ""
-              } mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f04444] sm:text-[11px] md:text-[12px]`}
-              style={{
-                animationDelay: "0.05s",
-              }}
-            >
-              DIGITAL PR &amp; MEDIA OUTREACH
-            </div>
+            <p className="digital-media-eyebrow mb-2 pr-[70px] text-[8px] font-extrabold uppercase tracking-[0.03em] text-[#343b3e] sm:pr-[85px] sm:text-[9px] md:pr-0 md:text-[10px]">
+              MEDIA OUTLETS WE WORK WITH
+            </p>
 
             {/* HEADING */}
 
-            <h1 className="max-w-[560px] text-[48px] font-bold leading-[0.96] tracking-[-0.045em] text-[#101920] sm:text-[58px] md:text-[50px] lg:text-[70px] xl:text-[60px]">
-
-              <span className="block">
-                {revealText("Real stories.")}
-              </span>
-
-              <span className="relative block">
-                {revealText("Bigger reach.")}
-
-                <span
-                  className={`digital-underline absolute bottom-[-3px] left-0 h-[5px] w-[110px] rounded-full bg-[#f5c928] sm:bottom-[-5px] sm:h-[6px] sm:w-[125px]`}
-                />
-              </span>
-
-            </h1>
-
-            {/* DESCRIPTION */}
-
-            <p
-              className={`digital-fade-up ${
-                heroVisible ? "is-visible" : ""
-              } mt-7 max-w-[500px] text-[15px] font-normal leading-[1.5] tracking-[-0.01em] text-[#59636a] sm:text-[16px] md:text-[17px] lg:mt-8 lg:text-[18px]`}
-              style={{
-                animationDelay: "0.5s",
-              }}
-            >
-              We help brands get noticed, get talked about and get the right
-              kind of attention. Through strategic media outreach, compelling
-              storytelling and meaningful relationships with journalists,
-              creators and industry voices.
-            </p>
-
-            {/* BUTTON */}
-
-            <div
-              className={`digital-fade-up ${
-                heroVisible ? "is-visible" : ""
-              } mt-7 sm:mt-8`}
-              style={{
-                animationDelay: "0.7s",
-              }}
-            >
-              <button
-                type="button"
-                className="digital-story-button group inline-flex items-center gap-5 rounded-full bg-[#101920] px-6 py-3.5 text-[11px] font-bold text-white hover:bg-[#18262d] hover:shadow-lg sm:px-7 sm:py-4 sm:text-[12px]"
-              >
-                <span>Let's Build Your Story</span>
-
-                <span className="text-[17px] leading-none transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </button>
-            </div>
-          </div>
-
-          {/* RIGHT ARTWORK */}
-
-          <div
-            className={`digital-pr-image ${
-              heroVisible ? "is-visible" : ""
-            } relative flex min-h-[45vh] items-center justify-center overflow-hidden px-4 pb-10 sm:min-h-[50vh] sm:px-6 sm:pb-12 md:min-h-[55vh] md:px-8 lg:min-h-[700px] lg:px-0 lg:pb-0`}
-          >
-            <img
-              src="/Service/digital-pr-right-side.png"
-              alt=""
-              className="h-auto w-full max-w-[850px] object-contain lg:max-w-[900px] xl:max-w-[1000px]"
-            />
-          </div>
-        </div>
-      </section>
-
-
-      {/* =====================================================
-          PART 2 — PROCESS
-      ===================================================== */}
-
-      <section
-        ref={processRef}
-        className={`${
-          processVisible ? "digital-process-visible" : ""
-        } w-full overflow-hidden bg-[#071014] px-5 py-10 text-white sm:px-8 sm:py-12 md:px-10 lg:px-12 lg:py-14 xl:px-14`}
-      >
-        <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 lg:grid-cols-[210px_1fr] lg:gap-8 xl:grid-cols-[220px_1fr] xl:gap-10">
-
-          {/* LEFT CONTENT */}
-
-          <div className="digital-process-intro relative">
-
-            <p className="mb-3 text-[9px] font-extrabold uppercase tracking-[0.03em] text-[#f5d01b] sm:text-[10px]">
-              OUR PROCESS
-            </p>
-
-            <h2 className="max-w-[210px] text-[28px] font-bold leading-[0.98] tracking-[-0.04em] text-[#f5f7f6] sm:text-[32px] md:text-[34px] lg:text-[31px] xl:text-[32px]">
-              From story
+            <h2 className="digital-media-heading max-w-[560px] text-[clamp(26px,6vw,36px)] font-bold leading-[0.98] tracking-[-0.04em] text-[#101920]">
+              From top publications
               <br />
-              to spotlight.
+              to trusted platforms.
             </h2>
 
-            <p className="mt-4 max-w-[215px] text-[10px] font-normal leading-[1.45] text-[#c2c9cb] sm:text-[11px]">
-              We combine media intelligence, creative storytelling and
-              strategic outreach to get your brand featured where it matters
-              most.
-            </p>
+            {/* LOGOS */}
 
-            {/* YELLOW DECORATIVE LINE */}
+            <div className="mt-7 grid grid-cols-2 overflow-hidden border-l border-t border-[#d8d8d0] sm:mt-8 md:grid-cols-3">
 
-            <svg
-              viewBox="0 0 70 20"
-              className="mt-4 h-[16px] w-[58px] sm:h-[18px] sm:w-[65px]"
-              fill="none"
-            >
-              <path
-                className="digital-doodle"
-                d="M2 15C7 8 10 18 15 11C20 4 23 16 28 10C33 4 37 15 42 9C47 3 51 13 56 8C61 3 65 8 68 5"
-                stroke="#F5D01B"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
+              {/* THE HINDU */}
 
-
-          {/* PROCESS STEPS */}
-
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:gap-0">
-
-            {/* 01 RESEARCH */}
-
-            <div className="digital-process-card relative flex flex-col">
-
-              <div className="relative flex items-center">
-
-                <div className="digital-process-icon flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#ff4055] sm:h-[55px] sm:w-[55px]">
-                  <Search
-                    size={24}
-                    strokeWidth={2}
-                    className="text-[#11181d]"
-                  />
-                </div>
-
-                <div className="absolute left-[65px] right-[8px] top-1/2 hidden -translate-y-1/2 items-center lg:flex">
-                  <div className="digital-process-line h-px w-full bg-[#626b6e]" />
-
-                  <ArrowRight
-                    size={13}
-                    strokeWidth={1.5}
-                    className="shrink-0 text-[#9da4a6]"
-                  />
-                </div>
-
+              <div className="digital-media-logo flex min-h-[72px] w-full items-center justify-center border-b border-r border-[#d8d8d0] px-3 py-4 sm:min-h-[82px] sm:px-4 md:min-h-[88px]">
+                <img src="/images/thehindu.png" alt="The Hindu" className="block h-auto w-[62px] max-w-full object-contain sm:w-[76px] md:w-[84px]" />
               </div>
 
-              <span className="mt-2 text-[8px] font-medium text-[#aeb6b8] sm:text-[9px]">
-                01
-              </span>
+              {/* NDTV */}
 
-              <h3 className="mt-1 text-[13px] font-extrabold leading-[1.15] tracking-[-0.01em] text-[#f4f6f5] sm:text-[14px] md:text-[15px]">
-                Research
-              </h3>
-
-              <p className="mt-1.5 max-w-[145px] text-[9px] font-medium leading-[1.45] text-[#aeb6b8] sm:text-[10px]">
-                Identify the right media, journalists and platforms.
-              </p>
-            </div>
-
-
-            {/* 02 CRAFT */}
-
-            <div className="digital-process-card relative flex flex-col">
-
-              <div className="relative flex items-center">
-
-                <div className="digital-process-icon flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#ffd21c] sm:h-[55px] sm:w-[55px]">
-                  <FileText
-                    size={24}
-                    strokeWidth={2}
-                    className="text-[#11181d]"
-                  />
-                </div>
-
-                <div className="absolute left-[65px] right-[8px] top-1/2 hidden -translate-y-1/2 items-center lg:flex">
-                  <div className="digital-process-line h-px w-full bg-[#626b6e]" />
-
-                  <ArrowRight
-                    size={13}
-                    strokeWidth={1.5}
-                    className="shrink-0 text-[#9da4a6]"
-                  />
-                </div>
-
+              <div className="digital-media-logo flex min-h-[72px] w-full items-center justify-center border-b border-r border-[#d8d8d0] px-3 py-4 sm:min-h-[82px] sm:px-4 md:min-h-[88px]">
+                <img src="/images/ndtv.png" alt="NDTV" className="block h-auto w-[52px] max-w-full object-contain sm:w-[64px] md:w-[72px]" />
               </div>
 
-              <span className="mt-2 text-[8px] font-medium text-[#aeb6b8] sm:text-[9px]">
-                02
-              </span>
+              {/* BUSINESS TODAY */}
 
-              <h3 className="mt-1 text-[13px] font-extrabold leading-[1.15] tracking-[-0.01em] text-[#f4f6f5] sm:text-[14px] md:text-[15px]">
-                Craft
-              </h3>
-
-              <p className="mt-1.5 max-w-[145px] text-[9px] font-medium leading-[1.45] text-[#aeb6b8] sm:text-[10px]">
-                Build a compelling story and key messages.
-              </p>
-            </div>
-
-
-            {/* 03 OUTREACH */}
-
-            <div className="digital-process-card relative flex flex-col">
-
-              <div className="relative flex items-center">
-
-                <div className="digital-process-icon flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#29bceb] sm:h-[55px] sm:w-[55px]">
-                  <Mail
-                    size={24}
-                    strokeWidth={2}
-                    className="text-[#11181d]"
-                  />
-                </div>
-
-                <div className="absolute left-[65px] right-[8px] top-1/2 hidden -translate-y-1/2 items-center lg:flex">
-                  <div className="digital-process-line h-px w-full bg-[#626b6e]" />
-
-                  <ArrowRight
-                    size={13}
-                    strokeWidth={1.5}
-                    className="shrink-0 text-[#9da4a6]"
-                  />
-                </div>
-
+              <div className="digital-media-logo flex min-h-[72px] w-full items-center justify-center border-b border-r border-[#d8d8d0] px-3 py-4 sm:min-h-[82px] sm:px-4 md:min-h-[88px]">
+                <img src="/images/businesstoday.png" alt="Business Today" className="block h-auto w-[96px] max-w-full object-contain sm:w-[118px] md:w-[135px]" />
               </div>
 
-              <span className="mt-2 text-[8px] font-medium text-[#aeb6b8] sm:text-[9px]">
-                03
-              </span>
+              {/* MINT */}
 
-              <h3 className="mt-1 text-[13px] font-extrabold leading-[1.15] tracking-[-0.01em] text-[#f4f6f5] sm:text-[14px] md:text-[15px]">
-                Outreach
-              </h3>
-
-              <p className="mt-1.5 max-w-[145px] text-[9px] font-medium leading-[1.45] text-[#aeb6b8] sm:text-[10px]">
-                Pitch to journalists, editors and media partners.
-              </p>
-            </div>
-
-
-            {/* 04 COVERAGE */}
-
-            <div className="digital-process-card relative flex flex-col">
-
-              <div className="relative flex items-center">
-
-                <div className="digital-process-icon flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#f5f5ef] sm:h-[55px] sm:w-[55px]">
-                  <Star
-                    size={24}
-                    strokeWidth={2}
-                    className="text-[#11181d]"
-                  />
-                </div>
-
-                <div className="absolute left-[65px] right-[8px] top-1/2 hidden -translate-y-1/2 items-center lg:flex">
-                  <div className="digital-process-line h-px w-full bg-[#626b6e]" />
-
-                  <ArrowRight
-                    size={13}
-                    strokeWidth={1.5}
-                    className="shrink-0 text-[#9da4a6]"
-                  />
-                </div>
-
+              <div className="digital-media-logo flex min-h-[72px] w-full items-center justify-center border-b border-r border-[#d8d8d0] px-3 py-4 sm:min-h-[82px] sm:px-4 md:min-h-[88px]">
+                <img src="/images/mint.png" alt="Mint" className="block h-auto w-[52px] max-w-full object-contain sm:w-[64px] md:w-[72px]" />
               </div>
 
-              <span className="mt-2 text-[8px] font-medium text-[#aeb6b8] sm:text-[9px]">
-                04
-              </span>
+              {/* FORBES */}
 
-              <h3 className="mt-1 text-[13px] font-extrabold leading-[1.15] tracking-[-0.01em] text-[#f4f6f5] sm:text-[14px] md:text-[15px]">
-                Coverage
-              </h3>
-
-              <p className="mt-1.5 max-w-[145px] text-[9px] font-medium leading-[1.45] text-[#aeb6b8] sm:text-[10px]">
-                Secure features, interviews and placements.
-              </p>
-            </div>
-
-
-            {/* 05 AMPLIFY */}
-
-            <div className="digital-process-card relative flex flex-col">
-
-              <div className="relative flex items-center">
-
-                <div className="digital-process-icon flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#ffd21c] sm:h-[55px] sm:w-[55px]">
-                  <BarChart3
-                    size={24}
-                    strokeWidth={2}
-                    className="text-[#11181d]"
-                  />
-                </div>
-
+              <div className="digital-media-logo flex min-h-[72px] w-full items-center justify-center border-b border-r border-[#d8d8d0] px-3 py-4 sm:min-h-[82px] sm:px-4 md:min-h-[88px]">
+                <img src="/images/forbes.png" alt="Forbes" className="block h-auto w-[58px] max-w-full object-contain sm:w-[72px] md:w-[82px]" />
               </div>
 
-              <span className="mt-2 text-[8px] font-medium text-[#aeb6b8] sm:text-[9px]">
-                05
-              </span>
+              {/* TIMES NOW */}
 
-              <h3 className="mt-1 text-[13px] font-extrabold leading-[1.15] tracking-[-0.01em] text-[#f4f6f5] sm:text-[14px] md:text-[15px]">
-                Amplify
-              </h3>
+              <div className="digital-media-logo flex min-h-[72px] w-full items-center justify-center border-b border-r border-[#d8d8d0] px-3 py-4 sm:min-h-[82px] sm:px-4 md:min-h-[88px]">
+                <img src="/images/timesnow.png" alt="Times Now" className="block h-auto w-[52px] max-w-full object-contain sm:w-[64px] md:w-[72px]" />
+              </div>
 
-              <p className="mt-1.5 max-w-[145px] text-[9px] font-medium leading-[1.45] text-[#aeb6b8] sm:text-[10px]">
-                Share across digital channels for greater impact.
-              </p>
             </div>
 
           </div>
-        </div>
-      </section>
-
-
-      {/* =====================================================
-          PART 3 — MEDIA OUTLETS
-      ===================================================== */}
-
-
-
-{/* part 3 */}
-
-<section className="w-full overflow-hidden bg-[#f7f6ee] px-5 py-8 sm:px-8 sm:py-10 md:px-10 lg:px-12 lg:py-11 xl:px-14">
-  <div className="relative mx-auto w-full max-w-[1440px]">
-
-    {/* YELLOW HAND-DRAWN LINE */}
-    <svg
-      viewBox="0 0 80 35"
-      className="absolute right-2 top-0 h-[32px] w-[68px] sm:right-4 sm:h-[38px] sm:w-[80px] md:right-8"
-      fill="none"
-    >
-      <path
-        d="M3 29C10 19 15 9 22 7C29 5 22 25 30 25C39 24 42 6 49 4C57 2 49 25 58 23C65 21 69 10 77 5"
-        stroke="#F5C928"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-    </svg>
-
-    {/* EYEBROW */}
-    <p className="mb-2 text-[8px] font-extrabold uppercase tracking-[0.03em] text-[#343b3e] sm:text-[9px] md:text-[10px]">
-      MEDIA OUTLETS WE WORK WITH
-    </p>
-
-    {/* HEADING */}
-    <h2 className="max-w-[500px] text-[26px] font-bold leading-[0.98] tracking-[-0.04em] text-[#101920] sm:text-[30px] md:text-[34px] lg:text-[36px]">
-      From top publications
-      <br />
-      to trusted platforms.
-    </h2>
-
-    {/* LOGOS */}
-    <div className="mt-6 grid grid-cols-2 sm:grid-cols-3">
-
-      {/* THE HINDU */}
-      <div className="flex h-[48px] items-center justify-start border-b border-[#d8d8d0] px-0 sm:h-[52px] sm:border-r sm:px-4 sm:py-2">
-        <img
-          src="/images/thehindu.png"
-          alt="The Hindu"
-          className="h-auto w-[68px] max-w-full object-contain sm:w-[78px] md:w-[84px]"
-        />
-      </div>
-
-      {/* NDTV */}
-      <div className="flex h-[48px] items-center justify-start border-b border-[#d8d8d0] px-4 sm:h-[52px] sm:border-r sm:py-2">
-        <img
-          src="/images/ndtv.png"
-          alt="NDTV"
-          className="h-auto w-[55px] max-w-full object-contain sm:w-[65px] md:w-[72px]"
-        />
-      </div>
-
-      {/* BUSINESS TODAY */}
-      <div className="flex h-[48px] items-center justify-start border-b border-[#d8d8d0] px-4 sm:h-[52px] sm:px-4 sm:py-2">
-        <img
-          src="/images/businesstoday.png"
-          alt="Business Today"
-          className="h-auto w-[105px] max-w-full object-contain sm:w-[120px] md:w-[135px]"
-        />
-      </div>
-
-      {/* MINT */}
-      <div className="flex h-[48px] items-center justify-start px-0 sm:h-[52px] sm:border-r sm:border-[#d8d8d0] sm:px-4 sm:py-2">
-        <img
-          src="/images/mint.png"
-          alt="Mint"
-          className="h-auto w-[55px] max-w-full object-contain sm:w-[65px] md:w-[72px]"
-        />
-      </div>
-
-      {/* FORBES */}
-      <div className="flex h-[48px] items-center justify-start px-4 sm:h-[52px] sm:border-r sm:border-[#d8d8d0] sm:py-2">
-        <img
-          src="/images/forbes.png"
-          alt="Forbes"
-          className="h-auto w-[62px] max-w-full object-contain sm:w-[72px] md:w-[82px]"
-        />
-      </div>
-
-      {/* TIMES NOW */}
-      <div className="flex h-[48px] items-center justify-start px-4 sm:h-[52px] sm:py-2">
-        <img
-          src="/images/timesnow.png"
-          alt="Times Now"
-          className="h-auto w-[55px] max-w-full object-contain sm:w-[65px] md:w-[72px]"
-        />
-      </div>
-
-    </div>
-
-    {/* MORE
-    <div className="flex justify-end pt-1">
-      <span className="text-[20px] font-bold leading-none tracking-[0.18em] text-[#101010] sm:text-[22px]">
-        ...
-      </span>
-    </div> */}
-
-  </div>
-</section>
-
+        </section>
+      </main>
     </>
   );
 }

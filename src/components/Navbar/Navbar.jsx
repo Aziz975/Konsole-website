@@ -80,7 +80,7 @@ const Navbar = () => {
             DESKTOP NAVIGATION
         ================================= */}
 
-        <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 lg:flex xl:gap-[48px]">
+        <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-4 lg:flex xl:gap-[48px]">
 
           {/* HOME */}
           <Link
