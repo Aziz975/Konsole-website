@@ -27,7 +27,7 @@ export default function AboutSection() {
       <div className="mx-auto grid min-h-[500px] w-full max-w-[1440px] grid-cols-1 items-center gap-10 px-6 py-14 sm:px-10 sm:py-16 md:px-12 lg:grid-cols-2 lg:gap-12 lg:px-16 lg:py-16 xl:px-20">
 
         {/* ================= LEFT IMAGE ================= */}
-        <div className="relative left-[-20%] flex min-h-[360px] items-center md:min-h-[410px] lg:min-h-[450px]">
+<div className="relative flex min-h-[360px] items-center md:min-h-[410px] lg:left-[-20%] lg:min-h-[450px]">
           <div className={`w-full ${visible ? "animate-[fadeUp_1s_cubic-bezier(0.22,1,0.36,1)_0.1s_forwards]" : "translate-y-16 opacity-0"}`}>
             <img
               src="images/artwork2.png"
@@ -49,9 +49,9 @@ export default function AboutSection() {
           </p>
 
           {/* Main Heading */}
-          <h2 className="max-w-[600px] text-[38px] font-extrabold leading-[1.02] tracking-[-0.045em] sm:text-[46px] md:text-[52px] lg:text-[48px] xl:text-[52px]">
+          {/* <h2 className="max-w-[600px] text-[38px] font-extrabold leading-[1.02] tracking-[-0.045em] sm:text-[46px] md:text-[52px] lg:text-[48px] xl:text-[52px]">
             {"Strategy. Creativity.".split("").map((letter, index) => (
-              <span key={index} className="inline-block overflow-hidden">
+              <span key={index} className="inline-block">
                 <span className={`inline-block ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${index * 0.045}s` }}>
                   {letter === " " ? "\u00A0" : letter}
                 </span>
@@ -67,7 +67,43 @@ export default function AboutSection() {
                 </span>
               </span>
             ))}
-          </h2>
+          </h2> */}
+
+<h2 className="max-w-[600px] text-[28px] font-extrabold leading-[1.02] tracking-[-0.045em] min-[400px]:text-[33px] min-[480px]:text-[38px] sm:text-[46px] md:text-[52px] lg:text-[48px] xl:text-[52px]">
+  {[
+    { text: "Strategy. Creativity.", delay: 0 },
+    { text: "Real-World Impact.", delay: 0.85 },
+  ].map((line, lineIndex) => (
+    <span key={lineIndex} className="block">
+      {line.text.split(" ").map((word, wordIndex, words) => {
+        const offset = words
+          .slice(0, wordIndex)
+          .reduce((sum, w) => sum + w.length + 1, 0);
+
+        return (
+          <span key={wordIndex} className="inline-block whitespace-nowrap">
+            {word.split("").map((letter, index) => (
+              <span key={index} className="inline-block align-bottom">
+                <span
+                  className={`inline-block ${
+                    visible
+                      ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]"
+                      : "translate-y-[120%] opacity-0"
+                  }`}
+                  style={{ animationDelay: `${line.delay + (offset + index) * 0.045}s` }}
+                >
+                  {letter}
+                </span>
+              </span>
+            ))}
+            {wordIndex < words.length - 1 && <span className="inline-block w-[0.25em]" />}
+          </span>
+        );
+      })}
+    </span>
+  ))}
+</h2>
+
           {/* Description */}
           <p className={`mt-7 max-w-[590px] text-[16px] leading-[1.55] text-[#273344] sm:text-[17px] md:text-[18px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_1.8s_forwards]" : "translate-y-12 opacity-0"}`}>
             Konsolde Group is a full-service communication and reputation

@@ -41,6 +41,10 @@ const Navbar = () => {
       path: "/services/politicalintelligence",
     },
     {
+      name: "Influencer Partnership",
+      path: "/services/InfluencerPartnership",
+    },
+    {
       name: "Government Communication Projects",
       path: "/services/governmentprojects",
     },
@@ -53,7 +57,7 @@ const Navbar = () => {
           DESKTOP / MAIN NAVBAR
       ================================= */}
 
-      <div className="flex h-[71px] w-full items-center justify-between px-5 sm:px-8 md:px-10 lg:px-[58px]">
+      <div className="flex h-16 w-full items-center justify-between gap-3 px-4 sm:px-6 md:px-8 lg:px-10 xl:h-[71px] xl:px-[58px]">
 
         {/* LOGO */}
         <Link
@@ -61,31 +65,29 @@ const Navbar = () => {
           onClick={closeMenu}
           className="flex shrink-0 items-center gap-3"
         >
-          {/* <div className="flex h-7 items-center gap-1 sm:h-8">
-            <div className="w-2 h-full -skew-x-12 rounded-sm bg-red-500 sm:w-2.5" />
-            <div className="w-2 h-full -skew-x-12 rounded-sm bg-blue-500 sm:w-2.5" />
-            <div className="w-2 h-full -skew-x-12 rounded-sm bg-green-500 sm:w-2.5" />
-          </div> */}
-
-      <div>
-  <img 
-    src="/image.png" 
-    alt="Konsole Group Logo" 
-    className="h-8 w-auto object-contain sm:h-10" 
-  />
-</div>
+          <div>
+            <img
+              src="/image.png"
+              alt="Konsole Group Logo"
+              className="h-8 w-auto object-contain sm:h-10"
+            />
+          </div>
         </Link>
 
         {/* ================================
             DESKTOP NAVIGATION
         ================================= */}
 
+<<<<<<< HEAD
         <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-4 lg:flex xl:gap-[48px]">
+=======
+        <div className="hidden min-w-0 flex-1 items-center justify-center gap-4 xl:flex xl:gap-8 2xl:gap-[48px]">
+>>>>>>> 911237d390bf26e219026d8db67f96eb109730bf
 
           {/* HOME */}
           <Link
             to="/"
-            className="relative text-[14px] font-semibold text-[#171717] transition-all duration-300 ease-out hover:-translate-y-[2px] hover:text-[#35a99b]"
+            className="relative whitespace-nowrap text-[14px] font-semibold text-[#171717] transition-all duration-300 ease-out hover:-translate-y-[2px] hover:text-[#35a99b]"
           >
             Home
           </Link>
@@ -102,7 +104,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={toggleServices}
-              className="flex items-center gap-1 text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
+              className="flex items-center gap-1 whitespace-nowrap text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
             >
               Menu Card
 
@@ -138,7 +140,7 @@ const Navbar = () => {
           {/* ABOUT */}
           <Link
             to="/about"
-            className="text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
+            className="whitespace-nowrap text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
           >
             Our Adhaar Card
           </Link>
@@ -146,7 +148,7 @@ const Navbar = () => {
           {/* OUR TEAM */}
           <Link
             to="/ourteam"
-            className="text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
+            className="whitespace-nowrap text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
           >
             Kitne Aadmi hai
           </Link>
@@ -154,7 +156,7 @@ const Navbar = () => {
           {/* INSIGHTS */}
           <Link
             to="/insights"
-            className="text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
+            className="whitespace-nowrap text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
           >
             Insights
           </Link>
@@ -162,7 +164,7 @@ const Navbar = () => {
           {/* CONTACT */}
           <Link
             to="/contact"
-            className="text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
+            className="whitespace-nowrap text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
           >
             Hello Friends
           </Link>
@@ -175,7 +177,7 @@ const Navbar = () => {
 
         <Link
           to="/contact"
-          className="hidden h-[39px] w-[127px] items-center justify-center gap-[7px] rounded-full bg-[#090d0e] text-[14px] font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg lg:flex"
+          className="hidden h-[39px] w-[127px] shrink-0 items-center justify-center gap-[7px] rounded-full bg-[#090d0e] text-[14px] font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg xl:flex"
         >
           Let's Talk
 
@@ -193,7 +195,7 @@ const Navbar = () => {
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-[#090d0e] text-white transition-transform duration-300 hover:scale-105 lg:hidden"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#090d0e] text-white transition-transform duration-300 hover:scale-105 xl:hidden"
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
         >
@@ -210,7 +212,7 @@ const Navbar = () => {
       ================================= */}
 
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out lg:hidden ${
+        className={`overflow-hidden transition-all duration-300 ease-in-out xl:hidden ${
           isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >

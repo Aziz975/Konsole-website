@@ -16,6 +16,8 @@ import MemeAndMarketing from './components/Services/MemeAndMarketing';
 import GovernmentProjects from './components/Services/GovernmentProjects';
 import PoliticalIntelligence from './components/Services/PoliticalIntelligence';
 import DigitalMedia from './components/Services/DigitalMedia';
+import InfluencerPartnership from './components/Services/InfluencerPartnership';
+
 import ORM from './components/Services/ORM';
 import OurTeam from './components/Team/OurTeam';
 import Hiring from './components/Hiring/Hiring';
@@ -46,6 +48,8 @@ const App = () => {
             <Route path="/services/digitalpr" element={<DigitalMedia />} />
             <Route path="/services/memeandmomentmarketing" element={<MobileMarketing />} />
             <Route path="/services/politicalintelligence" element={<PoliticalIntelligence />} />
+                        <Route path="/services/influencerpartnership" element={<InfluencerPartnership />} />
+
             <Route path="/services/orm" element={<ORM />} />
           </Route>
 

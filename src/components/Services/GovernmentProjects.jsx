@@ -154,13 +154,12 @@ export default function GovernmentProjects() {
               viewport={viewportSettings}
               className="space-y-6 lg:col-span-5"
             >
-              {/* Eyebrow */}
-              <motion.span
-                variants={fadeUpFast}
-                className="block font-serif text-lg italic text-neutral-600"
-              >
-                Government Communication Projects
-              </motion.span>
+             {/* Eyebrow */}
+<motion.div variants={fadeUpFast}>
+  <p className="ip-eyebrow mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f04444] sm:text-[11px] md:text-[12px]">
+    Government Communication Projects
+  </p>
+</motion.div>
 
               {/* Heading */}
               <motion.h2
@@ -306,13 +305,12 @@ export default function GovernmentProjects() {
               viewport={viewportSettings}
               className="order-1 space-y-6 lg:col-span-6 lg:order-2"
             >
-              {/* Eyebrow */}
-              <motion.span
-                variants={fadeUpFast}
-                className="block font-serif text-lg italic text-neutral-600"
-              >
-                What We Do
-              </motion.span>
+             {/* Eyebrow */}
+<motion.div variants={fadeUpFast}>
+  <p className="ip-eyebrow mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f04444] sm:text-[11px] md:text-[12px]">
+    What We Do
+  </p>
+</motion.div>
 
               {/* Heading */}
               <motion.h2
@@ -419,12 +417,11 @@ export default function GovernmentProjects() {
             viewport={viewportSettings}
             className="space-y-2"
           >
-            <motion.span
-              variants={slideLeft}
-              className="block font-serif text-base italic text-neutral-600"
-            >
-              Project Examples
-            </motion.span>
+            <motion.div variants={slideLeft}>
+  <p className="ip-eyebrow mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f04444] sm:text-[11px] md:text-[12px]">
+    Project Examples
+  </p>
+</motion.div>
 
             <motion.h2
               variants={fadeUp}
