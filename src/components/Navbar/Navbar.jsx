@@ -66,11 +66,15 @@ const Navbar = () => {
           className="flex shrink-0 items-center gap-3"
         >
           <img
-            src="/image.png"
+            src="/image4.png"
             alt="Konsole Group Logo"
-            className="h-8 w-auto object-contain sm:h-10"
+            className="h-8 w-auto object-contain sm:h-15"
           />
+
+          
         </Link>
+
+        
 
         {/* ================================
             DESKTOP NAVIGATION
