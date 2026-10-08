@@ -58,9 +58,9 @@ export default function Footer() {
       name: "Political Intelligence",
       path: "/services/politicalintelligence",
     },
-     {
+    {
       name: "Influencer Partnership",
-      path: "/services/InfluencerPartnership",
+      path: "/services/influencerpartnership",
     },
     {
       name: "Government Communication Projects",
@@ -105,9 +105,7 @@ export default function Footer() {
         viewport={{ once: true, amount: 0.15 }}
         className="relative mx-auto max-w-[1500px] px-5 py-16 sm:px-8 lg:px-10 xl:px-12"
       >
-        {/* <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_0.8fr_1.2fr] lg:gap-8 xl:gap-12"> */}
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:gap-8 xl:gap-12">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_0.8fr_1.2fr] lg:gap-8 xl:gap-12">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:gap-8 xl:gap-12">
 
           {/* BRAND COLUMN */}
           <motion.div variants={itemVariants}>

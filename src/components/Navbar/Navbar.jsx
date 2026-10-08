@@ -382,7 +382,7 @@ const Navbar = () => {
     },
     {
       name: "Influencer Partnership",
-      path: "/services/InfluencerPartnership",
+      path: "/services/influencerpartnership",
     },
     {
       name: "Government Communication Projects",
@@ -602,12 +602,8 @@ const Navbar = () => {
       ================================= */}
 
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out xl:hidden ${isOpen ? "max-h-[1100px] opacity-100" : "max-h-0 opacity-0"
-          }`}
         className={`overflow-hidden transition-all duration-300 ease-in-out lg:hidden ${
-          isOpen
-            ? "max-h-[800px] opacity-100"
-            : "max-h-0 opacity-0"
+          isOpen ? "max-h-[1100px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="border-t border-gray-100 px-5 pb-6 pt-4 sm:px-8">
@@ -657,13 +653,11 @@ const Navbar = () => {
 
             {/* MOBILE SERVICES */}
             <div
-              className={`overflow-hidden transition-all duration-300 ${isServicesOpen
-                  ? "max-h-[500px] opacity-100"
               className={`overflow-hidden transition-all duration-300 ${
                 isServicesOpen
-                  ? "max-h-[600px] opacity-100"
+                  ? "max-h-[500px] opacity-100"
                   : "max-h-0 opacity-0"
-                }`}
+              }`}
             >
               <div className="border-b border-gray-100 py-2">
                 {services.map((service) => (
