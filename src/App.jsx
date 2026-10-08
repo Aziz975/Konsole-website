@@ -52,10 +52,9 @@ const App = () => {
             <Route path="/services/videoproduction" element={<VideoProduction />} />
             <Route path="/services/governmentprojects" element={<GovernmentProjects />} />
             <Route path="/services/digitalpr" element={<DigitalMedia />} />
-            <Route path="/services/memeandmomentmarketing" element={<MobileMarketing />} />
+            <Route path="/services/mobilemarketing" element={<MobileMarketing />} />
             <Route path="/services/politicalintelligence" element={<PoliticalIntelligence />} />
-                        <Route path="/services/influencerpartnership" element={<InfluencerPartnership />} />
-
+            <Route path="/services/influencerpartnership" element={<InfluencerPartnership />} />
             <Route path="/services/orm" element={<ORM />} />
           </Route>
 
