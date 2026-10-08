@@ -343,28 +343,28 @@ const LinkedInIcon = () => (
 /* ---------- Data (yahan apne asli naam, photo aur LinkedIn link daalo) ---------- */
 const team = [
   {
-    name: "Alex Morgan",
-    role: "Chief Executive Officer",
+    name: "Harpreet Dhody",
+    role: "Group CEO",
     img: "/images/boss1.png",
-    linkedin: "https://www.linkedin.com/in/harpreetdhody/",
+    linkedin: "https://www.linkedin.com/in/harpreetdhody?",
   },
   {
-    name: "Sarah Jenkins",
-    role: "Chief Technology Officer",
-    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400",
-    linkedin: "https://linkedin.com/in/your-profile",
+    name: "Suyash Chandel",
+    role: "Director",
+    img: "/images/boss2.png",
+    linkedin: "https://www.linkedin.com/in/suyash-chandel-20218616?",
   },
   {
-    name: "David Chen",
-    role: "Head of Product",
-    img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400",
-    linkedin: "https://linkedin.com/in/your-profile",
+    name: "Zama Khan",
+    role: "Director",
+    img: "/images/boss3.png",
+    linkedin: "https://www.linkedin.com/in/zamauddinkhan?",
   },
   {
-    name: "Elena Rostova",
-    role: "VP of Operations",
-    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400",
-    linkedin: "https://linkedin.com/in/your-profile",
+    name: "Amandeep Singh Bhatia",
+    role: "Director",
+    img: "/images/boss4.png",
+    linkedin: "https://www.linkedin.com/in/amandeep14?",
   },
 ];
 

@@ -433,6 +433,15 @@ const Navbar = () => {
             Home
           </Link>
 
+
+          {/* ABOUT */}
+          <Link
+            to="/about"
+            className="whitespace-nowrap text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
+          >
+            Our Adhaar Card
+          </Link>
+
           {/* ================================
               MENU CARD
           ================================= */}
@@ -451,19 +460,17 @@ const Navbar = () => {
 
               <ChevronDown
                 size={15}
-                className={`transition-transform duration-300 ${
-                  isServicesOpen ? "rotate-180" : ""
-                }`}
+                className={`transition-transform duration-300 ${isServicesOpen ? "rotate-180" : ""
+                  }`}
               />
             </button>
 
             {/* DESKTOP DROPDOWN */}
             <div
-              className={`absolute left-1/2 top-full z-50 mt-4 w-[280px] -translate-x-1/2 rounded-xl border border-[#e5e5e5] bg-white p-2 shadow-xl transition-all duration-300 ${
-                isServicesOpen
+              className={`absolute left-1/2 top-full z-50 mt-4 w-[280px] -translate-x-1/2 rounded-xl border border-[#e5e5e5] bg-white p-2 shadow-xl transition-all duration-300 ${isServicesOpen
                   ? "visible translate-y-0 opacity-100"
                   : "invisible translate-y-2 opacity-0"
-              }`}
+                }`}
             >
               {services.map((service) => (
                 <Link
@@ -478,13 +485,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* ABOUT */}
-          <Link
-            to="/about"
-            className="whitespace-nowrap text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
-          >
-            Our Adhaar Card
-          </Link>
+
 
           {/* ================================
               KITNE AADMI HAI (TEAM DROPDOWN)
@@ -504,19 +505,17 @@ const Navbar = () => {
 
               <ChevronDown
                 size={15}
-                className={`transition-transform duration-300 ${
-                  isTeamOpen ? "rotate-180" : ""
-                }`}
+                className={`transition-transform duration-300 ${isTeamOpen ? "rotate-180" : ""
+                  }`}
               />
             </button>
 
             {/* DESKTOP TEAM DROPDOWN */}
             <div
-              className={`absolute left-1/2 top-full z-50 mt-4 w-[220px] -translate-x-1/2 rounded-xl border border-[#e5e5e5] bg-white p-2 shadow-xl transition-all duration-300 ${
-                isTeamOpen
+              className={`absolute left-1/2 top-full z-50 mt-4 w-[220px] -translate-x-1/2 rounded-xl border border-[#e5e5e5] bg-white p-2 shadow-xl transition-all duration-300 ${isTeamOpen
                   ? "visible translate-y-0 opacity-100"
                   : "invisible translate-y-2 opacity-0"
-              }`}
+                }`}
             >
               {teamLinks.map((item) => (
                 <Link
@@ -532,12 +531,12 @@ const Navbar = () => {
           </div>
 
           {/* INSIGHTS */}
-          <Link
+          {/* <Link
             to="/insights"
             className="whitespace-nowrap text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
           >
             Insights
-          </Link>
+          </Link> */}
 
           {/* CONTACT */}
           <Link
@@ -546,6 +545,16 @@ const Navbar = () => {
           >
             Hello Friends
           </Link>
+
+          {/* Hiring */}
+          <Link
+            to="/hiring"
+            className="whitespace-nowrap text-[14px] font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
+          >
+            Looking For Sherpa (Hiring)
+          </Link>
+
+
 
         </div>
 
@@ -590,9 +599,8 @@ const Navbar = () => {
       ================================= */}
 
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out xl:hidden ${
-          isOpen ? "max-h-[1100px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`overflow-hidden transition-all duration-300 ease-in-out xl:hidden ${isOpen ? "max-h-[1100px] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="border-t border-gray-100 px-5 pb-6 pt-4 sm:px-8">
 
@@ -605,6 +613,15 @@ const Navbar = () => {
               className="border-b border-gray-100 py-4 text-sm font-semibold text-[#171717] transition-colors hover:text-[#35a99b]"
             >
               Home
+            </Link>
+
+            {/* ABOUT */}
+            <Link
+              to="/about"
+              onClick={closeMenu}
+              className="border-b border-gray-100 py-4 text-sm font-semibold text-[#171717] transition-colors hover:text-[#35a99b]"
+            >
+              Our Adhaar Card
             </Link>
 
             {/* MOBILE MENU CARD */}
@@ -622,21 +639,19 @@ const Navbar = () => {
 
               <ChevronDown
                 size={17}
-                className={`relative z-10 transition-all duration-300 ${
-                  isServicesOpen
+                className={`relative z-10 transition-all duration-300 ${isServicesOpen
                     ? "rotate-180 text-[#35a99b]"
                     : "group-hover:rotate-180 group-hover:text-[#35a99b]"
-                }`}
+                  }`}
               />
             </button>
 
             {/* MOBILE SERVICES */}
             <div
-              className={`overflow-hidden transition-all duration-300 ${
-                isServicesOpen
+              className={`overflow-hidden transition-all duration-300 ${isServicesOpen
                   ? "max-h-[500px] opacity-100"
                   : "max-h-0 opacity-0"
-              }`}
+                }`}
             >
               <div className="border-b border-gray-100 py-2">
                 {services.map((service) => (
@@ -652,15 +667,6 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* ABOUT */}
-            <Link
-              to="/about"
-              onClick={closeMenu}
-              className="border-b border-gray-100 py-4 text-sm font-semibold text-[#171717] transition-colors hover:text-[#35a99b]"
-            >
-              Our Adhaar Card
-            </Link>
-
             {/* MOBILE TEAM DROPDOWN (KITNE AADMI HAI) */}
             <button
               type="button"
@@ -671,16 +677,14 @@ const Navbar = () => {
 
               <ChevronDown
                 size={17}
-                className={`transition-all duration-300 ${
-                  isTeamOpen ? "rotate-180 text-[#35a99b]" : ""
-                }`}
+                className={`transition-all duration-300 ${isTeamOpen ? "rotate-180 text-[#35a99b]" : ""
+                  }`}
               />
             </button>
 
             <div
-              className={`overflow-hidden transition-all duration-300 ${
-                isTeamOpen ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"
-              }`}
+              className={`overflow-hidden transition-all duration-300 ${isTeamOpen ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"
+                }`}
             >
               <div className="border-b border-gray-100 py-2">
                 {teamLinks.map((item) => (
@@ -696,15 +700,6 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* INSIGHTS */}
-            <Link
-              to="/insights"
-              onClick={closeMenu}
-              className="border-b border-gray-100 py-4 text-sm font-semibold text-[#171717] transition-colors hover:text-[#35a99b]"
-            >
-              Insights
-            </Link>
-
             {/* CONTACT */}
             <Link
               to="/contact"
@@ -713,6 +708,25 @@ const Navbar = () => {
             >
               Hello Friends
             </Link>
+
+            {/* Hiring */}
+            <Link
+              to="/hiring"
+              className="whitespace-nowrap text-[14px] py-4 font-semibold text-[#171717] transition-all duration-300 hover:-translate-y-[2px] hover:text-[#35a99b]"
+            >
+              Looking For Sherpa (Hiring)
+            </Link>
+
+            {/* INSIGHTS */}
+            {/* <Link
+              to="/insights"
+              onClick={closeMenu}
+              className="border-b border-gray-100 py-4 text-sm font-semibold text-[#171717] transition-colors hover:text-[#35a99b]"
+            >
+              Insights
+            </Link> */}
+
+
 
             {/* MOBILE LET'S TALK */}
             <Link

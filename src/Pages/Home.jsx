@@ -7,6 +7,7 @@ import WhyKonsolde from '../components/Home/WhyKonsolde'
 import ServicesGrid from '../components/Home/ServicesGrid'
 import CreateTogether from '../components/Home/CreateTogether'
 import AnimatedText from '../components/Home/AnimatedText'
+import Philosophy from '../components/Home/Philosophy'
 
 
 
@@ -19,24 +20,27 @@ const Home = () => {
       {/* part2  */}
       
       <ServicesIntro></ServicesIntro>
-      
+      <Philosophy></Philosophy>
       {/* part 3 */}
-      <ServicesGrid></ServicesGrid>
+      {/* <ServicesGrid></ServicesGrid> */}
 
 
       {/* part 4 */}
       
-      <OurWork></OurWork>
+      {/* <OurWork></OurWork> */}
 
      
       {/* part 5 */}
-      <AboutSection></AboutSection>
+      {/* <AboutSection></AboutSection> */}
 
       {/* part 6 */}
       
-      <WhyKonsolde></WhyKonsolde>
+      {/* <WhyKonsolde></WhyKonsolde> */}
+      
 
     <CreateTogether></CreateTogether>
+
+    
    
 
      </div>

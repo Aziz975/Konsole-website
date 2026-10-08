@@ -3,19 +3,22 @@ import CountUp from "./CountUp";
 
 const stats = [
   {
-    number: "500+",
+    number: "5000+",
     title: "Campaigns",
-    subtitle: "Executed",
+    // subtitle: "Executed",
   },
   {
-    number: "300+",
-    title: "Brands &",
-    subtitle: "Organizations",
+    number: "50+",
+    title: "Brands",
+    // subtitle: "Organizations",
   },
   {
     number: "50M+",
-    title: "People Reached",
-    subtitle: "Across Platforms",
+    title: "Impact",
+  },
+  {
+    number: "50B+",
+    title: "Views",
   },
 ];
 
@@ -46,7 +49,7 @@ export default function ServicesIntro() {
       {/* ================= STATS ================= */}
       <div className="border-b border-[#d7d7d4] px-5 py-16 sm:px-8 sm:py-20 md:px-10 md:py-24 lg:px-12 lg:py-[105px] xl:px-[60px]">
 
-        <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center lg:grid-cols-[minmax(420px,1.5fr)_repeat(3,minmax(180px,0.75fr))]">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center lg:grid-cols-[minmax(420px,1.5fr)_repeat(4,minmax(180px,0.75fr))]">
 
           {/* Main statement */}
           <div className="relative flex items-center justify-center gap-7 pb-12 lg:justify-start lg:pb-0 lg:pr-10">
@@ -85,39 +88,43 @@ export default function ServicesIntro() {
         </div>
       </div>
 
-      {/* ================= SERVICES INTRO ================= */}
-      <div className="px-6 py-20 sm:px-10 sm:py-24 md:px-12 md:py-28 lg:px-[40px] lg:py-[78px] xl:px-[42px] xl:py-[80px]">
-
-        <div className="mx-auto max-w-[1440px]">
-
-          {/* Handwritten label */}
-          <div className={`mb-7 text-[31px] font-normal leading-none tracking-[-0.02em] sm:text-[35px] md:text-[39px] lg:text-[40px] xl:text-[42px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.1s_forwards]" : "opacity-0 translate-y-[35px]"}`} style={{ fontFamily: "'Caveat', cursive" }}>
-            Our Services
-          </div>
-
-          {/* Main content */}
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:items-start lg:gap-16 xl:gap-[110px]">
-
-            {/* Heading */}
-            <div>
-              <h2 className={`max-w-[580px] text-[48px] font-bold leading-[1.02] tracking-[-0.05em] sm:text-[55px] md:text-[62px] lg:text-[58px] xl:text-[64px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.25s_forwards]" : "opacity-0 translate-y-[35px]"}`}>
-                More Than Just
-                <br />
-                Marketing
-              </h2>
-            </div>
-
-            {/* Description */}
-            <div className="flex items-start lg:pt-[25px] xl:pt-[27px]">
-              <p className={`max-w-[650px] text-[20px] font-normal leading-[1.5] tracking-[-0.025em] sm:text-[22px] md:text-[24px] lg:text-[21px] xl:text-[24px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.4s_forwards]" : "opacity-0 translate-y-[35px]"}`}>
-                From viral moments to policy conversations, we craft communication that gets noticed, builds credibility and drives real impact.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </div>
+      
 
     </section>
   );
 }
+
+      {/* ================= SERVICES INTRO ================= */}
+
+
+// <div className="px-6 py-20 sm:px-10 sm:py-24 md:px-12 md:py-28 lg:px-[40px] lg:py-[78px] xl:px-[42px] xl:py-[80px]">
+
+//         <div className="mx-auto max-w-[1440px]">
+
+//           {/* Handwritten label */}
+//           <div className={`mb-7 text-[31px] font-normal leading-none tracking-[-0.02em] sm:text-[35px] md:text-[39px] lg:text-[40px] xl:text-[42px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.1s_forwards]" : "opacity-0 translate-y-[35px]"}`} style={{ fontFamily: "'Caveat', cursive" }}>
+//             Our Services
+//           </div>
+
+//           {/* Main content */}
+//           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:items-start lg:gap-16 xl:gap-[110px]">
+
+//             {/* Heading */}
+//             <div>
+//               <h2 className={`max-w-[580px] text-[48px] font-bold leading-[1.02] tracking-[-0.05em] sm:text-[55px] md:text-[62px] lg:text-[58px] xl:text-[64px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.25s_forwards]" : "opacity-0 translate-y-[35px]"}`}>
+//                 More Than Just
+//                 <br />
+//                 Marketing
+//               </h2>
+//             </div>
+
+//             {/* Description */}
+//             <div className="flex items-start lg:pt-[25px] xl:pt-[27px]">
+//               <p className={`max-w-[650px] text-[20px] font-normal leading-[1.5] tracking-[-0.025em] sm:text-[22px] md:text-[24px] lg:text-[21px] xl:text-[24px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.4s_forwards]" : "opacity-0 translate-y-[35px]"}`}>
+//                 From viral moments to policy conversations, we craft communication that gets noticed, builds credibility and drives real impact.
+//               </p>
+//             </div>
+
+//           </div>
+//         </div>
+//       </div>
