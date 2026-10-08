@@ -5,7 +5,8 @@ import Footer from './components/Footer/Footer';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import ScrollToTop from './components/ScrollToTop';
-
+import TopupButton from './components/TopupButton';
+import { HiringPopupProvider } from "./components/HiringForm/HiringPopup";
 
 import Insights from './Pages/Insight';
 import Contact from './Pages/Contact';
@@ -22,7 +23,7 @@ import ORM from './components/Services/ORM';
 import OurTeam from './components/Team/OurTeam';
 import Hiring from './components/Hiring/Hiring';
 import OurManagement from './components/Management/ManagementTeam';
-
+// import HiringForm from './components/HiringForm/HiringForm';
 
 
 
@@ -34,7 +35,11 @@ const App = () => {
     <>
 
       <BrowserRouter>
+      
+
         <ScrollToTop />
+        <TopupButton />
+        <HiringPopupProvider>
         <Navbar></Navbar>
 
 
@@ -60,11 +65,14 @@ const App = () => {
           <Route path="/ourteam" element={<OurTeam />} />
           <Route path="/ourmanagement" element={<OurManagement />} />
           <Route path="/hiring" element={<Hiring />} />
+          {/* <Route path="/hiringform" element={<HiringForm />} /> */}
 
 
         </Routes>
 
         <Footer></Footer>
+        </HiringPopupProvider>
+
       </BrowserRouter>
     </>
   );

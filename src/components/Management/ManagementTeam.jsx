@@ -325,9 +325,111 @@
 
 
 
+//New code
+
+// import React from "react";
+
+// /* Typography (VideoProduction / ORM wali same styling) */
+// const h2Style = "font-bold leading-[1.02] tracking-[-0.045em]";
+// const bodyStyle = "font-normal leading-[1.5] tracking-[-0.01em]";
+// const btnText = "text-[15px] font-semibold";
+
+// const LinkedInIcon = () => (
+//   <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+//     <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+//   </svg>
+// );
+
+// /* ---------- Data (yahan apne asli naam, photo aur LinkedIn link daalo) ---------- */
+// const team = [
+//   {
+//     name: "Harpreet Dhody",
+//     role: "Group CEO",
+//     img: "/images/boss1.png",
+//     linkedin: "https://www.linkedin.com/in/harpreetdhody?",
+//   },
+//   {
+//     name: "Suyash Chandel",
+//     role: "Director",
+//     img: "/images/boss2.png",
+//     linkedin: "https://www.linkedin.com/in/suyash-chandel-20218616?",
+//   },
+//   {
+//     name: "Zama Khan",
+//     role: "Director",
+//     img: "/images/boss3.png",
+//     linkedin: "https://www.linkedin.com/in/zamauddinkhan?",
+//   },
+//   {
+//     name: "Amandeep Singh Bhatia",
+//     role: "Director",
+//     img: "/images/boss4.png",
+//     linkedin: "https://www.linkedin.com/in/amandeep14?",
+//   },
+// ];
+
+// const OurManagement = () => {
+//   return (
+//     <section className="bg-[#FAF9F6] px-4 py-16 sm:px-6 lg:px-8">
+//       <div className="mx-auto max-w-7xl text-center">
+//         {/* Section header */}
+//         <h2
+//           className={`${h2Style} text-[30px] text-gray-900 sm:text-[38px] md:text-[42px]`}
+//         >
+//           Our Leadership Team
+//         </h2>
+//         <p
+//           className={`${bodyStyle} mx-auto mt-4 max-w-2xl text-[17px] text-gray-500 sm:text-[18px] md:text-[19px]`}
+//         >
+//           Meet the minds driving our vision and strategy forward.
+//         </p>
+
+//         {/* Grid */}
+//         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+//           {team.map((m) => (
+//             <div
+//               key={m.name}
+//               className="flex flex-col items-center overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-xl"
+//             >
+//               <div className="relative mb-4 h-40 w-40 overflow-hidden rounded-full border-4 border-indigo-50 shadow-inner">
+//                 <img
+//                   className="h-full w-full object-cover object-center"
+//                   src={m.img}
+//                   alt={m.name}
+//                 />
+//               </div>
+
+//               <h3 className="text-[20px] font-bold leading-[1.1] tracking-[-0.03em] text-gray-900">
+//                 {m.name}
+//               </h3>
+//               <p
+//                 className={`${bodyStyle} mb-4 mt-1 text-[15px] font-medium text-indigo-600`}
+//               >
+//                 {m.role}
+//               </p>
+
+//               <a
+//                 href={m.linkedin}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className={`${btnText} mt-auto inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700`}
+//               >
+//                 <LinkedInIcon />
+//                 LinkedIn Profile
+//               </a>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// export default OurManagement;
 
 
-import React from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 
 /* Typography (VideoProduction / ORM wali same styling) */
 const h2Style = "font-bold leading-[1.02] tracking-[-0.045em]";
@@ -369,28 +471,51 @@ const team = [
 ];
 
 const OurManagement = () => {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-[#FAF9F6] px-4 py-16 sm:px-6 lg:px-8">
+    <section
+      ref={sectionRef}
+      className="bg-[#FAF9F6] px-4 py-16 sm:px-6 lg:px-8"
+    >
       <div className="mx-auto max-w-7xl text-center">
         {/* Section header */}
         <h2
-          className={`${h2Style} text-[30px] text-gray-900 sm:text-[38px] md:text-[42px]`}
+          className={`${h2Style} text-[30px] text-gray-900 sm:text-[38px] md:text-[42px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.1s_forwards]" : "translate-y-12 opacity-0"}`}
         >
           Our Leadership Team
         </h2>
         <p
-          className={`${bodyStyle} mx-auto mt-4 max-w-2xl text-[17px] text-gray-500 sm:text-[18px] md:text-[19px]`}
+          className={`${bodyStyle} mx-auto mt-4 max-w-2xl text-[17px] text-gray-500 sm:text-[18px] md:text-[19px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.25s_forwards]" : "translate-y-12 opacity-0"}`}
         >
           Meet the minds driving our vision and strategy forward.
         </p>
 
         {/* Grid */}
         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {team.map((m) => (
+          {team.map((m, index) => (
             <div
               key={m.name}
-              className="flex flex-col items-center overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-xl"
+              className={`${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-12 opacity-0"}`}
+              style={{ animationDelay: `${0.4 + index * 0.15}s` }}
             >
+            <div className="flex h-full flex-col items-center overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-3 hover:shadow-xl">
               <div className="relative mb-4 h-40 w-40 overflow-hidden rounded-full border-4 border-indigo-50 shadow-inner">
                 <img
                   className="h-full w-full object-cover object-center"
@@ -417,6 +542,7 @@ const OurManagement = () => {
                 <LinkedInIcon />
                 LinkedIn Profile
               </a>
+            </div>
             </div>
           ))}
         </div>

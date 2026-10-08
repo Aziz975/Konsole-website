@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { useHiringPopup } from "../HiringForm/HiringPopup";
 
 export default function StrategicStorytellingHero() {
+  const { openHiring } = useHiringPopup();
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
@@ -64,8 +66,8 @@ export default function StrategicStorytellingHero() {
                       <span
                         key={index}
                         className={`inline-block ${visible
-                            ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]"
-                            : "translate-y-[120%] opacity-0"
+                          ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]"
+                          : "translate-y-[120%] opacity-0"
                           }`}
                         style={{ animationDelay: `${(offset + index) * 0.045}s` }}
                       >
@@ -156,6 +158,15 @@ export default function StrategicStorytellingHero() {
         </div>
 
       </div>
+      {/* ================= HIRING BUTTON - BOTTOM RIGHT ================= */}
+      <button
+  type="button"
+  onClick={openHiring}
+  className="absolute bottom-5 right-5 z-30 inline-flex animate-pulse items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1fc66b] to-[#16a34a] px-5 py-3 text-[15px] font-semibold text-white shadow-[0_8px_30px_rgba(31,198,107,0.4)] transition-transform duration-300 hover:scale-105 sm:bottom-8 sm:right-8 sm:px-6 sm:py-3.5 sm:text-[16px]"
+>
+  <Sparkles className="h-5 w-5" strokeWidth={2} />
+  <span>We're Hiring</span>
+</button>
     </section>
   );
 }
