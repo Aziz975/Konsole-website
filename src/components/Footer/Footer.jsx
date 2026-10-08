@@ -105,6 +105,8 @@ export default function Footer() {
         viewport={{ once: true, amount: 0.15 }}
         className="relative mx-auto max-w-[1500px] px-5 py-16 sm:px-8 lg:px-10 xl:px-12"
       >
+        {/* <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_0.8fr_1.2fr] lg:gap-8 xl:gap-12"> */}
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:gap-8 xl:gap-12">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_0.8fr_1.2fr] lg:gap-8 xl:gap-12">
 
           {/* BRAND COLUMN */}
@@ -195,7 +197,7 @@ export default function Footer() {
           </motion.div>
 
 
-          {/* MENU CARD / SERVICES COLUMN */}
+          {/* MENU CARD / SERVICES COLUMN
           <motion.div variants={itemVariants}>
             <h3 className="relative inline-block text-lg font-semibold text-white">
               Menu Card
@@ -214,9 +216,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </motion.div> */}
 
-          {/* OUR ADHAAR CARD / COMPANY COLUMN */}
+          {/* OUR ADHAAR CARD / COMPANY COLUMN
           <motion.div variants={itemVariants}>
             <h3 className="relative inline-block text-lg font-semibold text-white">
               Our Adhaar Card
@@ -235,9 +237,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </motion.div> */}
 
-          {/* INSIGHTS COLUMN */}
+          {/* INSIGHTS COLUMN
           <motion.div variants={itemVariants}>
             <h3 className="relative inline-block text-lg font-semibold text-white">
               Insights
@@ -256,7 +258,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </motion.div> */}
 
           {/* HELLO FRIENDS / CONTACT COLUMN */}
           <motion.div variants={itemVariants}>
