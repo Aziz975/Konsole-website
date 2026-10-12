@@ -1,27 +1,28 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import { useRef, useState } from "react";
+import { Play, Pause } from "lucide-react";
 import { motion } from "motion/react";
 
 const workCards = [
   {
-    title: "Brand Film",
-    image: "/Service/brand-film.png",
-    accent: "#18c9e5",
-    position: "sm:mt-[-15px]",
+  
+    video: "/images/contentvideo1.mp4"
   },
   {
-    title: "Social Media",
-    image: "/Service/social-media-coffee.png",
-    accent: "#f4c92f",
-    position: "sm:mt-[20px]",
+
+    video: "/images/contentvideo1.mp4"
   },
   {
-    title: "Reel",
-    image: "/Service/collect-moment.png",
-    accent: "#f05b5e",
-    position: "sm:mt-[5px]",
+  
+    video: "/images/contentvideo1.mp4"
+  },
+  {
+ 
+    video: "/images/contentvideo1.mp4"
   },
 ];
+
 
 const stats = [
   {
@@ -89,11 +90,10 @@ export default function ContentCreation() {
     return text.split("").map((char, index) => (
       <span
         key={`${text}-${index}`}
-        className={`inline-block ${
-          visible
-            ? "animate-[letterReveal_0.65s_cubic-bezier(0.22,1,0.36,1)_forwards]"
-            : "translate-y-[120%] opacity-0"
-        } ${className}`}
+        className={`inline-block ${visible
+          ? "animate-[letterReveal_0.65s_cubic-bezier(0.22,1,0.36,1)_forwards]"
+          : "translate-y-[120%] opacity-0"
+          } ${className}`}
         style={{
           animationDelay: `${startDelay + index * 0.035}s`,
           ...(char === " " ? { width: "0.28em" } : {}),
@@ -152,7 +152,7 @@ export default function ContentCreation() {
         className="relative w-full overflow-hidden border-t border-[#15191c] bg-[#f7f6ee] text-[#111a21]"
       >
         {/* <div className="mx-auto grid min-h-[650px] max-w-[1300px] grid-cols-1 items-center px-4 py-14 sm:px-6 md:grid-cols-2 md:px-8 md:py-0 lg:min-h-[650px] lg:px-10 xl:min-h-[700px] xl:px-8"> */}
-<div className="mx-auto grid w-full max-w-[1540px] grid-cols-1 items-center px-5 py-12 sm:px-8 sm:py-14 md:px-10 md:py-16 lg:min-h-[680px] lg:grid-cols-2 lg:px-[6.5%] lg:py-12 xl:px-[7%]">
+        <div className="mx-auto grid w-full max-w-[1540px] grid-cols-1 items-center px-5 py-12 sm:px-8 sm:py-14 md:px-10 md:py-16 lg:min-h-[680px] lg:grid-cols-2 lg:px-[6.5%] lg:py-12 xl:px-[7%]">
           {/* HERO LEFT */}
 
           <div className="relative z-20 flex w-full flex-col items-start justify-center">
@@ -160,11 +160,10 @@ export default function ContentCreation() {
             {/* EYEBROW */}
 
             <p
-              className={`mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f05b5e] sm:text-[11px] md:text-[12px] ${
-                visible
-                  ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.1s_forwards]"
-                  : "translate-y-10 opacity-0"
-              }`}
+              className={`mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f05b5e] sm:text-[11px] md:text-[12px] ${visible
+                ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.1s_forwards]"
+                : "translate-y-10 opacity-0"
+                }`}
             >
               CONTENT CREATION
             </p>
@@ -194,23 +193,21 @@ export default function ContentCreation() {
             {/* HERO SUBHEADING */}
 
             <p
-              className={`mt-7 max-w-[500px] text-[15px] font-normal leading-[1.5] tracking-[-0.01em] text-[#68737b] sm:text-[16px] md:text-[17px] lg:mt-8 lg:text-[18px] ${
-                visible
-                  ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.75s_forwards]"
-                  : "translate-y-10 opacity-0"
-              }`}
+              className={`mt-7 max-w-[500px] text-[15px] font-normal leading-[1.5] tracking-[-0.01em] text-[#68737b] sm:text-[16px] md:text-[17px] lg:mt-8 lg:text-[18px] ${visible
+                ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.75s_forwards]"
+                : "translate-y-10 opacity-0"
+                }`}
             >
-             Content is the foundation of your digital identity. Our creative team develops high-quality, tailored content that resonates with your target audience and aligns perfectly with your brand voice. From insightful blog posts and persuasive copy to striking graphics and interactive media, we create assets that educate, entertain, and convert.
+              Content is the foundation of your digital identity. Our creative team develops high-quality, tailored content that resonates with your target audience and aligns perfectly with your brand voice. From insightful blog posts and persuasive copy to striking graphics and interactive media, we create assets that educate, entertain, and convert.
             </p>
 
             {/* HERO BUTTON */}
 
             <div
-              className={`mt-7 sm:mt-8 ${
-                visible
-                  ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.9s_forwards]"
-                  : "translate-y-10 opacity-0"
-              }`}
+              className={`mt-7 sm:mt-8 ${visible
+                ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.9s_forwards]"
+                : "translate-y-10 opacity-0"
+                }`}
             >
               <motion.button
                 whileHover={{
@@ -245,11 +242,10 @@ export default function ContentCreation() {
           <div className="relative mt-12 flex h-[320px] w-full items-center justify-center md:mt-0 md:h-full md:justify-end">
 
             <div
-              className={`relative h-full w-full ${
-                visible
-                  ? "animate-[fadeUp_1s_cubic-bezier(0.22,1,0.36,1)_0.3s_forwards]"
-                  : "translate-y-14 opacity-0"
-              }`}
+              className={`relative h-full w-full ${visible
+                ? "animate-[fadeUp_1s_cubic-bezier(0.22,1,0.36,1)_0.3s_forwards]"
+                : "translate-y-14 opacity-0"
+                }`}
             >
               <img
                 src="/images/content-creation-hero-visual.png"
@@ -298,7 +294,7 @@ export default function ContentCreation() {
             </p>
 
             <h2 className="max-w-[560px] text-[48px] font-bold leading-[0.96] tracking-[-0.045em] text-[#f5f7f7] sm:text-[58px] md:text-[50px] lg:text-[70px] xl:text-[60px]">
-              Content that    
+              Content that
               <br />
               Educates and Entertains.
             </h2>
@@ -335,7 +331,7 @@ export default function ContentCreation() {
 
           {/* RIGHT CARDS */}
 
-          <div className="relative flex w-full items-center justify-center lg:w-[58%] xl:w-[60%]">
+          <div className="relative flex w-full items-center justify-center lg:w-[65%] xl:w-[60%]">
 
             {/* DECORATION */}
 
@@ -385,25 +381,30 @@ export default function ContentCreation() {
 
             {/* CARDS */}
 
-            <div className="grid w-full grid-cols-1 gap-7 sm:grid-cols-3 sm:gap-4 md:gap-5 lg:gap-4 xl:gap-5">
 
-              {workCards.map((card, index) => (
+            {workCards.map((card, index) => {
+              const videoRef = useRef(null);
+              const [isPlaying, setIsPlaying] = useState(true);
+
+              const toggleVideo = () => {
+                const video = videoRef.current;
+                if (!video) return;
+
+                if (video.paused) {
+                  video.play();
+                  setIsPlaying(true);
+                } else {
+                  video.pause();
+                  setIsPlaying(false);
+                }
+              };
+
+              return (
                 <motion.article
                   key={card.title}
-                  initial={{
-                    opacity: 0,
-                    y: 45,
-                    scale: 0.96,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                  }}
-                  viewport={{
-                    once: false,
-                    amount: 0.2,
-                  }}
+                  initial={{ opacity: 0, y: 45, scale: 0.96 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: false, amount: 0.2 }}
                   transition={{
                     duration: 0.7,
                     delay: index * 0.12,
@@ -411,117 +412,79 @@ export default function ContentCreation() {
                   }}
                   className={`group relative w-full ${card.position}`}
                 >
-
                   <motion.div
-                    whileHover={{
-                      y: -9,
-                      scale: 1.018,
-                    }}
-                    transition={{
-                      duration: 0.4,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                    className="relative aspect-[0.67] w-full overflow-hidden rounded-[14px] border border-[#25343a] bg-[#111b20] shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-colors duration-300 group-hover:border-[#405158] group-hover:shadow-[0_22px_45px_rgba(0,0,0,0.42)]"
+                    whileHover={{ y: -9, scale: 1.018 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    className="relative aspect-[0.7] w-full overflow-hidden rounded-[14px] border border-[#25343a] bg-[#111b20] shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-colors duration-300 group-hover:border-[#405158] group-hover:shadow-[0_22px_45px_rgba(0,0,0,0.42)]"
                   >
-
-                    {/* IMAGE */}
-
-                    <motion.img
-                      src={card.image}
-                      alt={card.title}
+                    {/* VIDEO */}
+                    <motion.video
+                      ref={videoRef}
+                      src={card.video}
+                      loop
+                      playsInline
+                      preload="metadata"
                       className="h-full w-full object-cover"
-                      whileHover={{
-                        scale: 1.07,
-                        y: -4,
-                      }}
-                      transition={{
-                        duration: 0.7,
-                        ease: [0.22, 1, 0.36, 1],
-                      }}
+                      whileHover={{ scale: 1.07, y: -4 }}
+                      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                     />
 
                     {/* DARK OVERLAY */}
-
                     <motion.div
                       className="pointer-events-none absolute inset-0"
-                      initial={{
-                        opacity: 0,
-                      }}
-                      whileHover={{
-                        opacity: 1,
-                      }}
-                      transition={{
-                        duration: 0.35,
-                      }}
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.35 }}
                       style={{
                         background: `linear-gradient(to top, ${card.accent}22, transparent 55%)`,
                       }}
                     />
 
                     {/* TOP ACCENT */}
-
                     <motion.div
                       className="absolute left-0 top-0 h-[3px]"
-                      initial={{
-                        width: "0%",
-                      }}
-                      whileHover={{
-                        width: "100%",
-                      }}
-                      transition={{
-                        duration: 0.45,
-                        ease: "easeOut",
-                      }}
-                      style={{
-                        backgroundColor: card.accent,
-                      }}
+                      initial={{ width: "0%" }}
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.45, ease: "easeOut" }}
+                      style={{ backgroundColor: card.accent }}
                     />
 
-                    {/* LABEL */}
 
-                    <motion.div
-                      initial={{
-                        y: 0,
-                      }}
-                      whileHover={{
-                        y: -5,
-                      }}
-                      transition={{
-                        duration: 0.3,
-                        ease: "easeOut",
-                      }}
-                      className="absolute bottom-3 left-3 rounded-[7px] bg-white px-3 py-1.5 text-[9px] font-extrabold text-[#182126] shadow-[0_3px_10px_rgba(0,0,0,0.2)] sm:text-[10px]"
+                    {/* CENTER PLAY / PAUSE BUTTON */}
+
+                    <motion.button
+                      type="button"
+                      onClick={toggleVideo}
+                      aria-label={isPlaying ? `Pause ${card.title} video` : `Play ${card.title} video`}
+                      whileHover={{ scale: 1.12 }}
+                      whileTap={{ scale: 0.9 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute left-1/2 top-1/2 z-20 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/45 text-white opacity-0 shadow-[0_4px_25px_rgba(0,0,0,0.3)] backdrop-blur-md transition-all duration-300 group-hover:opacity-100 hover:bg-black/70 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:h-16 sm:w-16"
                     >
-                      {card.title}
-                    </motion.div>
+                      {isPlaying ? (
+                        <Pause size={23} strokeWidth={2} fill="white" />
+                      ) : (
+                        <Play size={23} strokeWidth={2} fill="white" className="ml-1" />
+                      )}
+                    </motion.button>
 
-                    {/* SMALL HOVER DOT */}
 
+                    {/* HOVER DOT */}
                     <motion.span
-                      initial={{
-                        opacity: 0,
-                        scale: 0,
-                      }}
-                      whileHover={{
-                        opacity: 1,
-                        scale: 1,
-                      }}
-                      transition={{
-                        duration: 0.25,
-                      }}
-                      className="absolute right-4 top-4 h-[8px] w-[8px] rounded-full"
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileHover={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.25 }}
+                      className="absolute right-4 top-4 z-10 h-[8px] w-[8px] rounded-full"
                       style={{
                         backgroundColor: card.accent,
                         boxShadow: `0 0 15px ${card.accent}`,
                       }}
                     />
-
                   </motion.div>
-
                 </motion.article>
-              ))}
+              );
+            })}
 
-            </div>
           </div>
         </div>
 
@@ -583,7 +546,7 @@ export default function ContentCreation() {
             <p className="mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f05b5e] sm:text-[11px] md:text-[12px]">
               LET&apos;S CREATE
             </p>
- 
+
             <h2 className="max-w-[560px] text-[48px] font-bold leading-[0.96] tracking-[-0.045em] text-[#111a21] sm:text-[58px] md:text-[50px] lg:text-[70px] xl:text-[60px]">
               Your brand voice
               <br />
@@ -593,7 +556,7 @@ export default function ContentCreation() {
             <p className="mt-7 max-w-[500px] text-[15px] font-normal leading-[1.5] tracking-[-0.01em] text-[#687075] sm:text-[16px] md:text-[17px] lg:mt-8 lg:text-[18px]">
               Whether you're launching a product, rebranding or building a steady content calendar, we create content that fits your brand voice and connects with your audience.
             </p>
-            
+
 
             <motion.button
               whileHover={{
@@ -675,15 +638,13 @@ export default function ContentCreation() {
                       transition={{
                         duration: 0.3,
                       }}
-                      className={`group relative overflow-hidden px-2 ${
-                        isTop
-                          ? "border-b border-[#26343a] pb-6 sm:pb-7"
-                          : "pt-6 sm:pt-7"
-                      } ${
-                        isLeft
+                      className={`group relative overflow-hidden px-2 ${isTop
+                        ? "border-b border-[#26343a] pb-6 sm:pb-7"
+                        : "pt-6 sm:pt-7"
+                        } ${isLeft
                           ? "border-r border-[#26343a] sm:px-4"
                           : "sm:px-5"
-                      }`}
+                        }`}
                     >
 
                       {/* HOVER ACCENT */}

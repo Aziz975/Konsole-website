@@ -1,64 +1,349 @@
-import React from "react";
-import { motion } from "motion/react";
+
+import React, { useRef, useState } from "react";
+import {
+  motion,
+  MotionConfig,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "motion/react";
+
+/* =========================================================
+   SHARED THEME
+========================================================= */
+
+const EASE = [0.22, 1, 0.36, 1];
+const BASE_DELAY = 0.7;
+
+const COLORS = {
+  dark: "#080B0D",
+  darkCard: "#151A1D",
+  offWhite: "#FAF8F3",
+  white: "#FFFFFF",
+  yellow: "#FFD21C",
+  coral: "#FF6268",
+  blue: "#3980FF",
+  green: "#00C98D",
+  muted: "#BFC5C5",
+  border: "#D6D4CE",
+};
+
+/* =========================================================
+   LETTER REVEAL
+========================================================= */
+
+const LetterReveal = ({
+  text,
+  className = "",
+  inView = false,
+  delay = 0,
+  stagger = 0.045,
+  wave = null,
+}) => {
+  const container = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: stagger,
+        delayChildren: delay,
+      },
+    },
+  };
+
+  const letter = {
+    hidden: {
+      y: "115%",
+      rotate: 10,
+      opacity: 0,
+      filter: "blur(8px)",
+    },
+    visible: {
+      y: "0%",
+      rotate: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      transition: { duration: 0.9, ease: EASE },
+    },
+  };
+
+  const trigger = inView
+    ? {
+      initial: "hidden",
+      whileInView: "visible",
+      viewport: { once: true, amount: 0.4 },
+    }
+    : {
+      initial: "hidden",
+      animate: "visible",
+    };
+
+  const words = text.split(" ");
+  let letterIndex = 0;
+
+  return (
+    <motion.span
+      variants={container}
+      {...trigger}
+      className={`inline-block ${className}`}
+      aria-label={text}
+    >
+      {words.map((word, wi) => (
+        <React.Fragment key={wi}>
+          <span className="inline-block whitespace-nowrap" aria-hidden="true">
+            {word.split("").map((char) => {
+              const i = letterIndex++;
+
+              return (
+                <span
+                  key={i}
+                  className="-mb-[0.14em] inline-block overflow-hidden pb-[0.14em] align-bottom"
+                >
+                  <motion.span
+                    variants={letter}
+                    className="inline-block origin-bottom-left"
+                  >
+                    {wave ? (
+                      <motion.span
+                        className="inline-block"
+                        animate={{ color: [wave.from, wave.to, wave.from] }}
+                        transition={{
+                          duration: 2.4,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: delay + 1 + i * 0.12,
+                        }}
+                      >
+                        {char}
+                      </motion.span>
+                    ) : (
+                      char
+                    )}
+                  </motion.span>
+                </span>
+              );
+            })}
+          </span>
+
+          {wi < words.length - 1 && (
+            <span className="inline-block w-[0.26em]" aria-hidden="true" />
+          )}
+        </React.Fragment>
+      ))}
+    </motion.span>
+  );
+};
+
+/* =========================================================
+   TEAM CARD
+========================================================= */
+
+const GLOW_REST =
+  "0 5px 20px rgba(8,11,13,0.07), 0 0 0 1px rgba(8,11,13,0.04)";
+
+const GLOW_HOVER =
+  "0 0 0 1px rgba(57,128,255,0.6), 0 18px 45px rgba(57,128,255,0.15), 0 0 35px rgba(255,98,104,0.1)";
+
+const TeamCard = ({
+  src,
+  alt,
+  className = "",
+  radius = "18px",
+  from = { y: 60, scale: 0.88 },
+  hoverScale = 1.025,
+  index = 0,
+  lazy = true,
+}) => {
+  const card = {
+    hidden: {
+      opacity: 0,
+      y: from.y,
+      x: from.x || 0,
+      scale: from.scale,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+      scale: 1,
+      boxShadow: GLOW_REST,
+      transition: { duration: 0.85, ease: EASE },
+    },
+    hover: {
+      scale: hoverScale,
+      y: -6,
+      boxShadow: GLOW_HOVER,
+      transition: {
+        type: "spring",
+        stiffness: 260,
+        damping: 22,
+      },
+    },
+  };
+
+  const image = {
+    hidden: { scale: 1.25 },
+    visible: {
+      scale: 1,
+      transition: { duration: 1.4, ease: EASE },
+    },
+    hover: {
+      scale: 1.07,
+      transition: { duration: 0.8, ease: EASE },
+    },
+  };
+
+  const shine = {
+    hidden: { x: "-160%" },
+    visible: {
+      x: "-160%",
+      transition: { duration: 0 },
+    },
+    hover: {
+      x: "160%",
+      transition: { duration: 0.9, ease: "easeInOut" },
+    },
+  };
+
+  const hoverBorder = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 0 },
+    hover: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  return (
+    <motion.div
+      variants={card}
+      whileHover="hover"
+      style={{ borderRadius: radius }}
+      className={`group relative flex flex-col justify-end overflow-hidden border border-[#D6D4CE] bg-[#EAE8E2] will-change-transform ${className}`}
+    >
+      <motion.img
+        variants={image}
+        src={src}
+        alt={alt}
+        loading={lazy ? "lazy" : undefined}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080B0D]/40 via-transparent to-transparent" />
+
+      <motion.div
+        aria-hidden="true"
+        animate={{ opacity: [0.08, 0.28, 0.08], scale: [1, 1.15, 1] }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: index * 0.6,
+        }}
+        className="pointer-events-none absolute -right-12 -top-12 h-[140px] w-[140px] rounded-full bg-[#3980FF]/20 blur-[55px]"
+      />
+
+      <motion.div
+        aria-hidden="true"
+        animate={{ opacity: [0.06, 0.2, 0.06], scale: [1, 1.15, 1] }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1 + index * 0.6,
+        }}
+        className="pointer-events-none absolute -bottom-12 -left-12 h-[140px] w-[140px] rounded-full bg-[#FF6268]/15 blur-[55px]"
+      />
+
+      <motion.div
+        aria-hidden="true"
+        variants={shine}
+        className="pointer-events-none absolute inset-y-0 left-0 w-[40%] skew-x-[-20deg] bg-gradient-to-r from-transparent via-white/20 to-transparent"
+      />
+
+      <motion.div
+        aria-hidden="true"
+        variants={hoverBorder}
+        style={{ borderRadius: radius }}
+        className="pointer-events-none absolute inset-0 border border-[#3980FF]/70"
+      />
+    </motion.div>
+  );
+};
+
+/* =========================================================
+   FLOATING PARTICLES
+========================================================= */
+
+const PARTICLES = [
+  { left: "6%", top: "78%", size: 5, dur: 7, delay: 0 },
+  { left: "14%", top: "30%", size: 3, dur: 9, delay: 1.2 },
+  { left: "22%", top: "62%", size: 4, dur: 8, delay: 0.6 },
+  { left: "33%", top: "18%", size: 3, dur: 10, delay: 2 },
+  { left: "41%", top: "84%", size: 5, dur: 7.5, delay: 1.5 },
+  { left: "52%", top: "40%", size: 3, dur: 9.5, delay: 0.3 },
+  { left: "60%", top: "12%", size: 4, dur: 8.5, delay: 2.4 },
+  { left: "68%", top: "70%", size: 3, dur: 7, delay: 1 },
+  { left: "77%", top: "26%", size: 5, dur: 10, delay: 0.9 },
+  { left: "85%", top: "56%", size: 3, dur: 8, delay: 1.8 },
+  { left: "92%", top: "16%", size: 4, dur: 9, delay: 0.4 },
+  { left: "95%", top: "82%", size: 3, dur: 7.5, delay: 2.2 },
+];
+
+/* =========================================================
+   PAGE
+========================================================= */
 
 const OurTeam = () => {
   const teamMembers = [
-    {
-      imgSrc: "/images/team-2.jpg",
-    },
-    {
-      imgSrc: "/images/team-3.jpg",
-    },
-    {
-      imgSrc: "/images/team-4.jpg",
-    },
-    {
-      imgSrc: "/images/team-5.jpg",
-    },
+    { imgSrc: "/images/team2.jpeg", role: "Team member 1" },
+    { imgSrc: "/images/team3", role: "Team member 2" },
+    { imgSrc: "/images/", role: "Team member 3" },
+    { imgSrc: "/images/", role: "Team member 4" },
   ];
 
-  /* =========================================================
-     ANIMATION VARIANTS
-  ========================================================= */
+  // Selected image is shown in the large photo on the left.
+  const [selectedPhoto, setSelectedPhoto] = useState({
+    src: "/images/team1.jpeg",
+    alt: "Founding Leadership",
+  });
+
+  const heroRef = useRef(null);
+
+  const { scrollYProgress: pageProgress } = useScroll();
+
+  const progressScale = useSpring(pageProgress, {
+    stiffness: 120,
+    damping: 24,
+    restDelta: 0.001,
+  });
+
+  const { scrollYProgress: heroProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  const heroTextY = useTransform(heroProgress, [0, 1], [0, 70]);
+  const glowY = useTransform(heroProgress, [0, 1], [0, -130]);
+
+  /* ANIMATION VARIANTS */
 
   const heroTextContainer = {
     hidden: {},
     visible: {
       transition: {
+        delayChildren: BASE_DELAY,
         staggerChildren: 0.12,
       },
     },
   };
 
   const heroTextItem = {
-    hidden: {
-      opacity: 0,
-      y: 45,
-      filter: "blur(8px)",
-    },
+    hidden: { opacity: 0, y: 45, filter: "blur(8px)" },
     visible: {
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const sectionReveal = {
-    hidden: {
-      opacity: 0,
-      y: 45,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      },
+      transition: { duration: 0.8, ease: EASE },
     },
   };
 
@@ -66,557 +351,466 @@ const OurTeam = () => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.12,
+        staggerChildren: 0.14,
+        delayChildren: 0.1,
       },
     },
   };
 
-  const cardReveal = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-      scale: 0.96,
-    },
+  const sectionFade = {
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.75,
-        ease: [0.22, 1, 0.36, 1],
-      },
+      transition: { duration: 0.7, ease: EASE },
+    },
+  };
+
+  const barsContainer = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.18 },
+    },
+  };
+
+  const bar = {
+    hidden: { scaleX: 0, opacity: 0 },
+    visible: {
+      scaleX: 1,
+      opacity: 1,
+      transition: { duration: 0.7, ease: EASE },
     },
   };
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[#faf8f3] font-[Lato,Arial,sans-serif] text-[#080b0e]">
-
-      {/* =========================================================
-          HERO SECTION
-      ========================================================= */}
-
-      <section className="relative w-full overflow-hidden bg-[#080b0d] px-6 py-14 text-white sm:px-10 md:px-14 md:py-20 lg:px-[4.7%]">
-
-        {/* ================= BACKGROUND ANIMATION ================= */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            scale: 0.7,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-          }}
-          transition={{
-            duration: 1.5,
-            ease: "easeOut",
-          }}
-          className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-[#ff4d57]/10 blur-[120px]"
-        />
+    <MotionConfig reducedMotion="user">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="min-h-screen overflow-hidden bg-[#FAF8F3] font-[Arial,sans-serif] text-[#080B0D]"
+      >
+        {/* PAGE LOAD CURTAIN */}
 
         <motion.div
-          initial={{
-            opacity: 0,
-            scale: 0.6,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-          }}
+          aria-hidden="true"
+          initial={{ y: 0 }}
+          animate={{ y: "-100%" }}
           transition={{
-            duration: 1.8,
-            delay: 0.2,
-            ease: "easeOut",
+            duration: 0.95,
+            delay: 0.15,
+            ease: [0.76, 0, 0.24, 1],
           }}
-          className="pointer-events-none absolute -bottom-40 -left-40 h-[450px] w-[450px] rounded-full bg-[#22b5e8]/5 blur-[130px]"
-        />
+          className="pointer-events-none fixed inset-0 z-[70] bg-[#080B0D]"
+        >
+          <div className="absolute bottom-0 left-0 h-[4px] w-full bg-gradient-to-r from-[#FF6268] via-[#3980FF] to-[#FFD21C]" />
+        </motion.div>
 
-        {/* Moving Glow */}
+        {/* SCROLL PROGRESS */}
 
         <motion.div
-          animate={{
-            x: [0, 80, 0],
-            y: [0, -40, 0],
-            opacity: [0.12, 0.25, 0.12],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="pointer-events-none absolute left-[40%] top-[20%] h-[180px] w-[180px] rounded-full bg-[#ff4d57]/10 blur-[100px]"
+          aria-hidden="true"
+          style={{ scaleX: progressScale }}
+          className="fixed left-0 right-0 top-0 z-[60] h-[3px] origin-left bg-gradient-to-r from-[#FF6268] via-[#3980FF] to-[#FFD21C]"
         />
 
-        <div className="relative z-10 mx-auto grid max-w-[1500px] grid-cols-1 items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+        {/* HERO SECTION */}
 
-          {/* =====================================================
-              LEFT CONTENT
-          ===================================================== */}
-
+        <section
+          ref={heroRef}
+          className="relative w-full overflow-hidden bg-[#080B0D] px-6 py-10 text-white sm:px-10 sm:py-12 md:px-14 md:py-14 lg:px-[7%] lg:py-16"
+        >
           <motion.div
-            variants={heroTextContainer}
-            initial="hidden"
-            animate="visible"
-            className="z-10"
-          >
-
-            {/* Small Label */}
-
-            <motion.p
-              variants={heroTextItem}
-              className="mb-2 text-[24px] leading-none tracking-[-0.02em] text-white sm:text-[25px] md:text-[27px]"
-            >
-              Meet Our
-            </motion.p>
-
-            {/* Heading */}
-
-            <motion.h1
-              variants={heroTextItem}
-              className="max-w-[650px] text-[50px] font-bold leading-[0.94] tracking-[-0.055em] text-white sm:text-[62px] md:text-[72px] lg:text-[76px]"
-            >
-              <motion.span
-                initial={{
-                  color: "#ff4d57",
-                }}
-                animate={{
-                  color: ["#ff4d57", "#ff6871", "#ff4d57"],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                Team
-              </motion.span>
-            </motion.h1>
-
-            {/* Red Accent Line */}
-
-            <motion.div
-              initial={{
-                width: 0,
-                opacity: 0,
-              }}
-              animate={{
-                width: 118,
-                opacity: 1,
-              }}
-              transition={{
-                duration: 0.8,
-                delay: 0.7,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="mt-5 h-[5px] rounded-full bg-[#ff4d57]"
-            />
-
-            {/* Paragraph */}
-
-            <motion.p
-              variants={heroTextItem}
-              className="mt-5 max-w-[680px] text-[15px] font-normal leading-[1.75] text-[#c5ccd1] sm:text-[16px] md:text-[17px]"
-            >
-              We are digital thinkers, strategists, creators, and problem
-              solvers working together to build incredible web experiences.
-            </motion.p>
-
-          </motion.div>
-
-
-          {/* =====================================================
-              RIGHT HERO IMAGE
-          ===================================================== */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: 60,
-              scale: 0.94,
-            }}
-            animate={{
-              opacity: 1,
-              x: 0,
-              scale: 1,
-            }}
-            transition={{
-              duration: 1,
-              delay: 0.2,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            whileHover={{
-              y: -6,
-              scale: 1.015,
-            }}
-            className="group relative h-[300px] w-full overflow-hidden rounded-[28px] border border-[#273035] bg-[#151a1d] shadow-[0_20px_60px_rgba(0,0,0,0.28)] sm:h-[360px] md:h-[420px]"
-          >
-
-            {/* Image */}
-
-            <motion.img
-              src="/images/aboutimg.jpg"
-              alt="Our Team Hero"
-              initial={{
-                scale: 1.12,
-              }}
-              animate={{
-                scale: 1,
-              }}
-              transition={{
-                duration: 1.5,
-                delay: 0.25,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            />
-
-            {/* Dark Gradient */}
-
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080b0d]/65 via-transparent to-transparent" />
-
-            {/* Blue Glow */}
-
-            <motion.div
-              animate={{
-                opacity: [0.1, 0.22, 0.1],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="pointer-events-none absolute -right-20 -top-20 h-[180px] w-[180px] rounded-full bg-[#22b5e8]/20 blur-[70px]"
-            />
-
-            {/* Shine Animation */}
-
-            <motion.div
-              initial={{
-                x: "-150%",
-              }}
-              animate={{
-                x: "150%",
-              }}
-              transition={{
-                duration: 1.4,
-                delay: 0.7,
-                ease: "easeInOut",
-              }}
-              className="pointer-events-none absolute inset-y-0 left-0 w-[35%] skew-x-[-20deg] bg-gradient-to-r from-transparent via-white/15 to-transparent"
-            />
-
-            {/* Floating Border */}
-
-            <motion.div
-              animate={{
-                opacity: [0.15, 0.4, 0.15],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="pointer-events-none absolute inset-0 rounded-[28px] border border-[#ff4d57]/30"
-            />
-
-          </motion.div>
-
-        </div>
-      </section>
-
-
-      {/* =========================================================
-          MANAGEMENT TEAM SECTION
-      ========================================================= */}
-
-      <section className="mx-auto max-w-[1500px] px-5 py-12 sm:px-8 sm:py-14 md:px-10 md:py-16 lg:px-[4.3%] lg:py-20">
-
-        {/* =====================================================
-            SECTION HEADING
-        ===================================================== */}
-
-        <div className="mb-8 md:mb-10 lg:mb-12">
-
-          {/* Subheading */}
-
-          <motion.p
-            initial={{
-              opacity: 0,
-              x: -35,
-              letterSpacing: "0.18em",
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              letterSpacing: "-0.02em",
-            }}
-            viewport={{
-              once: false,
-              amount: 0.3,
-            }}
-            transition={{
-              duration: 0.7,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="mb-1 text-[24px] leading-tight tracking-[-0.02em] text-[#080b0d] sm:text-[25px] md:text-[27px]"
-          >
-            Management Team
-          </motion.p>
-
-          {/* Main Heading */}
-
-          <motion.h2
-            variants={sectionReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{
-              once: false,
-              amount: 0.3,
-            }}
-            className="max-w-[650px] text-[48px] font-bold leading-[0.96] tracking-[-0.05em] text-[#080b0d] sm:text-[56px] md:text-[62px] lg:text-[66px]"
-          >
-            We are digital thinkers, strategists, and creators.
-          </motion.h2>
-
-          {/* Accent */}
-
-          <motion.div
-            initial={{
-              width: 0,
-            }}
-            whileInView={{
-              width: 118,
-            }}
-            viewport={{
-              once: false,
-              amount: 0.3,
-            }}
-            transition={{
-              duration: 0.7,
-              delay: 0.2,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="mt-5 h-[5px] rounded-full bg-[#ff4d57]"
+            style={{ y: glowY }}
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="pointer-events-none absolute -right-32 -top-32 h-[380px] w-[380px] rounded-full bg-[#FF6268]/10 blur-[120px]"
           />
 
-        </div>
-
-
-        {/* =====================================================
-            TEAM GRID
-        ===================================================== */}
-
-        <motion.div
-          variants={cardsContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{
-            once: false,
-            amount: 0.12,
-          }}
-          className="grid grid-cols-1 gap-5 lg:grid-cols-12"
-        >
-
-          {/* ===================================================
-              BIG FEATURED BOX
-          =================================================== */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.6 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.8, delay: 0.2, ease: "easeOut" }}
+            className="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-[#3980FF]/5 blur-[130px]"
+          />
 
           <motion.div
-            variants={cardReveal}
-            whileHover={{
-              y: -7,
-              transition: {
-                duration: 0.35,
-                ease: "easeOut",
-              },
+            animate={{
+              x: [0, 80, 0],
+              y: [0, -40, 0],
+              opacity: [0.08, 0.18, 0.08],
             }}
-            className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden rounded-[28px] border border-[#d8d9d7] bg-[#eeece6] shadow-[0_8px_30px_rgba(8,11,14,0.06)] lg:col-span-7 lg:min-h-[500px]"
-          >
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="pointer-events-none absolute left-[40%] top-[20%] h-[180px] w-[180px] rounded-full bg-[#FFD21C]/10 blur-[100px]"
+          />
 
-            {/* Image */}
-
-            <motion.img
-              src="/images/team-1.jpg"
-              alt="Founding Leadership"
-              className="absolute inset-0 h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
-              whileHover={{
-                scale: 1.06,
+          {PARTICLES.map((p, i) => (
+            <motion.span
+              key={i}
+              aria-hidden="true"
+              style={{
+                left: p.left,
+                top: p.top,
+                width: p.size,
+                height: p.size,
               }}
+              animate={{ y: [0, -36, 0], opacity: [0, 0.55, 0] }}
               transition={{
-                duration: 0.8,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            />
-
-            {/* Dark Gradient */}
-
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent"
-              initial={{
-                opacity: 0.78,
-              }}
-              whileHover={{
-                opacity: 1,
-              }}
-              transition={{
-                duration: 0.4,
-              }}
-            />
-
-            {/* Moving Overlay */}
-
-            <motion.div
-              animate={{
-                x: ["-100%", "100%"],
-              }}
-              transition={{
-                duration: 6,
+                duration: p.dur,
                 repeat: Infinity,
-                repeatDelay: 4,
                 ease: "easeInOut",
+                delay: BASE_DELAY + p.delay,
               }}
-              className="pointer-events-none absolute inset-y-0 w-[30%] skew-x-[-20deg] bg-gradient-to-r from-transparent via-white/[0.05] to-transparent"
+              className="pointer-events-none absolute rounded-full bg-white/60"
             />
+          ))}
 
-            {/* Red Glow */}
-
-            <div className="pointer-events-none absolute -right-20 -top-20 h-[180px] w-[180px] rounded-full bg-[#ff4d57]/10 blur-[70px]" />
-
-            {/* Bottom Overlay Label */}
+          <div className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+            {/* LEFT CONTENT */}
 
             <motion.div
-              initial={{
-                y: 20,
-                opacity: 0,
-              }}
-              whileInView={{
-                y: 0,
-                opacity: 1,
-              }}
-              viewport={{
-                once: false,
-              }}
-              transition={{
-                duration: 0.7,
-                delay: 0.25,
-              }}
-              className="relative z-10 border-t border-white/10 bg-[#080b0d]/90 px-6 py-5 backdrop-blur-sm"
+              style={{ y: heroTextY }}
+              variants={heroTextContainer}
+              initial="hidden"
+              animate="visible"
+              className="z-10"
             >
+              <motion.p
+                variants={heroTextItem}
+                className="mb-2 text-[21px] font-medium leading-tight tracking-[-0.025em] text-white sm:text-[23px] md:text-[25px]"
+              >
+                Meet Our
+              </motion.p>
 
-              <h3 className="text-[21px] font-bold leading-tight tracking-[-0.025em] text-white md:text-[24px]">
-                Founding Leadership
-              </h3>
+              <h1 className="max-w-[650px] text-[48px] font-bold leading-[0.94] tracking-[-0.055em] text-white sm:text-[60px] md:text-[70px] lg:text-[76px]">
+                <LetterReveal
+                  text="Team"
+                  delay={BASE_DELAY + 0.2}
+                  stagger={0.09}
+                  wave={{ from: COLORS.yellow, to: COLORS.coral }}
+                />
+              </h1>
 
-              <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[#ffd21c]">
-                Strategic Direction & Growth
-              </p>
+              <motion.div
+                initial={{ width: 0, opacity: 0 }}
+                animate={{ width: 100, opacity: 1 }}
+                transition={{
+                  duration: 0.8,
+                  delay: BASE_DELAY + 0.8,
+                  ease: EASE,
+                }}
+                className="mt-4 h-[4px] rounded-full bg-[#FF6268]"
+              />
 
+              <motion.p
+                initial={{ opacity: 0, y: 25, filter: "blur(5px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{
+                  duration: 0.8,
+                  delay: BASE_DELAY + 0.95,
+                  ease: EASE,
+                }}
+                className="mt-4 max-w-[550px] text-[16px] font-normal leading-[1.7] text-[#BFC5C5] sm:text-[18px]"
+              >
+                We are digital thinkers, strategists, creators, and problem
+                solvers working together to build incredible web experiences.
+              </motion.p>
             </motion.div>
 
-          </motion.div>
+            {/* RIGHT HERO IMAGE */}
+
+            <motion.div
+              initial={{ opacity: 0, x: 50, scale: 0.96 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 1, delay: BASE_DELAY, ease: EASE }}
+              whileHover={{ y: -4 }}
+              className="group relative h-[260px] w-full overflow-hidden rounded-[20px] border border-white/10 bg-[#151A1D] sm:h-[340px] md:h-[400px] lg:h-[420px]"
+            >
+              <motion.img
+                src="/images/aboutimage.jpeg"
+                alt="Our Team Hero"
+                initial={{ scale: 1.12 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  duration: 1.5,
+                  delay: BASE_DELAY + 0.05,
+                  ease: EASE,
+                }}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080B0D]/45 via-transparent to-transparent" />
+
+              <motion.div
+                animate={{ opacity: [0.08, 0.2, 0.08] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="pointer-events-none absolute -right-20 -top-20 h-[180px] w-[180px] rounded-full bg-[#3980FF]/20 blur-[70px]"
+              />
+
+              <motion.div
+                initial={{ x: "-150%" }}
+                animate={{ x: "150%" }}
+                transition={{
+                  duration: 1.4,
+                  delay: BASE_DELAY + 0.6,
+                  ease: "easeInOut",
+                }}
+                className="pointer-events-none absolute inset-y-0 left-0 w-[35%] skew-x-[-20deg] bg-gradient-to-r from-transparent via-white/15 to-transparent"
+              />
+
+              <motion.div
+                animate={{ opacity: [0.15, 0.35, 0.15] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="pointer-events-none absolute inset-0 rounded-[20px] border border-[#FF6268]/25"
+              />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* MANAGEMENT TEAM SECTION */}
+
+        <section className="mx-auto max-w-[1500px] bg-[#FAF8F3] px-5 py-10 sm:px-8 sm:py-12 md:px-10 md:py-14 lg:px-[7%] lg:py-16">
+          {/* SECTION HEADING */}
+
+          <div className="mb-6 flex flex-col items-start gap-3 sm:mb-7 md:mb-8">
+
+            <motion.p
+            
+              className="text-left text-[22px] font-medium leading-tight tracking-[-0.02em] sm:text-[25px]"
+              style={{ color: COLORS.coral }}
+            >
+              Our Team
+            </motion.p>
 
 
-          {/* ===================================================
-              4 GRID BOXES - RIGHT SIDE
-          =================================================== */}
+            <h2
+              className="max-w-[780px] text-left text-[40px] font-bold leading-[0.98] tracking-[-0.05em] sm:text-[54px] md:text-[64px] lg:text-[42px]"
+              aria-label="Meet the minds driving our vision forward."
+            >
+              <span className="block">We are digital</span>
+              <span className="block" style={{ color: COLORS.yellow }}>
+                thinkers, strategists, and
+              </span>
+              <span className="block" style={{ color: COLORS.coral }}>
+                and creators.
+              </span>
+            </h2>
+
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              whileInView={{ scaleX: 1, opacity: 1 }}
+              viewport={{ once: true, amount: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
+              className="mt-1 h-[5px] w-[85px] origin-left rounded-full bg-[#FF6268]"
+            />
+          </div>
+
+          {/* CLICKABLE TEAM PHOTO GALLERY */}
 
           <motion.div
             variants={cardsContainer}
-            className="grid grid-cols-2 gap-5 lg:col-span-5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="grid grid-cols-1 items-stretch gap-4 lg:grid-cols-12 lg:gap-5"
           >
+            {/* LARGE SELECTED PHOTO ON THE LEFT */}
 
-            {teamMembers.map((member, index) => (
+            <motion.div
+              key={selectedPhoto.src}
+              initial={{ opacity: 0.7, scale: 0.985 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, ease: EASE }}
+              className="group relative min-h-[340px] overflow-hidden rounded-[20px] border border-[#D6D4CE] bg-[#EAE8E2] sm:min-h-[400px] lg:col-span-7 lg:min-h-[440px]"
+            >
+              <motion.img
+                key={selectedPhoto.src}
+                src={selectedPhoto.src}
+                alt={selectedPhoto.alt}
+                initial={{ scale: 1.04 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.6, ease: EASE }}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              />
 
-              <motion.div
-                key={index}
-                variants={cardReveal}
-                whileHover={{
-                  y: -7,
-                  scale: 1.025,
-                  transition: {
-                    duration: 0.35,
-                    ease: "easeOut",
-                  },
-                }}
-                className="group relative flex min-h-[200px] flex-col justify-end overflow-hidden rounded-[22px] border border-[#d8d9d7] bg-[#eeece6] shadow-[0_8px_25px_rgba(8,11,14,0.05)] lg:min-h-[240px]"
-              >
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080B0D]/25 via-transparent to-transparent" />
 
-                {/* Image */}
+              <div className="pointer-events-none absolute inset-0 rounded-[20px] border border-[#3980FF]/20" />
+            </motion.div>
 
-                <motion.img
-                  src={member.imgSrc}
-                  alt={member.role}
-                  className="absolute inset-0 h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
-                  whileHover={{
-                    scale: 1.08,
-                  }}
-                  transition={{
-                    duration: 0.7,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                />
+            {/* FOUR CLICKABLE THUMBNAILS ON THE RIGHT */}
 
-                {/* Gradient */}
+            <motion.div
+              variants={cardsContainer}
+              className="grid grid-cols-2 gap-4 lg:col-span-5 lg:gap-5"
+            >
+              {teamMembers.map((member, index) => {
+                const isSelected = selectedPhoto.src === member.imgSrc;
 
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080b0d]/55 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
+                return (
+                  <motion.button
+                    key={`${member.imgSrc}-${index}`}
+                    type="button"
+                    onClick={() =>
+                      setSelectedPhoto({
+                        src: member.imgSrc,
+                        alt: member.role || `Team member ${index + 1}`,
+                      })
+                    }
+                    aria-label={`Show ${member.role || `team member ${index + 1}`} photo`}
+                    aria-pressed={isSelected}
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`group relative min-h-[180px] overflow-hidden rounded-[18px] border-2 bg-[#EAE8E2] text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3980FF] focus-visible:ring-offset-2 sm:min-h-[190px] lg:min-h-[210px] ${isSelected
+                        ? "border-[#3980FF] shadow-[0_0_0_2px_rgba(57,128,255,0.12)]"
+                        : "border-transparent hover:border-[#FF6268]"
+                      }`}
+                  >
+                    <img
+                      src={member.imgSrc}
+                      alt={member.role || `Team member ${index + 1}`}
+                      loading="lazy"
+                      className={`absolute inset-0 h-full w-full object-cover transition-transform duration-500 ${isSelected
+                          ? "scale-[1.03]"
+                          : "group-hover:scale-[1.05]"
+                        }`}
+                    />
 
-                {/* Blue Hover Glow */}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080B0D]/20 to-transparent" />
 
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                  }}
-                  whileHover={{
-                    opacity: 1,
-                  }}
-                  transition={{
-                    duration: 0.4,
-                  }}
-                  className="pointer-events-none absolute -right-10 -top-10 h-[120px] w-[120px] rounded-full bg-[#22b5e8]/20 blur-[45px]"
-                />
-
-                {/* Hover Border */}
-
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                  }}
-                  whileHover={{
-                    opacity: 1,
-                  }}
-                  transition={{
-                    duration: 0.3,
-                  }}
-                  className="pointer-events-none absolute inset-0 rounded-[22px] border border-[#22b5e8]/70"
-                />
-
-              </motion.div>
-
-            ))}
-
+                    {isSelected && (
+                      <motion.div
+                        layoutId="selected-team-photo"
+                        className="pointer-events-none absolute inset-0 rounded-[16px] border-2 border-[#3980FF]"
+                      />
+                    )}
+                  </motion.button>
+                );
+              })}
+            </motion.div>
           </motion.div>
+        </section>
 
+        {/* PHILOSOPHY SECTION */}
+
+        <section className="relative overflow-hidden bg-[#080B0D] px-6 py-12 text-white sm:px-10 sm:py-14 md:px-14 md:py-16 lg:px-[10%] lg:py-18">
+          <div className="pointer-events-none absolute -right-24 top-0 h-[280px] w-[280px] rounded-full bg-[#FF6268]/[0.08] blur-[110px]" />
+
+          <div className="pointer-events-none absolute -bottom-28 -left-20 h-[300px] w-[300px] rounded-full bg-[#3980FF]/[0.08] blur-[110px]" />
+
+          <div className="relative z-10 mx-auto grid max-w-[1200px] grid-cols-1 gap-8 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
+            {/* PHILOSOPHY HEADING */}
+
+            <motion.div
+              variants={sectionFade}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <p className="mb-3 text-[20px] font-medium leading-tight text-[#FFD21C] sm:text-[22px]">
+                Our Philosophy
+              </p>
+
+              <h2 className="max-w-[450px] text-[38px] font-bold leading-[0.98] tracking-[-0.05em] text-white sm:text-[46px] md:text-[52px]">
+                We don't chase
+                <br />
+                attention.
+                <br />
+                <span className="text-[#FF6268]">We earn it.</span>
+              </h2>
+
+              <p className="mt-4 max-w-[360px] text-[13px] leading-[1.8] text-[#BFC5C5] sm:text-[14px]">
+                Brands, leaders and institutions come to us to stay relevant.
+                Three beliefs shape every project we take on.
+              </p>
+            </motion.div>
+
+            {/* PHILOSOPHY PRINCIPLES */}
+
+            <div className="flex flex-col">
+              {[
+                {
+                  title: "Culture before campaigns",
+                  description:
+                    "We study what people talk about, laugh at and share, then build ideas that belong in that conversation.",
+                  color: COLORS.coral,
+                },
+                {
+                  title: "Strategy before noise",
+                  description:
+                    "Every post, pitch and project starts with a clear goal and a way to measure it.",
+                  color: COLORS.blue,
+                },
+                {
+                  title: "Trust over reach",
+                  description:
+                    "Views mean little if people don't believe you. We build reputations that hold up.",
+                  color: COLORS.green,
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    ease: EASE,
+                  }}
+                  className="border-t border-white/15 py-4 first:border-t"
+                >
+                  <div className="flex gap-3">
+                    <span
+                      className="mt-0.5 text-[27px] font-medium leading-none"
+                      style={{ color: item.color }}
+                    >
+                      /
+                    </span>
+
+                    <div>
+                      <h3 className="text-[16px] font-semibold leading-tight tracking-[-0.025em] text-white sm:text-[18px]">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-1.5 max-w-[460px] text-[12px] leading-[1.7] text-[#BFC5C5] sm:text-[13px]">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* BOTTOM ACCENT */}
+
+        <motion.div
+          variants={barsContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 1 }}
+          className="flex w-full items-center gap-2 bg-[#080B0D] px-6 py-4 sm:px-10 lg:px-[7%]"
+        >
+          <motion.div
+            variants={bar}
+            className="h-[4px] w-[48px] origin-left rounded-full bg-[#FF6268]"
+          />
+
+          <motion.div
+            variants={bar}
+            className="h-[4px] w-[32px] origin-left rounded-full bg-[#3980FF]"
+          />
+
+          <motion.div
+            variants={bar}
+            className="h-[4px] w-[22px] origin-left rounded-full bg-[#FFD21C]"
+          />
         </motion.div>
-
-      </section>
-
-
-      {/* =========================================================
-          BOTTOM VISUAL ACCENT
-      ========================================================= */}
-
-      <div className="flex w-full items-center gap-3 bg-[#080b0d] px-6 py-4 sm:px-10 lg:px-[4.3%]">
-
-        <div className="h-[5px] w-[55px] rounded-full bg-[#ff4d57]" />
-
-        <div className="h-[5px] w-[35px] rounded-full bg-[#22b5e8]" />
-
-        <div className="h-[5px] w-[25px] rounded-full bg-[#ffd21c]" />
-
-      </div>
-
-    </div>
+      </motion.div>
+    </MotionConfig>
   );
 };
 

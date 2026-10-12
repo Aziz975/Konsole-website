@@ -28,12 +28,12 @@ const workCards = [
   {
     title: "IPL Meme Campaign",
     description: "Real-time match-day memes, posted while the conversation was live.",
-    image: "/Service/ipl-meme-campaign.png",
+    image: "/Service/meme1.jpeg",
   },
   {
     title: "Movie Moment",
     description: "Iconic scenes reworked into relatable, brand-safe content.",
-    image: "/Service/trending-reel.png",
+    image: "/Service/meme2.jpeg",
   },
   {
     title: "Festival Creative",
@@ -45,11 +45,7 @@ const workCards = [
     description: "Light-hearted humor that keeps your audience talking.",
     image: "/Service/brand-banter.png",
   },
-  {
-    title: "Trending Reel",
-    description: "Short, sharp reels built for organic reach.",
-    image: "/Service/trending-reel.png",
-  },
+  
 ];
 
 const cardVariants = {
@@ -372,7 +368,7 @@ export default function MemeMarketingHero() {
 
           {/* RIGHT — WORK CARDS */}
 
-          <div className="grid w-full flex-1 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid w-full flex-1 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
 
             {workCards.map((card, index) => (
               <motion.article
@@ -381,45 +377,11 @@ export default function MemeMarketingHero() {
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{
-                  once: false,
-                  amount: 0.15,
-                }}
-                whileHover={{
-                  y: -6,
-                  transition: {
-                    duration: 0.3,
-                    ease: "easeOut",
-                  },
-                }}
-                className="group relative min-h-[300px] overflow-hidden rounded-[14px] border border-[#263239] bg-[#091419] p-3 transition-colors duration-300 hover:border-[#18c9e5]/50 hover:bg-[#0b171c] sm:min-h-[300px] md:min-h-[320px] lg:min-h-[350px]"
+               
+          
               >
 
-                {/* SOFT CYAN GLOW */}
-
-                <motion.div
-                  variants={{
-                    rest: {
-                      opacity: 0,
-                      scale: 0.7,
-                    },
-                    hover: {
-                      opacity: 1,
-                      scale: 1,
-                    },
-                  }}
-                  initial="rest"
-                  whileHover="hover"
-                  transition={{
-                    duration: 0.45,
-                    ease: "easeOut",
-                  }}
-                  className="pointer-events-none absolute -right-12 -top-12 h-[130px] w-[130px] rounded-full bg-[#18c9e5]/10 blur-[40px]"
-                />
-
-                {/* IMAGE */}
-
-                <div className="relative h-[180px] w-full overflow-hidden rounded-[9px] sm:h-[175px] md:h-[190px] lg:h-[185px] xl:h-[200px]">
+                <div className="relative h-[450px] w-full overflow-hidden rounded-[9px] sm:h-[175px] md:h-[190px] lg:h-[215px] xl:h-[450px]">
 
                   <motion.img
                     src={card.image}
@@ -445,62 +407,7 @@ export default function MemeMarketingHero() {
 
                 </div>
 
-                {/* CONTENT */}
 
-                <div className="relative z-10 px-1 pb-5 pt-4">
-
-                  <motion.h3
-                    className="text-[14px] font-extrabold leading-[1.15] text-[#f1f4f4] sm:text-[15px] md:text-[16px]"
-                    whileHover={{
-                      x: 3,
-                      color: "#18c9e5",
-                    }}
-                    transition={{
-                      duration: 0.25,
-                    }}
-                  >
-                    {card.title}
-                  </motion.h3>
-
-                  <p className="mt-2 max-w-[260px] text-[10px] font-medium leading-[1.45] text-[#7d898d] sm:text-[11px]">
-                    {card.description}
-                  </p>
-
-                </div>
-
-                {/* HOVER TEXT */}
-
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    x: -8,
-                  }}
-                  whileHover={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
-                  className="absolute bottom-4 left-4 text-[9px] font-bold uppercase tracking-[0.08em] text-[#18c9e5]"
-                >
-                  Explore
-                </motion.div>
-
-                {/* ARROW */}
-
-                <motion.span
-                  className="absolute bottom-4 right-4 text-[15px] text-[#718085]"
-                  whileHover={{
-                    x: 4,
-                    color: "#18c9e5",
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
-                >
-                  →
-                </motion.span>
 
                 {/* ACCENT */}
 
