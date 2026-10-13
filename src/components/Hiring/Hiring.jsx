@@ -390,7 +390,7 @@ const Hiring = () => {
             className="group relative w-full h-[320px] md:h-[400px] bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 flex items-center justify-center shadow-2xl"
           >
             <motion.img
-              src="/images/aboutimg.jpg"
+              src="/images/aboutimage.jpeg"
               alt="Join Our Team"
               initial={{ scale: 1.12 }}
               animate={{ scale: 1 }}

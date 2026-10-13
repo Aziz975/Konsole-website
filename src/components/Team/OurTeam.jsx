@@ -816,7 +816,6 @@
 
 // export default OurTeam;
 
-
 import React, { useRef, useState } from "react";
 import {
   motion,
@@ -1122,9 +1121,12 @@ const OurTeam = () => {
   // NOTE: replace these with your real image filenames.
   const [thumbs, setThumbs] = useState([
     { src: "/images/team2.jpeg", alt: "Team member 1" },
-    { src: "/images/boss5.png", alt: "Team member 2" },
-    { src: "/images/boss6.png", alt: "Team member 3" },
-    { src: "/images/boss7.png", alt: "Team member 4" },
+    { src: "/images/team3.jpeg", alt: "Team member 2" },
+    { src: "/images/team4.jpeg", alt: "Team member 3" },
+    { src: "/images/team5.jpeg", alt: "Team member 4" },
+    { src: "/images/team6.jpeg", alt: "Team member 5" },
+    { src: "/images/team7.jpeg", alt: "Team member 6" },
+    // add more images here
   ]);
 
   // Clicking a thumbnail: it becomes the large photo,
@@ -1468,8 +1470,11 @@ const OurTeam = () => {
 
             <motion.div
               variants={cardsContainer}
-              className="grid grid-cols-2 gap-4 lg:col-span-5 lg:gap-5"
+              className="relative lg:col-span-5"
             >
+              {/* Scroll area: same height as the large photo on desktop,
+                  fixed max height on mobile. Add more images in `thumbs`. */}
+              <div className="grid max-h-[420px] grid-cols-2 gap-4 overflow-y-auto pr-2 [scrollbar-color:#FF6268_transparent] [scrollbar-width:thin] lg:absolute lg:inset-0 lg:max-h-none lg:gap-5 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#FF6268]/70 [&::-webkit-scrollbar-track]:bg-transparent">
               {thumbs.map((thumb, index) => (
                 <motion.button
                   key={index}
@@ -1494,9 +1499,10 @@ const OurTeam = () => {
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080B0D]/20 to-transparent" />
                 </motion.button>
               ))}
+              </div>
             </motion.div>
           </motion.div>
-        </section>
+        </section>        
 
         {/* BOTTOM ACCENT */}
 
