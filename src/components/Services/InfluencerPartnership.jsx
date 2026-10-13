@@ -118,32 +118,32 @@ const focusAreas = {
   left: [
     {
       title: "Influencer Vetting",
-      text: "Carefully screening creators for genuine audience alignment, not just follower count.",
+       text: "Carefully screening creators for genuine audience alignment, not just follower count.",
     },
     {
       title: "Campaign Management",
-      text: "Handling the full lifecycle — outreach, scheduling, content approval and delivery.",
+       text: "Handling the full lifecycle — outreach, scheduling, content approval and delivery.",
     },
   ],
 
   middle: [
     {
       title: "Contract Negotiation",
-      text: "Securing fair, clear terms that protect your brand and the creator relationship.",
+       text: "Securing fair, clear terms that protect your brand and the creator relationship.",
     },
     {
       title: "Performance Analytics",
-      text: "Tracking reach, engagement and ROI so every partnership proves its value.",
+       text: "Tracking reach, engagement and ROI so every partnership proves its value.",
       offset: true,
     },
   ],
 
-  right: [
-    {
-      title: "Authentic Advocacy",
-      text: "Pairing your brand with voices your audience already trusts and follows.",
-    },
-  ],
+  // right: [
+  //   {
+  //     title: "Authentic Advocacy",
+  //     text: "Pairing your brand with voices your audience already trusts and follows.",
+  //   },
+  // ],
 };
 
 /* =========================================================
@@ -916,7 +916,7 @@ const InfluencerPartnership = () => {
                 focusVisible
                   ? "ip-items-visible"
                   : ""
-              } mt-8 grid gap-8 md:grid-cols-3 md:gap-10`}
+              } mt-8 grid gap-8 md:grid-cols-2 md:gap-10`}
             >
               {/* LEFT */}
               <ul className="space-y-4">
@@ -933,11 +933,11 @@ const InfluencerPartnership = () => {
               </ul>
 
               {/* RIGHT */}
-              <ul className="space-y-4">
+              {/* <ul className="space-y-4">
                 {focusAreas.right.map((d) => (
                   <FocusItem key={d.title} {...d} />
                 ))}
-              </ul>
+              </ul> */}
             </div>
           </div>
         </section>

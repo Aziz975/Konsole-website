@@ -118,33 +118,33 @@ const ShieldIcon = () => (
 const deliverables = {
   left: [
     {
-      title: "Comprehensive Sentiment Analysis",
-      text: "Monitor mentions and classify public opinion.",
+      title: "Rapid crisis management & mitigation",
+      // text: "Monitor mentions and classify public opinion.",
     },
     {
-      title: "Rapid Crisis Response",
-      text: "Mitigate negative press and control narratives quickly.",
+      title: "Google search result optimization (suppressing negative links)",
+      // text: "Mitigate negative press and control narratives quickly.",
     },
   ],
 
   middle: [
     {
-      title: "Proactive Content Strategy",
-      text: "Create positive stories to push down negative results.",
+      title: "Proactive image building",
+      // text: "Create positive stories to push down negative results.",
     },
     {
-      title: "Institutional Identity Management",
-      text: "Protect and shape the long-term legacy of your brand.",
+      title: "Investor-grade reputation protection for listed companies",
+      // text: "Protect and shape the long-term legacy of your brand.",
       offset: true,
     },
   ],
 
-  right: [
-    {
-      title: "Digital Trust Building",
-      text: "Earn credibility among your stakeholders through transparency and engagement.",
-    },
-  ],
+  // right: [
+  //   {
+  //     title: "Digital Trust Building",
+  //     text: "Earn credibility among your stakeholders through transparency and engagement.",
+  //   },
+  // ],
 };
 
 /* =========================================================
@@ -707,46 +707,43 @@ export default function ORM() {
         ===================================================== */}
 
         <section className="bg-[#F6F4EC]">
-          <div className="mx-auto grid max-w-6xl items-center gap-8 px-6 py-14 md:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
-
+          <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-12 md:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
             {/* LEFT */}
             <div>
 
-            {/* EYEBROW */}
-<div ref={heroEyebrowRef}>
-  <p
-    className={`${
-      heroEyebrowVisible ? "orm-visible" : ""
-    } orm-eyebrow mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f04444] sm:text-[11px] md:text-[12px]`}
-  >
-    Online Reputation Management (ORM)
-  </p>
-</div>
+              {/* EYEBROW */}
+              <div ref={heroEyebrowRef}>
+                <p
+                  className={`${heroEyebrowVisible ? "orm-visible" : ""
+                    } orm-eyebrow mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f04444] sm:text-[11px] md:text-[12px]`}
+                >
+                  Online Reputation Management (ORM)
+                </p>
+              </div>
 
               {/* H1 */}
               <h1
                 ref={heroHeadingRef}
-                className={`${h1Style} ${
-                  heroHeadingVisible
-                    ? "orm-heading-visible"
-                    : ""
-                } orm-hero-heading text-[40px] sm:text-[52px] md:text-[56px] lg:text-[44px] xl:text-[48px]`}
+                className={`${h1Style} ${heroHeadingVisible
+                  ? "orm-heading-visible"
+                  : ""
+                  } orm-hero-heading text-[40px] sm:text-[52px] md:text-[56px] lg:text-[44px] xl:text-[48px]`}
               >
                 <span className="orm-heading-line">
                   <span className="text-black">
-                    Protecting and
+                    Protecting Your
                   </span>
                 </span>
 
                 <span className="orm-heading-line">
                   <span className="text-[#E8553D]">
-                    Elevating Your
+                    Brand Equity
                   </span>
                 </span>
 
                 <span className="orm-heading-line">
                   <span className="text-[#FBBF24]">
-                     Digital Footprint.
+                    When It Matters Most.
                   </span>
                 </span>
 
@@ -765,28 +762,22 @@ export default function ORM() {
               </p> */}
 
               {/* DESCRIPTION */}
-<div ref={heroTextRef}>
-  <p
-    className={`${bodyStyle} ${
-      heroTextVisible ? "orm-visible" : ""
-    } orm-hero-text mt-8 max-w-[560px] text-[16px] text-neutral-800 sm:text-[17px] md:text-[18px]`}
-  >
-    Your brand’s reputation is its most valuable asset. We actively monitor
-    digital channels to see what people are saying about you, ensuring
-    positive narratives are highlighted while swiftly mitigating negative
-    feedback or crises. We build resilient brand images that inspire trust
-    and credibility among your stakeholders.
-  </p>
-</div>
+              <div ref={heroTextRef}>
+                <p
+                  className={`${bodyStyle} ${heroTextVisible ? "orm-visible" : ""
+                    } orm-hero-text mt-8 max-w-[560px] text-[16px] text-neutral-800 sm:text-[17px] md:text-[18px]`}
+                >
+                  In today's hyper-connected world, a brand's reputation can shift in minutes. For listed companies and high-profile enterprises, public perception directly impacts investor confidence and stock value. We go beyond monitoring to provide proactive image building and rapid crisis management, neutralizing viral backlash and misinformation. We also dominate your Google presence, so the first page of results reflects trust and authority while harmful links are suppressed.
+                </p>
+              </div>
 
               {/* CTA */}
               <div
                 ref={heroButtonRef}
-                className={`${
-                  heroButtonVisible
-                    ? "orm-visible"
-                    : ""
-                } orm-hero-button`}
+                className={`${heroButtonVisible
+                  ? "orm-visible"
+                  : ""
+                  } orm-hero-button`}
                 style={{
                   transitionDelay: heroButtonVisible
                     ? "0.25s"
@@ -809,11 +800,10 @@ export default function ORM() {
             {/* HERO IMAGE */}
             <div
               ref={heroImageRef}
-              className={`${
-                heroImageVisible
-                  ? "orm-visible"
-                  : ""
-              } orm-hero-image flex w-full items-center justify-center`}
+              className={`${heroImageVisible
+                ? "orm-visible"
+                : ""
+                } orm-hero-image flex w-full items-center justify-center`}
             >
               <img
                 src="/images/image11.png"
@@ -831,25 +821,23 @@ export default function ORM() {
         <section className="bg-white">
           <div className="mx-auto max-w-6xl px-6 py-10 lg:px-10">
 
-           {/* HEADING */}
-<div ref={deliverablesHeadingRef}>
-  <h2
-    className={`${h2Style} ${
-      deliverablesHeadingVisible ? "orm-visible" : ""
-    } orm-section-heading text-center text-[30px] sm:text-[38px] md:text-[42px]`}
-  >
-    Core ORM Deliverables
-  </h2>
-</div>
+            {/* HEADING */}
+            <div ref={deliverablesHeadingRef}>
+              <h2
+                className={`${h2Style} ${deliverablesHeadingVisible ? "orm-visible" : ""
+                  } orm-section-heading text-center text-[30px] sm:text-[38px] md:text-[42px]`}
+              >
+                Core ORM Deliverables
+              </h2>
+            </div>
 
             {/* DELIVERABLES */}
             <div
               ref={deliverablesRef}
-              className={`${
-                deliverablesVisible
-                  ? "orm-deliverables-visible"
-                  : ""
-              } mt-8 grid gap-8 md:grid-cols-3 md:gap-10`}
+              className={`${deliverablesVisible
+                ? "orm-deliverables-visible"
+                : ""
+                } mt-8 grid gap-8 md:grid-cols-2 md:gap-10`}
             >
               {/* LEFT */}
               <ul className="space-y-4">
@@ -872,14 +860,14 @@ export default function ORM() {
               </ul>
 
               {/* RIGHT */}
-              <ul className="space-y-4">
+              {/* <ul className="space-y-4">
                 {deliverables.right.map((d) => (
                   <Deliverable
                     key={d.title}
                     {...d}
                   />
                 ))}
-              </ul>
+              </ul> */}
             </div>
           </div>
         </section>
@@ -890,50 +878,49 @@ export default function ORM() {
 
         <section className="relative bg-white pb-16">
           <div className="mx-auto max-w-6xl px-6 lg:px-10">
-<div ref={ctaRef}>
-            <div
-              
-              className={`${
-                ctaVisible
+            <div ref={ctaRef}>
+              <div
+
+                className={`${ctaVisible
                   ? "orm-visible"
                   : ""
-              } orm-cta flex flex-col items-start gap-5 rounded-xl bg-[#FBBF24] px-6 py-5 shadow-sm sm:flex-row sm:items-center sm:justify-between`}
-            >
-
-              {/* LEFT CONTENT */}
-              <div className="flex items-center gap-4">
-
-                {/* SHIELD */}
-                <div className="orm-shield">
-                  <ShieldIcon />
-                </div>
-
-                {/* TEXT */}
-                <div className="orm-cta-content">
-                  <h3 className="text-[24px] font-bold leading-[1.05] tracking-[-0.04em] text-neutral-900 sm:text-[28px]">
-                    Let's Protect Your Brand's Reputation.
-                  </h3>
-
-                  <p
-                    className={`${bodyStyle} mt-1 text-[15px] text-neutral-900 sm:text-[16px]`}
-                  >
-                    Partner with us to build a resilient brand image and earn lasting trust with your stakeholders.
-                  </p>
-                </div>
-              </div>
-
-              {/* BUTTON */}
-              <button
-                type="button"
-                className={`${btnText} orm-button group inline-flex h-[56px] shrink-0 items-center gap-6 rounded-full bg-white px-7 text-neutral-900 hover:bg-neutral-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2`}
+                  } orm-cta flex flex-col items-start gap-5 rounded-xl bg-[#FBBF24] px-6 py-5 shadow-sm sm:flex-row sm:items-center sm:justify-between`}
               >
-                <span>Start a Conversation</span>
 
-                <span className="orm-arrow">
-                  <ArrowIcon />
-                </span>
-              </button>
-            </div>
+                {/* LEFT CONTENT */}
+                <div className="flex items-center gap-4">
+
+                  {/* SHIELD */}
+                  <div className="orm-shield">
+                    <ShieldIcon />
+                  </div>
+
+                  {/* TEXT */}
+                  <div className="orm-cta-content">
+                    <h3 className="text-[24px] font-bold leading-[1.05] tracking-[-0.04em] text-neutral-900 sm:text-[28px]">
+                      Let's Protect Your Brand's Reputation.
+                    </h3>
+
+                    <p
+                      className={`${bodyStyle} mt-1 text-[15px] text-neutral-900 sm:text-[16px]`}
+                    >
+                      Partner with us to build a resilient brand image and earn lasting trust with your stakeholders.
+                    </p>
+                  </div>
+                </div>
+
+                {/* BUTTON */}
+                <button
+                  type="button"
+                  className={`${btnText} orm-button group inline-flex h-[56px] shrink-0 items-center gap-6 rounded-full bg-white px-7 text-neutral-900 hover:bg-neutral-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2`}
+                >
+                  <span>Start a Conversation</span>
+
+                  <span className="orm-arrow">
+                    <ArrowIcon />
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
 
