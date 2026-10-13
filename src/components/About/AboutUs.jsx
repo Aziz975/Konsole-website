@@ -13,7 +13,7 @@ export default function AboutUs() {
 
         {/* Background Image */}
         <motion.img
-          src="images/aboutimg.jpg"
+          src="images/aboutimage.jpeg"
           alt=""
           initial={{ scale: 1.06, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
