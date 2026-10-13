@@ -13,7 +13,7 @@ const About = () => {
    <>
 <AboutUs></AboutUs>
 {/* <Introduction></Introduction> */}
-<ManagementTeam></ManagementTeam>
+{/* <ManagementTeam></ManagementTeam> */}
 <WhyDifferent></WhyDifferent>
    
    </>

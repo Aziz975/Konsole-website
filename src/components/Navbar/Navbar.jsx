@@ -364,10 +364,10 @@ const Navbar = () => {
       name: "Content Creation",
       path: "/services/contentcreation",
     },
-    {
-      name: "Video Production",
-      path: "/services/videoproduction",
-    },
+    // {
+    //   name: "Video Production",
+    //   path: "/services/videoproduction",
+    // },
     {
       name: "Online Reputation Management (ORM)",
       path: "/services/orm",
