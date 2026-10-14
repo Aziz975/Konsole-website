@@ -871,7 +871,9 @@ function WorkCard({ card, index }) {
           whileHover={{ scale: 1.12 }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.2 }}
-          className="absolute left-1/2 top-1/2 z-20 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/45 text-white opacity-0 shadow-[0_4px_25px_rgba(0,0,0,0.3)] backdrop-blur-md transition-all duration-300 group-hover:opacity-100 hover:bg-black/70 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:h-16 sm:w-16"
+          className={`absolute left-1/2 top-1/2 z-20 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/45 text-white shadow-[0_4px_25px_rgba(0,0,0,0.3)] backdrop-blur-md transition-all duration-300 hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:h-16 sm:w-16 ${
+  isPlaying ? "opacity-0" : "opacity-100"
+} md:opacity-0 md:group-hover:opacity-100 md:focus-visible:opacity-100`}
         >
           {isPlaying ? (
             <Pause size={23} strokeWidth={2} fill="white" />
@@ -1173,7 +1175,7 @@ export default function ContentCreation() {
 
           {/* RIGHT CARDS */}
 
-          <div className="relative gap-8 flex w-full items-center justify-center lg:w-[65%] xl:w-[60%]">
+          <div className="relative gap-8 flex w-full flex-col md:flex-row items-center justify-center lg:w-[65%] xl:w-[60%]">
 
             {/* DECORATION */}
 
