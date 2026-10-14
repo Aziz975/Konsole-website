@@ -1,5 +1,8 @@
 import React from "react";
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
+
+const MotionLink = motion.create(Link);
 
 const differences = [
   {
@@ -188,7 +191,8 @@ export default function WhyDifferent() {
               We are here to help you bring your ideas to life.
             </p>
 
-            <motion.button
+            <MotionLink
+              to="/contact"
               whileHover={{
                 scale: 1.06,
               }}
@@ -198,10 +202,10 @@ export default function WhyDifferent() {
               transition={{
                 duration: 0.2,
               }}
-              className="mt-3 rounded-full bg-[#f42b2b] px-5 py-2 text-[9px] font-extrabold uppercase tracking-[0.4px] text-white sm:px-6 sm:py-2.5 sm:text-[10px] md:text-[11px]"
+              className="mt-3 inline-block rounded-full bg-[#f42b2b] px-5 py-2 text-[9px] font-extrabold uppercase tracking-[0.4px] text-white sm:px-6 sm:py-2.5 sm:text-[10px] md:text-[11px]"
             >
               LET'S TALK!
-            </motion.button>
+            </MotionLink>
           </div>
         </motion.div>
       </div>

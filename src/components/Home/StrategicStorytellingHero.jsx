@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useHiringPopup } from "../HiringForm/HiringPopup";
+import { Link } from "react-router-dom";
 
 export default function StrategicStorytellingHero() {
   const { openHiring } = useHiringPopup();
@@ -137,11 +138,13 @@ export default function StrategicStorytellingHero() {
 
           {/* ================= CTA - FADE UP ================= */}
           <div className={`mt-8 sm:mt-9 ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.9s_forwards]" : "translate-y-12 opacity-0"}`}>
-            <button className="animate-bounce group inline-flex h-[56px] items-center gap-7 rounded-full bg-white px-7 text-[16px] font-semibold text-[#111516] transition-all duration-300 hover:gap-9 hover:bg-[#f5f5f5] sm:h-[58px] sm:px-9 sm:text-[17px]">
+              <Link
+    to="/services/memeandmomentmarketing"
+     className="animate-bounce group inline-flex h-[56px] items-center gap-7 rounded-full bg-white px-7 text-[16px] font-semibold text-[#111516] transition-all duration-300 hover:gap-9 hover:bg-[#f5f5f5] sm:h-[58px] sm:px-9 sm:text-[17px]">
               <span>Explore Our Services</span>
 
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.2} />
-            </button>
+            </Link>
           </div>
 
         </div>

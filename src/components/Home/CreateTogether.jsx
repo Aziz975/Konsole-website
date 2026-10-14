@@ -63,7 +63,7 @@ export default function CreateTogether() {
 
         {/* ================= GET IN TOUCH ================= */}
         <a
-          href="#contact"
+          href="/contact"
           className={`absolute right-5 top-1/2 hidden -translate-y-1/2 items-center gap-7 rounded-full bg-[#111a1f] px-7 py-4 text-[14px] font-semibold text-white transition-all duration-300 hover:scale-[1.03] hover:bg-[#08766d] sm:flex md:right-8 md:px-8 md:py-[17px] md:text-[15px] lg:right-12 xl:right-16 ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.45s_forwards]" : "translate-y-10 opacity-0"}`}
         >
           <span>Get in Touch</span>
@@ -72,7 +72,7 @@ export default function CreateTogether() {
 
         {/* ================= MOBILE BUTTON ================= */}
         <a
-          href="#contact"
+          href="/contact"
           className={`mt-5 flex items-center gap-4 whitespace-nowrap self-center rounded-full bg-[#111a1f] px-7 py-3.5 text-[14px] font-semibold text-white sm:hidden ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.45s_forwards]" : "translate-y-10 opacity-0"}`}
         >
           <span>Get in Touch</span>
