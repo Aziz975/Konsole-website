@@ -381,9 +381,9 @@ export default function MemeMarketingHero() {
           
               >
 
-                <div className="relative h-[450px] w-full overflow-hidden rounded-[9px] sm:h-[175px] md:h-[190px] lg:h-[215px] xl:h-[450px]">
+                <div className="relative aspect-square w-full overflow-hidden rounded-[9px]">
 
-                  <motion.img
+                  <motion.img 
                     src={card.image}
                     alt={card.title}
                     className="block h-full w-full object-cover"

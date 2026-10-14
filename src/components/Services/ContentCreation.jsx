@@ -752,11 +752,7 @@ const workCards = [
   },
   {
 
-    video: "/images/contentvideo1.mp4"
-  },
-  {
-
-    video: "/images/contentvideo1.mp4"
+    video: "/images/contentvideo2.mp4"
   },
 ];
 
