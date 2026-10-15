@@ -1,6 +1,9 @@
 import React from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
+
+const MotionLink = motion.create(Link);
 
 export default function GovernmentProjects() {
   /* =========================================
@@ -655,7 +658,8 @@ export default function GovernmentProjects() {
               }}
               className="z-10 flex-shrink-0"
             >
-              <motion.button
+              <MotionLink
+                to="/contact"
                 whileHover={{
                   y: -5,
                   scale: 1.03,
@@ -681,7 +685,7 @@ export default function GovernmentProjects() {
                 >
                   <ArrowRight size={16} />
                 </motion.span>
-              </motion.button>
+              </MotionLink>
             </motion.div>
           </motion.div>
         </div>

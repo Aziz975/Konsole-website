@@ -744,6 +744,10 @@ import { ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
 import { Play, Pause } from "lucide-react";
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
+
+const MotionLink = motion.create(Link);
+
 
 const workCards = [
   {
@@ -1053,7 +1057,8 @@ export default function ContentCreation() {
                 : "translate-y-10 opacity-0"
                 }`}
             >
-              <motion.button
+              <MotionLink
+               to="/contact"
                 whileHover={{
                   y: -3,
                   scale: 1.015,
@@ -1076,7 +1081,7 @@ export default function ContentCreation() {
                   className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
                   strokeWidth={2.2}
                 />
-              </motion.button>
+              </MotionLink>
             </div>
 
           </div>
@@ -1147,7 +1152,7 @@ export default function ContentCreation() {
               From blog posts and persuasive copy to striking graphics and interactive media, we create assets that resonate with your audience and drive action.
             </p>
 
-            <motion.button
+            {/* <motion.button
               whileHover={{
                 y: -3,
                 scale: 1.015,
@@ -1169,7 +1174,7 @@ export default function ContentCreation() {
                 className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
                 strokeWidth={2.2}
               />
-            </motion.button>
+            </motion.button> */}
 
           </motion.div>
 
@@ -1302,7 +1307,8 @@ export default function ContentCreation() {
             </p>
 
 
-            <motion.button
+            <MotionLink
+              to="/contact"
               whileHover={{
                 y: -3,
                 scale: 1.015,
@@ -1325,7 +1331,7 @@ export default function ContentCreation() {
                 className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
                 strokeWidth={2.2}
               />
-            </motion.button>
+            </MotionLink>
 
           </motion.div>
 

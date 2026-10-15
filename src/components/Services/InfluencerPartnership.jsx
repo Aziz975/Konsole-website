@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 /* =========================================================
    TYPOGRAPHY
@@ -981,7 +982,7 @@ const InfluencerPartnership = () => {
                 </div>
 
                 {/* BUTTON */}
-                <button
+                <Link to="/contact"
                   type="button"
                   className={`${btnText} ip-button group inline-flex h-[56px] shrink-0 items-center gap-6 rounded-full bg-white px-7 text-neutral-900 hover:bg-neutral-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2`}
                 >
@@ -990,7 +991,7 @@ const InfluencerPartnership = () => {
                   <span className="ip-arrow">
                     <ArrowIcon />
                   </span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>

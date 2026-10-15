@@ -739,7 +739,7 @@ const approachSteps = [
               Our reports help political leaders and organizations read the public mood, sharpen their messaging and act before the conversation moves on.
             </p>
 
-            <motion.a
+            {/* <motion.a
               href="#work"
               whileHover={{
                 x: 4,
@@ -752,7 +752,7 @@ const approachSteps = [
             >
               See Our Work
               <ArrowUpRight size={16} />
-            </motion.a>
+            </motion.a> */}
           </motion.div>
 
           {/* FEATURED INSIGHTS */}
@@ -908,7 +908,7 @@ const approachSteps = [
         </p>
 
         <motion.a
-          href="#contact"
+          href="/contact"
           whileHover={{
             y: -3,
             scale: 1.02,

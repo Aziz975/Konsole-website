@@ -7,6 +7,7 @@ import {
   BarChart3,
   ArrowRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /* =========================================================
    REVEAL HOOK
@@ -999,7 +1000,7 @@ export default function DigitalMedia() {
                   animationDelay: "0.7s",
                 }}
               >
-                <button
+                <Link to="/contact"
                   type="button"
                   className="
                     digital-story-button
@@ -1037,7 +1038,7 @@ export default function DigitalMedia() {
                   >
                     →
                   </span>
-                </button>
+                </Link>
               </div>
             </div>
 
