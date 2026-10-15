@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import { Link } from "react-router-dom";
 /* =========================================================
    TYPOGRAPHY
 ========================================================= */
@@ -784,7 +784,7 @@ export default function ORM() {
                     : "0s",
                 }}
               >
-                <button
+                {/* <button
                   type="button"
                   className={`${btnText} orm-button group mt-8 inline-flex h-[56px] items-center gap-7 rounded-full bg-black px-7 text-white hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:h-[58px] sm:px-9`}
                 >
@@ -793,7 +793,7 @@ export default function ORM() {
                   <span className="orm-arrow">
                     <ArrowIcon />
                   </span>
-                </button>
+                </button> */}
               </div>
             </div>
 
@@ -910,7 +910,8 @@ export default function ORM() {
                 </div>
 
                 {/* BUTTON */}
-                <button
+                <Link
+                  to="/contact"
                   type="button"
                   className={`${btnText} orm-button group inline-flex h-[56px] shrink-0 items-center gap-6 rounded-full bg-white px-7 text-neutral-900 hover:bg-neutral-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2`}
                 >
@@ -919,7 +920,7 @@ export default function ORM() {
                   <span className="orm-arrow">
                     <ArrowIcon />
                   </span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>
