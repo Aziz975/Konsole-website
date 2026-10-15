@@ -318,8 +318,8 @@ const approachSteps = [
           1. HERO
       ===================================================== */}
 
-      <section className="px-[4%] py-14">
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[480px_1fr_190px]">
+      <section className="max-w-[10px] px-[4%] py-14">
+        <div className=" grid grid-cols-1 items-center gap-8 lg:grid-cols-[480px_1fr_190px]">
 
           {/* LEFT CONTENT */}
           <motion.div

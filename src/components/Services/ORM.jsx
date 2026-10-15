@@ -707,7 +707,7 @@ export default function ORM() {
         ===================================================== */}
 
         <section className="bg-[#F6F4EC]">
-          <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-12 md:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
+          <div className="max-w-[1380px] mx-auto grid max-w-6xl items-center gap-8 px-5 py-12 md:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
             {/* LEFT */}
             <div>
 
@@ -748,18 +748,6 @@ export default function ORM() {
                 </span>
 
               </h1>
-
-              {/* DESCRIPTION */}
-              {/* <p
-                ref={heroTextRef}
-                className={`${bodyStyle} ${
-                  heroTextVisible
-                    ? "orm-visible"
-                    : ""
-                } orm-hero-text mt-8 max-w-[500px] text-[17px] text-neutral-800 sm:text-[18px] md:text-[19px]`}
-              >
-                Strategies to shape and protect your digital perception
-              </p> */}
 
               {/* DESCRIPTION */}
               <div ref={heroTextRef}>
