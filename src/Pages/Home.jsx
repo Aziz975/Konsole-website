@@ -38,7 +38,7 @@ const Home = () => {
       {/* <WhyKonsolde></WhyKonsolde> */}
       
 
-    <CreateTogether></CreateTogether>
+    {/* <CreateTogether></CreateTogether> */}
 
     
    

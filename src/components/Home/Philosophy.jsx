@@ -39,14 +39,13 @@ export default function Philosophy() {
             id="philosophy-title"
             className="max-w-[580px] text-[44px] font-bold leading-[1.02] tracking-[-0.045em] sm:text-[55px] md:text-[62px] lg:text-[58px] xl:text-[64px]"
           >
-            We don't chase attention.
+            Innovation Perseverance
             <br />
-            We earn it.
+            Unity
           </h2>
 
           <p className="mt-7 max-w-[460px] text-[18px] leading-[1.5] tracking-[-0.01em] text-white/70 sm:text-[19px] md:text-[20px]">
-            Brands, leaders and institutions come to us to stay relevant. Three
-            beliefs shape every project we take on.
+            Brand, leaders and institutions come to us when there is an image crisis and the relevance is challanged.
           </p>
         </div>
 
