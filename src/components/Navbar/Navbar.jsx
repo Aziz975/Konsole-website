@@ -411,7 +411,7 @@ const Navbar = () => {
           className="flex shrink-0 items-center gap-3"
         >
           <img
-            src="/image4.png"
+            src="/image2.png"
             alt="Konsole Group Logo"
             className="h-8 w-auto object-contain sm:h-15"
           />

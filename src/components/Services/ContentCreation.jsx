@@ -737,8 +737,6 @@
 //   );
 // }
 
-
-
 import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
@@ -876,8 +874,10 @@ function WorkCard({ card, index }) {
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.2 }}
           className={`absolute left-1/2 top-1/2 z-20 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/45 text-white shadow-[0_4px_25px_rgba(0,0,0,0.3)] backdrop-blur-md transition-all duration-300 hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:h-16 sm:w-16 ${
-  isPlaying ? "opacity-0" : "opacity-100"
-} md:opacity-0 md:group-hover:opacity-100 md:focus-visible:opacity-100`}
+  isPlaying
+    ? "opacity-0 md:group-hover:opacity-100 focus-visible:opacity-100"
+    : "opacity-100"
+}`}
         >
           {isPlaying ? (
             <Pause size={23} strokeWidth={2} fill="white" />
@@ -900,6 +900,83 @@ function WorkCard({ card, index }) {
         />
       </motion.div>
     </motion.article>
+  );
+}
+
+/* =========================================================
+   HERO VIDEO
+   (autoplay + muted video with its own play/pause button)
+========================================================= */
+
+function HeroVideo({ src, poster }) {
+  const videoRef = useRef(null);
+
+  const [isPlaying, setIsPlaying] = useState(false); // video starts paused
+  const [hovered, setHovered] = useState(false);
+  const [suppressed, setSuppressed] = useState(false); // hide pause button after a click until next hover
+
+  const toggleVideo = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      video.play().catch(() => { });
+    } else {
+      video.pause();
+    }
+
+    setSuppressed(true);
+  };
+
+  // paused  -> button always visible (so the user can play)
+  // playing -> button only visible on hover (so the user can pause)
+  const showButton = !isPlaying || (hovered && !suppressed);
+
+  return (
+    <div
+      className="relative top-[100px] w-full overflow-hidden rounded-[14px]"
+      onMouseEnter={() => {
+        setHovered(true);
+        setSuppressed(false);
+      }}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <video
+        ref={videoRef}
+        src={`${src}#t=0.1`}
+        poster={poster}
+        muted
+        loop
+        playsInline
+        preload="auto"
+        onClick={toggleVideo}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        className="h-full w-full cursor-pointer object-contain object-center md:object-right"
+      />
+
+      {/* PLAY / PAUSE BUTTON (center of video) */}
+      <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
+        <motion.button
+          type="button"
+          onClick={toggleVideo}
+          aria-label={isPlaying ? "Pause video" : "Play video"}
+          animate={{ opacity: showButton ? 1 : 0, scale: showButton ? 1 : 0.85 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.92 }}
+          transition={{ duration: 0.25 }}
+          className={`flex h-14 w-14 items-center justify-center rounded-full border border-white/40 bg-black/50 text-white backdrop-blur-md hover:bg-black/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:h-16 sm:w-16 ${
+            showButton ? "pointer-events-auto" : "pointer-events-none"
+          }`}
+        >
+          {isPlaying ? (
+            <Pause size={23} strokeWidth={2} fill="white" />
+          ) : (
+            <Play size={23} strokeWidth={2} fill="white" className="ml-1" />
+          )}
+        </motion.button>
+      </div>
+    </div>
   );
 }
 
@@ -1086,7 +1163,7 @@ export default function ContentCreation() {
 
           </div>
 
-          {/* HERO RIGHT IMAGE */}
+          {/* HERO RIGHT VIDEO */}
 
           <div className="relative mt-12 flex h-[320px] w-full items-center justify-center md:mt-0 md:h-full md:justify-end">
 
@@ -1096,11 +1173,7 @@ export default function ContentCreation() {
                 : "translate-y-14 opacity-0"
                 }`}
             >
-              <img
-                src="/images/content-creation-hero-visual.png"
-                alt="Content creation"
-                className="h-full w-full object-contain object-center md:object-right"
-              />
+              <HeroVideo src="/images/contentvidio3.mp4" />
             </div>
 
           </div>

@@ -789,7 +789,6 @@
 
 
 
-
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 
@@ -820,13 +819,23 @@ const workCards = [
   {
     title: "IPL Meme Campaign",
     description: "Real-time match-day memes, posted while the conversation was live.",
-    image: "/Service/meme1.jpeg",
+    image: "/Service/meme3.jpeg",
   },
   {
     title: "Movie Moment",
     description: "Iconic scenes reworked into relatable, brand-safe content.",
-    image: "/Service/meme2.jpeg",
+    image: "/Service/meme4.jpeg",
   },
+  {
+    title: "Movie Moment",
+    description: "Iconic scenes reworked into relatable, brand-safe content.",
+    image: "/Service/meme5.jpeg",
+  },
+  //   {
+  //   title: "Movie Moment",
+  //   description: "Iconic scenes reworked into relatable, brand-safe content.",
+  //   image: "/Service/meme4.jpeg",
+  // },
 ];
 
 const cardVariants = {
@@ -1149,24 +1158,39 @@ export default function MemeMarketingHero() {
 
           {/* RIGHT — WORK CARDS */}
 
-          <div className="grid w-full max-w-[560px] flex-1 grid-cols-1 gap-3 sm:grid-cols-2 lg:ml-auto lg:max-w-[600px] xl:max-w-[640px]">
+          {/* FIX: items-start so cards keep their own image height */}
+          <div className="grid w-full max-w-[560px] flex-1 grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:ml-auto lg:max-w-[600px] xl:max-w-[640px]">
 
             {workCards.map((card, index) => (
               <motion.article
-                key={card.title}
+                key={`${card.image}-${index}`}
                 custom={index}
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
-                className="relative"
+                className={`relative ${index === 0 ? "sm:col-span-2" : ""}`}
               >
 
-                <div className="relative aspect-square w-full overflow-hidden rounded-[9px]">
+                {/* First card = wide rectangle, the rest = square. object-contain keeps full image visible (no crop) */}
+                <div
+                  className={`relative w-full overflow-hidden rounded-[9px] bg-[#071014] ${
+                    index === 0 ? "aspect-[16/9]" : "aspect-square"
+                  }`}
+                >
 
-                  <motion.img 
+                  {/* Blurred copy of the same image fills the empty space (no black bars) */}
+                  <img
+                    src={card.image}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 h-full w-full scale-125 object-cover opacity-70 blur-2xl"
+                  />
+
+                  {/* Main image: always fully visible, never cropped */}
+                  <motion.img
                     src={card.image}
                     alt={card.title}
-                    className="block h-[107%] w-full object-cover"
+                    className="relative block h-full w-full"
                     whileHover={{
                       scale: 1.055,
                     }}

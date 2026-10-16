@@ -152,59 +152,59 @@ const PoliticalIntelligence = () => {
   //   },
   // ];
 
-const badges = [
-  {
-    icon: Scale,
-    label: "Policy Changes",
-    bg: "bg-[#E4483A]",
-  },
-  {
-    icon: MessageCircle,   // pehle Users tha
-    label: "Public Sentiment",
-    bg: "bg-[#F5C518]",
-  },
-  {
-    icon: TrendingUp,     
-    label: "Electoral Trends",
-    bg: "bg-[#3BA7DB]",
-  },
-  {
-    icon: Share2,          
-    label: "Stakeholder Mapping",
-    bg: "bg-[#121212]",
-  },
-];
+  const badges = [
+    {
+      icon: Scale,
+      label: "Policy Changes",
+      bg: "bg-[#E4483A]",
+    },
+    {
+      icon: MessageCircle,
+      label: "Media Management",
+      bg: "bg-[#F5C518]",
+    },
+    {
+      icon: TrendingUp,
+      label: "Electoral Trends",
+      bg: "bg-[#3BA7DB]",
+    },
+    {
+      icon: Share2,
+      label: "Stakeholder Mapping",
+      bg: "bg-[#121212]",
+    },
+  ];
 
- const intelligenceCards = [
-  {
-    icon: Search,
-    title: "Real-Time Monitoring",
-    text: "Track political developments, policy updates and key statements as they happen.",
-    accent: "bg-[#F5C518]",
-    underline: "bg-[#F5C518]",
-  },
-  {
-    icon: MessageCircle, 
-    title: "Public Sentiment Analysis",
-    text: "In-depth analysis of what people think, feel and expect across regions and platforms.",
-    accent: "bg-[#3BA7DB]",
-    underline: "bg-[#3BA7DB]",
-  },
-  {
-    icon: Users, 
-    title: "Demographic Tracking",
-    text: "Understand voter groups, shifts and priorities with data you can act on.",
-    accent: "bg-[#E4483A]",
-    underline: "bg-[#E4483A]",
-  },
-  {
-    icon: Target, 
-    title: "Strategic Intelligence",
-    text: "Turn complex information into clear insights that sharpen your strategy.",
-    accent: "bg-[#121212]",
-    underline: "bg-[#121212]",
-  },
-];
+  const intelligenceCards = [
+    {
+      icon: Search,
+      title: "Real-Time Monitoring",
+      text: "Track political developments, policy updates and key statements as they happen.",
+      accent: "bg-[#F5C518]",
+      underline: "bg-[#F5C518]",
+    },
+    {
+      icon: MessageCircle,
+      title: "War Room Management",
+      text: "A dedicated command centre that tracks conversations live, flags threats early and responds within minutes.",
+      accent: "bg-[#3BA7DB]",
+      underline: "bg-[#3BA7DB]",
+    },
+    {
+      icon: Users,
+      title: "Demographic Tracking",
+      text: "Understand voter groups, shifts and priorities with data you can act on.",
+      accent: "bg-[#E4483A]",
+      underline: "bg-[#E4483A]",
+    },
+    {
+      icon: Target,
+      title: "Strategic Intelligence",
+      text: "Turn complex information into clear insights that sharpen your strategy.",
+      accent: "bg-[#121212]",
+      underline: "bg-[#121212]",
+    },
+  ];
 
   // const approachSteps = [
   //   {
@@ -247,52 +247,52 @@ const badges = [
   //   },
   // ];
 
-const approachSteps = [
-  {
-    icon: Search,
-    step: "01",
-    title: "Monitor",
-    text: "Track developments in real time.",
-    bg: "bg-[#F5C518]",
-    dark: true,
-  },
-  {
-    icon: FileText,
-    step: "02",
-    title: "Analyze",
-    text: "Decode trends, sentiment and signals.",
-    bg: "bg-[#3BA7DB]",
-  },
-  {
-    icon: Lightbulb,
-    step: "03",
-    title: "Interpret",
-    text: "Turn data into meaningful insights.",
-    bg: "bg-[#E4483A]",
-  },
-  {
-    icon: MessageCircle, // pehle PenTool tha
-    step: "04",
-    title: "Advise",
-    text: "Deliver reports that guide informed decisions.",
-    bg: "bg-white",
-    dark: true,
-  },
-  {
-    icon: Target,
-    step: "05",
-    title: "Enable",
-    text: "Tailor your messaging and stay steps ahead.",
-    bg: "bg-[#F5C518]",
-    dark: true,
-  },
-];
+  const approachSteps = [
+    {
+      icon: Search,
+      step: "01",
+      title: "Monitor",
+      text: "Track developments in real time.",
+      bg: "bg-[#F5C518]",
+      dark: true,
+    },
+    {
+      icon: FileText,
+      step: "02",
+      title: "Analyze",
+      text: "Decode trends, sentiment and signals.",
+      bg: "bg-[#3BA7DB]",
+    },
+    {
+      icon: Lightbulb,
+      step: "03",
+      title: "Interpret",
+      text: "Turn data into meaningful insights.",
+      bg: "bg-[#E4483A]",
+    },
+    {
+      icon: MessageCircle, // pehle PenTool tha
+      step: "04",
+      title: "Advise",
+      text: "Deliver reports that guide informed decisions.",
+      bg: "bg-white",
+      dark: true,
+    },
+    {
+      icon: Target,
+      step: "05",
+      title: "Enable",
+      text: "Tailor your messaging and stay steps ahead.",
+      bg: "bg-[#F5C518]",
+      dark: true,
+    },
+  ];
 
   const featuredInsights = [
     {
       icon: Landmark,
-      title: "Election Landscape",
-      text: "Voter behavior, key battles, forecast analysis.",
+      title: "Election Consultancy",
+      text: "From voter analysis to campaign execution, expert guidance at every stage of the election.",
     },
     {
       icon: ClipboardList,
@@ -305,10 +305,10 @@ const approachSteps = [
       text: "Mood tracking, social listening, issue mapping.",
     },
     {
-    icon: Users, 
-    title: "Demographic Trends", 
-    text: "Voter groups, regional shifts, key priorities.",
-  },
+      icon: Users,
+      title: "Demographic Trends",
+      text: "Voter groups, regional shifts, key priorities.",
+    },
   ];
 
   return (
@@ -346,7 +346,7 @@ const approachSteps = [
               Data-Driven Strategies
               <br />
               for the Political Landscape.
-                          </motion.h1>
+            </motion.h1>
 
             <motion.span
               initial={{ opacity: 0, scaleX: 0 }}
@@ -485,7 +485,7 @@ const approachSteps = [
             </h2>
 
             <p className="mt-4 text-sm leading-relaxed text-gray-600">
-             Every move in politics creates ripple effects. We give you the data, sentiment and strategic intelligence to stay informed and stay ahead.
+              Every move in politics creates ripple effects. We give you the data, sentiment and strategic intelligence to stay informed and stay ahead.
             </p>
 
             <motion.svg
@@ -629,9 +629,8 @@ const approachSteps = [
                         rotate: 6,
                       }}
                       transition={{ duration: 0.25 }}
-                      className={`${bg} ${
-                        dark ? "text-black" : "text-white"
-                      } flex h-12 w-12 items-center justify-center rounded-full`}
+                      className={`${bg} ${dark ? "text-black" : "text-white"
+                        } flex h-12 w-12 items-center justify-center rounded-full`}
                     >
                       <Icon size={20} />
                     </motion.span>
