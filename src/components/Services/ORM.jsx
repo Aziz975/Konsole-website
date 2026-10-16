@@ -122,7 +122,7 @@ const deliverables = {
       // text: "Monitor mentions and classify public opinion.",
     },
     {
-      title: "Google search result optimization (suppressing negative links)",
+      title: "Online presence result optimization (suppressing negative links)",
       // text: "Mitigate negative press and control narratives quickly.",
     },
   ],

@@ -576,7 +576,7 @@
 //           <div className="mb-6 flex flex-col items-start gap-3 sm:mb-7 md:mb-8">
 
 //             <motion.p
-            
+
 //               className="text-left text-[22px] font-medium leading-tight tracking-[-0.02em] sm:text-[25px]"
 //               style={{ color: COLORS.coral }}
 //             >
@@ -1344,8 +1344,11 @@ const OurTeam = () => {
                 }}
                 className="mt-4 max-w-[550px] text-[16px] font-normal leading-[1.7] text-[#BFC5C5] sm:text-[18px]"
               >
-                We are digital thinkers, strategists, creators, and problem
-                solvers working together to build incredible web experiences.
+                Strategy Experts,
+                Meme Experts,
+                Content Experts,
+                Reel Experts,
+                Content Production Experts.
               </motion.p>
             </motion.div>
 
@@ -1475,34 +1478,34 @@ const OurTeam = () => {
               {/* Scroll area: same height as the large photo on desktop,
                   fixed max height on mobile. Add more images in `thumbs`. */}
               <div className="grid max-h-[420px] grid-cols-2 gap-4 overflow-y-auto pr-2 [scrollbar-color:#FF6268_transparent] [scrollbar-width:thin] lg:absolute lg:inset-0 lg:max-h-none lg:gap-5 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#FF6268]/70 [&::-webkit-scrollbar-track]:bg-transparent">
-              {thumbs.map((thumb, index) => (
-                <motion.button
-                  key={index}
-                  type="button"
-                  onClick={() => handleSwap(index)}
-                  aria-label={`Show ${thumb.alt} as the main photo`}
-                  whileHover={{ y: -3 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="group relative min-h-[180px] overflow-hidden rounded-[18px] border-2 border-transparent bg-[#EAE8E2] text-left transition-all duration-300 hover:border-[#FF6268] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3980FF] focus-visible:ring-offset-2 sm:min-h-[190px] lg:min-h-[210px]"
-                >
-                  <motion.img
-                    key={thumb.src}
-                    src={thumb.src}
-                    alt={thumb.alt}
-                    loading="lazy"
-                    initial={{ opacity: 0, scale: 1.08 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, ease: EASE }}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
-                  />
+                {thumbs.map((thumb, index) => (
+                  <motion.button
+                    key={index}
+                    type="button"
+                    onClick={() => handleSwap(index)}
+                    aria-label={`Show ${thumb.alt} as the main photo`}
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative min-h-[180px] overflow-hidden rounded-[18px] border-2 border-transparent bg-[#EAE8E2] text-left transition-all duration-300 hover:border-[#FF6268] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3980FF] focus-visible:ring-offset-2 sm:min-h-[190px] lg:min-h-[210px]"
+                  >
+                    <motion.img
+                      key={thumb.src}
+                      src={thumb.src}
+                      alt={thumb.alt}
+                      loading="lazy"
+                      initial={{ opacity: 0, scale: 1.08 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, ease: EASE }}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                    />
 
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080B0D]/20 to-transparent" />
-                </motion.button>
-              ))}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080B0D]/20 to-transparent" />
+                  </motion.button>
+                ))}
               </div>
             </motion.div>
           </motion.div>
-        </section>        
+        </section>
 
         {/* BOTTOM ACCENT */}
 

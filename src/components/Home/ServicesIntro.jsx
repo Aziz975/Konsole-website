@@ -8,16 +8,16 @@ const stats = [
     // subtitle: "Executed",
   },
   {
-    number: "50+",
+    number: "40+",
     title: "Brands",
     // subtitle: "Organizations",
   },
   {
-    number: "50M+",
+    number: "70M+",
     title: "Impact",
   },
   {
-    number: "50B+",
+    number: "55B+",
     title: "Views",
   },
 ];

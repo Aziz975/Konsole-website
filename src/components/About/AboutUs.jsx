@@ -4,7 +4,7 @@ import CountUp from "./CountUp";
 
 export default function AboutUs() {
   return (
-    <div className="min-h-screen w-full bg-[#faf8f3] text-[#080b0e]">
+    <div className="mb-5 w-full text-[#080b0e]">
 
       {/* =========================================================
           ABOUT HERO
@@ -128,153 +128,19 @@ export default function AboutUs() {
       {/* =========================================================
           INTRODUCTION
       ========================================================= */}
-      <section className="relative px-[18px] pb-[65px] pt-[82px] text-center sm:px-[30px] sm:pt-[95px]">
-
-        {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.25 }}
-          transition={{
-            duration: 0.6,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="mb-[16px] text-[10px] font-extrabold uppercase tracking-[1.8px] text-[#ff4d57] sm:text-[11px]"
-        >
-          Who We Are
-        </motion.div>
-
-        {/* Heading */}
-        <motion.h2
-          initial={{
-            opacity: 0,
-            y: 35,
-            filter: "blur(7px)",
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-          }}
-          viewport={{
-            once: false,
-            amount: 0.25,
-          }}
-          transition={{
-            duration: 0.75,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="mx-auto max-w-[620px] text-[28px] font-extrabold leading-[1.15] tracking-[-1px] text-[#080808] sm:text-[34px] md:text-[40px]"
-        >
-          We are a full service
-          <br />
-          digital agency.
-        </motion.h2>
-
-        {/* Paragraph */}
-        <motion.p
-          initial={{
-            opacity: 0,
-            y: 25,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: false,
-            amount: 0.25,
-          }}
-          transition={{
-            duration: 0.7,
-            delay: 0.15,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="mx-auto mt-[25px] max-w-[560px] text-[16px] font-normal leading-[1.6] text-[#58616a] sm:text-[17px]"
-        >
-          We create powerful ideas and meaningful experiences that help brands
-          connect with people. From strategy to execution, we bring creativity,
-          culture and technology together to create work that stands out.
-        </motion.p>
-      </section>
+     
 
 
       {/* =========================================================
           STATS
       ========================================================= */}
-      <motion.section
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.25 }}
-        transition={{
-          duration: 0.75,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        className="mx-[12px] overflow-hidden rounded-[14px] border-[2px] border-[#080808] bg-[#ffc900] sm:mx-[18px] md:mx-[30px]"
-      >
-        <div className="grid grid-cols-3 divide-x-[1px] divide-black">
-
-          {/* Stat 1 */}
-          <motion.div
-            whileHover={{
-              backgroundColor: "#ffd72f",
-            }}
-            transition={{ duration: 0.25 }}
-            className="flex min-h-[90px] flex-col items-center justify-center px-2 text-center transition-transform duration-300 sm:min-h-[105px]"
-          >
-            <div className="text-[25px] font-extrabold leading-none tracking-[-1px] text-black sm:text-[30px]">
-              <CountUp end={100} duration={1200} />+
-            </div>
-
-            <div className="mt-[6px] text-[8px] font-extrabold uppercase leading-none tracking-[0.5px] text-black sm:text-[9px]">
-              Team Members
-            </div>
-          </motion.div>
-
-
-          {/* Stat 2 */}
-          <motion.div
-            whileHover={{
-              backgroundColor: "#ffd72f",
-            }}
-            transition={{ duration: 0.25 }}
-            className="flex min-h-[90px] flex-col items-center justify-center px-2 text-center transition-transform duration-300 sm:min-h-[105px]"
-          >
-            <div className="text-[25px] font-extrabold leading-none tracking-[-1px] text-black sm:text-[30px]">
-              <CountUp end={1450} duration={1200} />+
-            </div>
-
-            <div className="mt-[6px] text-[8px] font-extrabold uppercase leading-none tracking-[0.5px] text-black sm:text-[9px]">
-              Completed Projects
-            </div>
-          </motion.div>
-
-
-          {/* Stat 3 */}
-          <motion.div
-            whileHover={{
-              backgroundColor: "#ffd72f",
-            }}
-            transition={{ duration: 0.25 }}
-            className="flex min-h-[90px] flex-col items-center justify-center px-2 text-center transition-transform duration-300 sm:min-h-[105px]"
-          >
-            <div className="text-[25px] font-extrabold leading-none tracking-[-1px] text-black sm:text-[30px]">
-              <CountUp end={9} duration={1200} />+
-            </div>
-
-            <div className="mt-[6px] text-[8px] font-extrabold uppercase leading-none tracking-[0.5px] text-black sm:text-[9px]">
-              Years Experience
-            </div>
-          </motion.div>
-
-        </div>
-      </motion.section>
+    
 
 
       {/* =========================================================
           BOTTOM SPACE
       ========================================================= */}
-      <div className="h-[100px] sm:h-[115px]"></div>
+      {/* <div className="h-[100px] sm:h-[115px]"></div>
 
       <motion.div
         initial={{ scaleX: 0, opacity: 0 }}
@@ -285,8 +151,149 @@ export default function AboutUs() {
           ease: [0.22, 1, 0.36, 1],
         }}
         className="mx-[12px] origin-left border-b border-[#d9d9d9] sm:mx-[18px] md:mx-[30px]"
-      />
+      /> */}
 
     </div>
   );
 }
+
+//    {/* <motion.section
+      //   initial={{ opacity: 0, y: 35 }}
+      //   whileInView={{ opacity: 1, y: 0 }}
+      //   viewport={{ once: false, amount: 0.25 }}
+      //   transition={{
+      //     duration: 0.75,
+      //     ease: [0.22, 1, 0.36, 1],
+      //   }}
+      //   className="mx-[12px] overflow-hidden rounded-[14px] border-[2px] border-[#080808] bg-[#ffc900] sm:mx-[18px] md:mx-[30px]"
+      // >
+      //   <div className="grid grid-cols-3 divide-x-[1px] divide-black">
+
+      //     {/* Stat 1 */}
+      //     <motion.div
+      //       whileHover={{
+      //         backgroundColor: "#ffd72f",
+      //       }}
+      //       transition={{ duration: 0.25 }}
+      //       className="flex min-h-[90px] flex-col items-center justify-center px-2 text-center transition-transform duration-300 sm:min-h-[105px]"
+      //     >
+      //       <div className="text-[25px] font-extrabold leading-none tracking-[-1px] text-black sm:text-[30px]">
+      //         <CountUp end={100} duration={1200} />+
+      //       </div>
+
+      //       <div className="mt-[6px] text-[8px] font-extrabold uppercase leading-none tracking-[0.5px] text-black sm:text-[9px]">
+      //         Team Members
+      //       </div>
+      //     </motion.div>
+
+
+      //     {/* Stat 2 */}
+      //     <motion.div
+      //       whileHover={{
+      //         backgroundColor: "#ffd72f",
+      //       }}
+      //       transition={{ duration: 0.25 }}
+      //       className="flex min-h-[90px] flex-col items-center justify-center px-2 text-center transition-transform duration-300 sm:min-h-[105px]"
+      //     >
+      //       <div className="text-[25px] font-extrabold leading-none tracking-[-1px] text-black sm:text-[30px]">
+      //         <CountUp end={1450} duration={1200} />+
+      //       </div>
+
+      //       <div className="mt-[6px] text-[8px] font-extrabold uppercase leading-none tracking-[0.5px] text-black sm:text-[9px]">
+      //         Completed Projects
+      //       </div>
+      //     </motion.div>
+
+
+      //     {/* Stat 3 */}
+      //     <motion.div
+      //       whileHover={{
+      //         backgroundColor: "#ffd72f",
+      //       }}
+      //       transition={{ duration: 0.25 }}
+      //       className="flex min-h-[90px] flex-col items-center justify-center px-2 text-center transition-transform duration-300 sm:min-h-[105px]"
+      //     >
+      //       <div className="text-[25px] font-extrabold leading-none tracking-[-1px] text-black sm:text-[30px]">
+      //         <CountUp end={9} duration={1200} />+
+      //       </div>
+
+      //       <div className="mt-[6px] text-[8px] font-extrabold uppercase leading-none tracking-[0.5px] text-black sm:text-[9px]">
+      //         Years Experience
+      //       </div>
+      //     </motion.div>
+
+      //   </div>
+      // </motion.section>
+
+//    {/* =========================================================
+      //     INTRODUCTION
+      // ========================================================= */}
+      // <section className="relative px-[18px] pb-[65px] pt-[82px] text-center sm:px-[30px] sm:pt-[95px]">
+
+      //   {/* Eyebrow */}
+      //   <motion.div
+      //     initial={{ opacity: 0, y: 15 }}
+      //     whileInView={{ opacity: 1, y: 0 }}
+      //     viewport={{ once: false, amount: 0.25 }}
+      //     transition={{
+      //       duration: 0.6,
+      //       ease: [0.22, 1, 0.36, 1],
+      //     }}
+      //     className="mb-[16px] text-[10px] font-extrabold uppercase tracking-[1.8px] text-[#ff4d57] sm:text-[11px]"
+      //   >
+      //     Who We Are
+      //   </motion.div>
+
+      //   {/* Heading */}
+      //   <motion.h2
+      //     initial={{
+      //       opacity: 0,
+      //       y: 35,
+      //       filter: "blur(7px)",
+      //     }}
+      //     whileInView={{
+      //       opacity: 1,
+      //       y: 0,
+      //       filter: "blur(0px)",
+      //     }}
+      //     viewport={{
+      //       once: false,
+      //       amount: 0.25,
+      //     }}
+      //     transition={{
+      //       duration: 0.75,
+      //       ease: [0.22, 1, 0.36, 1],
+      //     }}
+      //     className="mx-auto max-w-[620px] text-[28px] font-extrabold leading-[1.15] tracking-[-1px] text-[#080808] sm:text-[34px] md:text-[40px]"
+      //   >
+      //     We are a full service
+      //     <br />
+      //     digital agency.
+      //   </motion.h2>
+
+      //   {/* Paragraph */}
+      //   <motion.p
+      //     initial={{
+      //       opacity: 0,
+      //       y: 25,
+      //     }}
+      //     whileInView={{
+      //       opacity: 1,
+      //       y: 0,
+      //     }}
+      //     viewport={{
+      //       once: false,
+      //       amount: 0.25,
+      //     }}
+      //     transition={{
+      //       duration: 0.7,
+      //       delay: 0.15,
+      //       ease: [0.22, 1, 0.36, 1],
+      //     }}
+      //     className="mx-auto mt-[25px] max-w-[560px] text-[16px] font-normal leading-[1.6] text-[#58616a] sm:text-[17px]"
+      //   >
+      //     We create powerful ideas and meaningful experiences that help brands
+      //     connect with people. From strategy to execution, we bring creativity,
+      //     culture and technology together to create work that stands out.
+      //   </motion.p>
+      // </section>
