@@ -825,6 +825,14 @@ import {
   useTransform,
 } from "motion/react";
 
+const experts = [
+  "Strategy Experts",
+  "Meme Experts",
+  "Content Experts",
+  "Reel Experts",
+  "Content Production Experts",
+];
+
 /* =========================================================
    SHARED THEME
 ========================================================= */
@@ -1334,7 +1342,7 @@ const OurTeam = () => {
                 className="mt-4 h-[4px] rounded-full bg-[#FF6268]"
               />
 
-              <motion.p
+              {/* <motion.p
                 initial={{ opacity: 0, y: 25, filter: "blur(5px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{
@@ -1349,7 +1357,7 @@ const OurTeam = () => {
                 Content Experts,
                 Reel Experts,
                 Content Production Experts.
-              </motion.p>
+              </motion.p> */}
             </motion.div>
 
             {/* RIGHT HERO IMAGE */}
@@ -1415,7 +1423,7 @@ const OurTeam = () => {
               Our Team
             </motion.p>
 
-            <h2
+            {/* <h2
               className="max-w-[780px] text-left text-[40px] font-bold leading-[0.98] tracking-[-0.05em] sm:text-[54px] md:text-[64px] lg:text-[42px]"
               aria-label="Meet the minds driving our vision forward."
             >
@@ -1426,7 +1434,32 @@ const OurTeam = () => {
               <span className="block" style={{ color: COLORS.coral }}>
                 and creators.
               </span>
-            </h2>
+            </h2> */}
+
+            <ul className="w-full max-w-[560px]" aria-label="Our expertise">
+  {experts.map((item, i) => (
+    <motion.li
+      key={item}
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+      className="flex items-center gap-4 border-b py-2.5 sm:gap-5 sm:py-3"
+      style={{ borderColor: "rgba(128,128,128,0.25)" }}
+    >
+      <span
+        className="w-7 shrink-0 text-[12px] font-bold tracking-[0.05em]"
+        style={{ color: i % 2 === 0 ? COLORS.coral : COLORS.yellow }}
+      >
+        {String(i + 1).padStart(2, "0")}
+      </span>
+
+      <span className="text-[24px] font-bold leading-tight tracking-[-0.03em] sm:text-[30px] lg:text-[34px]">
+        {item}
+      </span>
+    </motion.li>
+  ))}
+</ul>
 
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }}

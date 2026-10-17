@@ -189,7 +189,7 @@ import { ArrowUpRight, X } from "lucide-react";
 
 /* ---------- Settings ---------- */
 // Applications will be sent to this email address.
-const HR_EMAIL = "hr"; // <-- yahan HR ki asli email daalo
+const HR_EMAIL = "hr@konsolegroup.com"; // <-- yahan HR ki asli email daalo
 
 // Edit this list to match your open roles
 const positions = [

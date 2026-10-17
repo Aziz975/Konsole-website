@@ -1181,159 +1181,73 @@ export default function ContentCreation() {
         </div>
       </section>
 
-      {/* =========================================================
-          PART 2 — RECENT WORK
-      ========================================================== */}
 
-      <section className="relative flex min-h-screen w-full overflow-hidden bg-[#071014] px-6 py-16 text-white sm:px-8 sm:py-20 md:px-10 lg:px-[6%] lg:py-0 xl:px-[7%]">
+     {/* =========================================================
+    PART 2 — RECENT WORK
+========================================================== */}
 
-        <div className="mx-auto flex min-h-screen w-full max-w-[1500px] flex-col justify-center gap-14 lg:flex-row lg:items-center lg:gap-10 xl:gap-16">
+<section className="relative w-full overflow-hidden bg-[#071014] px-6 py-24 text-white sm:px-8 sm:py-28 md:px-10 lg:py-36">
 
-          {/* LEFT CONTENT */}
+  {/* DECORATIONS */}
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: -40,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            viewport={{
-              once: false,
-              amount: 0.2,
-            }}
-            transition={{
-              duration: 0.75,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="relative z-20 w-full shrink-0 lg:w-[42%] xl:w-[40%]"
-          >
+  <motion.div
+    initial={{ opacity: 0, x: -15 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: false, amount: 0.2 }}
+    transition={{ duration: 0.7, delay: 0.2 }}
+    className="pointer-events-none absolute left-[8%] top-[32%] hidden text-[45px] leading-none text-[#f4c92f] lg:block"
+  >
+    〰
+  </motion.div>
 
-            <p className="mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f05b5e] sm:text-[11px] md:text-[12px]">
-              RECENT WORK
-            </p>
+  <motion.div
+    initial={{ opacity: 0, x: 15 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: false, amount: 0.2 }}
+    transition={{ duration: 0.7, delay: 0.3 }}
+    className="pointer-events-none absolute right-[8%] top-[40%] hidden text-[35px] text-[#18c9e5] lg:block"
+  >
+    〰
+  </motion.div>
 
-            <h2 className="max-w-[560px] text-[48px] font-bold leading-[0.96] tracking-[-0.045em] text-[#f5f7f7] sm:text-[58px] md:text-[50px] lg:text-[70px] xl:text-[60px]">
-              Content that
-              <br />
-              Educates and Entertains.
-            </h2>
+  <motion.div
+    initial={{ opacity: 0, rotate: -20 }}
+    whileInView={{ opacity: 0.8, rotate: 0 }}
+    viewport={{ once: false, amount: 0.2 }}
+    transition={{ duration: 0.7 }}
+    className="pointer-events-none absolute bottom-[18%] right-[12%] hidden text-[28px] text-[#f4c92f] lg:block"
+  >
+    ✦
+  </motion.div>
 
-            <p className="mt-7 max-w-[500px] text-[15px] font-normal leading-[1.5] tracking-[-0.01em] text-[#8b9699] sm:text-[16px] md:text-[17px] lg:mt-8 lg:text-[18px]">
-              From blog posts and persuasive copy to striking graphics and interactive media, we create assets that resonate with your audience and drive action.
-            </p>
+  {/* CENTERED CONTENT */}
 
-            {/* <motion.button
-              whileHover={{
-                y: -3,
-                scale: 1.015,
-                gap: 24,
-                boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
-              }}
-              whileTap={{
-                scale: 0.98,
-              }}
-              transition={{
-                duration: 0.3,
-                ease: "easeOut",
-              }}
-              className="group mt-7 inline-flex items-center gap-5 rounded-full bg-white px-6 py-3.5 text-[14px] font-semibold text-[#182126] shadow-[0_4px_20px_rgba(0,0,0,0.15)] sm:px-7 sm:py-4 sm:text-[15px]"
-            >
-              <span>View All Work</span>
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: false, amount: 0.2 }}
+    transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+    className="relative z-20 mx-auto w-full max-w-[860px] text-center"
+  >
+    <p className="mb-5 text-[10px] font-extrabold uppercase tracking-[0.03em] text-[#f05b5e] sm:text-[11px] md:text-[12px]">
+      RECENT WORK
+    </p>
 
-              <ArrowRight
-                className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-                strokeWidth={2.2}
-              />
-            </motion.button> */}
+    <h2 className="mx-auto max-w-[780px] text-[44px] font-bold leading-[0.96] tracking-[-0.045em] text-[#f5f7f7] sm:text-[56px] lg:text-[66px]">
+      Content that
+      <br />
+      Educates and Entertains.
+    </h2>
 
-          </motion.div>
+    {/* RED ACCENT LINE */}
+    <div className="mx-auto mt-6 h-[5px] w-[118px] rounded-full bg-[#ff4d57]" />
 
-          {/* RIGHT CARDS */}
+    <p className="mx-auto mt-7 max-w-[600px] text-[15px] font-normal leading-[1.55] tracking-[-0.01em] text-[#8b9699] sm:text-[16px] md:text-[17px] lg:text-[18px]">
+      From blog posts and persuasive copy to striking graphics and interactive media, we create assets that resonate with your audience and drive action.
+    </p>
+  </motion.div>
 
-          <div className="relative gap-8 flex w-full flex-col md:flex-row items-center justify-center lg:w-[65%] xl:w-[60%]">
-
-            {/* DECORATION */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: -15,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: false,
-                amount: 0.2,
-              }}
-              transition={{
-                duration: 0.7,
-                delay: 0.2,
-              }}
-              className="pointer-events-none absolute left-[-2%] top-[38%] hidden text-[45px] leading-none text-[#f4c92f] lg:block"
-            >
-              〰
-            </motion.div>
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: 15,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: false,
-                amount: 0.2,
-              }}
-              transition={{
-                duration: 0.7,
-                delay: 0.3,
-              }}
-              className="pointer-events-none absolute right-[-3%] top-[42%] hidden text-[35px] text-[#18c9e5] lg:block"
-            >
-              〰
-            </motion.div>
-
-            {/* CARDS */}
-
-            {workCards.map((card, index) => (
-              <WorkCard key={index} card={card} index={index} />
-            ))}
-
-          </div>
-        </div>
-
-        {/* DECORATIVE STAR */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            rotate: -20,
-          }}
-          whileInView={{
-            opacity: 0.8,
-            rotate: 0,
-          }}
-          viewport={{
-            once: false,
-            amount: 0.2,
-          }}
-          transition={{
-            duration: 0.7,
-          }}
-          className="pointer-events-none absolute bottom-[18%] right-[4%] hidden text-[28px] text-[#f4c92f] lg:block"
-        >
-          ✦
-        </motion.div>
-
-      </section>
+</section>
 
       {/* =========================================================
           PART 3 — LET'S CREATE

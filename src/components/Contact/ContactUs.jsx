@@ -564,14 +564,14 @@ import { motion } from "motion/react";
 import {
   MapPin,
   Mail,
-  Phone,
+  MessageCircle,
   MessageSquare,
   Mountain,
 } from "lucide-react";
 
 /* ---------- Enquiry email settings ---------- */
 // "Let's Chat" card click par ye email address khulega
-const ENQUIRY_EMAIL = "gh";
+const ENQUIRY_EMAIL = "hr@konsolegroup.com";
 
 const buildEnquiryMail = () => {
   const subject = "Project Enquiry - Konsole Group";
@@ -1021,7 +1021,7 @@ export default function ContactUs() {
                   ease: "easeOut",
                 }}
               >
-                <Phone
+                <MessageCircle
                   size={47}
                   strokeWidth={1.8}
                   className="text-white"
@@ -1033,7 +1033,7 @@ export default function ContactUs() {
                   Let's Chat 
                 </h2>
 
-                <motion.p
+                {/* <motion.p
                   whileHover={{
                     x: 4,
                   }}
@@ -1043,11 +1043,11 @@ export default function ContactUs() {
                   className="mt-5 font-[Lato,Arial,sans-serif] text-[14px] text-[#c5ccd1]"
                 >
                   Sales Enquiry&nbsp; +91 99933 33902
-                </motion.p>
+                </motion.p> */}
 
-                <p className="mt-3 font-[Lato,Arial,sans-serif] text-[12px] text-[#8f989e]">
+                {/* <p className="mt-3 font-[Lato,Arial,sans-serif] text-[12px] text-[#8f989e]">
                   Available for new projects & enquiries
-                </p>
+                </p> */}
               </div>
             </div>
 
