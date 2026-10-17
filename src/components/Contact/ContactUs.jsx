@@ -217,7 +217,7 @@ export default function ContactUs() {
 
               <div>
                 <h2 className="font-[Lato,Arial,sans-serif] text-[24px] font-black leading-none tracking-[-0.5px] text-[#080b0e]">
-                  Address
+                  Head Quarter
                 </h2>
 
                 <p className="mt-5 max-w-[300px] font-[Lato,Arial,sans-serif] text-[14px] leading-[1.55] text-[#58616a]">
@@ -430,7 +430,7 @@ export default function ContactUs() {
 
               <div>
                 <h2 className="font-[Lato,Arial,sans-serif] text-[24px] font-black leading-none tracking-[-0.5px] text-white">
-                  Call Us
+                  Let's Chat 
                 </h2>
 
                 <motion.p
@@ -499,163 +499,10 @@ export default function ContactUs() {
 
 
       <div className="mx-auto w-full max-w-[1500px] px-5 py-10 sm:px-8 sm:py-12 md:px-10 md:py-14 lg:px-16 lg:py-16 xl:px-[4.3%]">
-
-        {/* Heading */}
-        <div className="mb-8 md:mb-10 lg:mb-12">
-          <motion.p initial={{ opacity: 0, x: -35, letterSpacing: "0.18em" }} whileInView={{ opacity: 1, x: 0, letterSpacing: "-0.02em" }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="mb-1 text-[25px] leading-tight tracking-[-0.02em] text-[#080b0d] sm:text-[22px] md:text-[24px]">Let's talk</motion.p>
-
-          <motion.h2 initial={{ opacity: 0, x: 70, scale: 0.96 }} whileInView={{ opacity: 1, x: 0, scale: 1 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.9, delay: 0.12, ease: [0.16, 1, 0.3, 1] }} className="max-w-[600px] text-[50px] font-bold leading-[0.98] tracking-[-0.045em] sm:text-[56px] md:text-[62px] lg:text-[66px]">Get In Touch</motion.h2>
-
-          <p className="mt-3 max-w-[680px] text-[15px] leading-[1.6] text-[#58616a] sm:text-[16px] md:text-[17px]">
-            Tell us what you are looking for. We’ll turn the first conversation into a clear
-            <br className="hidden sm:block" />
-            next step.
-          </p>
-
-          <div className="mt-3 h-[5px] w-[122px] rounded-full bg-[#ffcc19]" />
-        </div>
-
-
-        {/* =========================
-        FORM + LOCATION
-    ========================== */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.88fr_1.2fr] lg:gap-12 xl:gap-14">
-
-          {/* ================= FORM CARD ================= */}
-          <div className="rounded-[28px] border border-[#d8d8d5] bg-white px-6 py-7 sm:px-8 sm:py-8 md:px-9 lg:px-8 xl:px-9">
-
-
-
-            <h3 className="mb-3 text-[26px] font-semibold leading-[1.05] tracking-[-0.035em] sm:text-[29px]">
-              What can we help you with?
-            </h3>
-
-            <form className="space-y-4">
-
-              {/* Service */}
-              <div>
-                <label className="mb-1 block text-[10px] font-bold uppercase tracking-wide">
-                  SERVICES
-                </label>
-
-                <div className="relative">
-                  <select
-                    className="h-[34px] w-full appearance-none rounded-[9px] border-0 border-l-[5px] border-[#22b5e8] bg-[#ebeae5] px-3 text-[12px] text-[#647383] outline-none"
-                    defaultValue=""
-                  >
-                    <option value="" disabled>
-                      Choose a service
-                    </option>
-                    <option>Website Designing</option>
-                    <option>Website Development</option>
-                    <option>CMS</option>
-                    <option>Hosting</option>
-                    <option>Digital Marketing</option>
-                  </select>
-
-                  <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[10px] text-[#647383]">
-                    ▼
-                  </span>
-                </div>
-              </div>
-
-
-              {/* Name + Phone */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-
-                <div>
-                  <label className="mb-1 block text-[10px] font-bold uppercase tracking-wide">
-                    YOUR NAME
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    className="h-[34px] w-full rounded-[9px] border-0 border-l-[5px] border-[#ff4654] bg-[#ebeae5] px-3 text-[12px] text-[#555] outline-none placeholder:text-[#718091]"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-1 block text-[10px] font-bold uppercase tracking-wide">
-                    PHONE NUMBER
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="Contact no"
-                    className="h-[34px] w-full rounded-[9px] border-0 border-l-[5px] border-[#ffcc19] bg-[#ebeae5] px-3 text-[12px] text-[#555] outline-none placeholder:text-[#718091]"
-                  />
-                </div>
-
-              </div>
-
-
-              {/* Message */}
-              <div>
-                <label className="mb-1 block text-[10px] font-bold uppercase tracking-wide">
-                  YOUR MESSAGE
-                </label>
-
-                <textarea
-                  placeholder="Write Us"
-                  rows="5"
-                  className="w-full resize-none rounded-[10px] border-0 border-l-[5px] border-[#22b5e8] bg-[#ebeae5] px-3 py-3 text-[12px] text-[#555] outline-none placeholder:text-[#718091]"
-                />
-              </div>
-
-
-              {/* Checkbox */}
-              <div className="flex items-start gap-2 pt-0.5">
-                <input
-                  type="checkbox"
-                  className="mt-[2px] h-[15px] w-[15px] shrink-0 accent-[#080b0d]"
-                />
-
-                <p className="max-w-[390px] text-[12px] leading-[1.5] text-[#607083]">
-                  I hereby authorize you to send notifications via SMS/RCS
-                  Messages/Promotional/Informational Messages.
-                </p>
-              </div>
-
-
-              {/* Submit */}
-              <button
-                type="submit"
-                className="animate-bounce mt-1 inline-flex h-[43px] min-w-[153px] items-center justify-center gap-4 rounded-full bg-[#080b0d] px-6 text-[11px] font-bold uppercase tracking-wide text-white transition-transform duration-300 hover:scale-[1.03]"
-              >
-                MESSAGE US
-                <span className="text-[16px] leading-none">→</span>
-              </button>
-
-            </form>
-          </div>
-
-
-          {/* ================= LOCATION CARD ================= */}
-          <div className="relative min-h-[390px] overflow-hidden rounded-[28px] border border-[#273035] bg-[#151a1d]  text-white pt-7 pl-2 md:min-h-[420px] ">
-
-            {/* Top content */}
-            <div className="relative z-20">
-              <p className="text-[11px] font-bold uppercase tracking-wide text-[#22b5e8]">
-                FIND US
-              </p>
-
-              <h3 className="mt-1 text-[30px] font-semibold leading-[1.05] tracking-[-0.035em] sm:text-[32px]">
-                Raipur • Chhattisgarh
-              </h3>
-
-              <p className="mt-2 text-[15px] text-[#b8c0c5]">
-                Ambuja City Centre Mall
-              </p>
-            </div>
-
-
-            {/* =========================
+ {/* =========================
             MAP AREA
         ========================== */}
-
-
-            <a
+ <a
               href="https://www.google.com/maps/search/?api=1&query=KONSOLE+GROUP+Ambuja+City+Centre+Raipur"
               target="_blank"
               rel="noopener noreferrer"
@@ -664,15 +511,18 @@ export default function ContactUs() {
               <img
                 src="images/mapimage.png"
                 alt="KONSOLE GROUP Location"
-                className="h-full w-full object-contain transition-transform duration-300 hover:scale-[1.02]"
+                className="h-full w-60px object-contain transition-transform duration-300 hover:scale-[1.02]"
               />
             </a>
-
-          </div>
-
-        </div>
-
+       
       </div>
+
+
+
+           
+
+           
+
 
 
       {/* =========================
