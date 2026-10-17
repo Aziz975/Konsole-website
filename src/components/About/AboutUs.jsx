@@ -152,6 +152,13 @@ export default function AboutUs() {
         }}
         className="mx-[12px] origin-left border-b border-[#d9d9d9] sm:mx-[18px] md:mx-[30px]"
       /> */}
+  <div className="mx-[12px] my-[50px] flex justify-center sm:mx-[18px] md:mx-[30px]">
+  <img
+    src="/images/Konsole-Visiting-Card.png"
+    alt="Konsole Visiting Card"
+    className="w-full max-w-[520px] drop-shadow-xl"
+  />
+</div>
 
     </div>
   );
