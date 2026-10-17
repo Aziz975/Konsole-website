@@ -55,10 +55,10 @@ export default function ServicesIntro() {
           <div className="relative flex items-center justify-center gap-7 pb-12 lg:justify-start lg:pb-0 lg:pr-10">
 
             <div className={`flex w-[25px] shrink-0 flex-col items-center justify-center gap-1 text-[34px] leading-[0.62] font-light text-[#080b0b] sm:w-[28px] sm:text-[38px] ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "opacity-0 translate-y-[35px]"}`}>
+              {/* <span>×</span>
               <span>×</span>
               <span>×</span>
-              <span>×</span>
-              <span>×</span>
+              <span>×</span> */}
             </div>
 
             <h2 className={`max-w-[500px] text-center text-[42px] font-bold leading-[1.02] tracking-[-0.045em] sm:text-[50px] md:text-[55px] lg:text-left lg:text-[48px] xl:text-[54px] ${visible ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.15s_forwards]" : "opacity-0 translate-y-[35px]"}`}>

@@ -407,7 +407,7 @@ const PoliticalIntelligence = () => {
           >
             <motion.img
               src="/images/image3.jpeg"
-              alt="Political intelligence hero visual"
+              alt="Political intelligence hero visua"
               className="h-full w-full object-contain"
               whileHover={{
                 scale: 1.025,
