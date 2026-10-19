@@ -1,7 +1,244 @@
+// import React, { useEffect, useRef, useState } from "react";
+// import { ArrowRight, Sparkles } from "lucide-react";
+// import { useHiringPopup } from "../HiringForm/HiringPopup";
+// import { Link } from "react-router-dom";
+
+// export default function StrategicStorytellingHero() {
+//   const { openHiring } = useHiringPopup();
+//   const sectionRef = useRef(null);
+//   const [visible, setVisible] = useState(false);
+
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         setVisible(entry.isIntersecting);
+//       },
+//       { threshold: 0.15 }
+//     );
+
+//     if (sectionRef.current) {
+//       observer.observe(sectionRef.current);
+//     }
+
+//     return () => observer.disconnect();
+//   }, []);
+
+//   return (
+//     <section ref={sectionRef} className="relative min-h-[650px] overflow-hidden bg-[#0b0f10] text-white">
+//       <div className="mx-auto flex min-h-[650px] w-full max-w-[1440px] flex-col lg:flex-row">
+
+//         {/* ================= LEFT CONTENT ================= */}
+//         <div className="relative z-20 flex w-full flex-col justify-center px-6 py-16 sm:px-10 md:px-14 lg:w-[48%] lg:px-14 lg:py-20 xl:px-[60px]">
+
+//           {/* ================= EYEBROW - FADE UP ================= */}
+//           {/* <div className={`mb-6 text-[25px] leading-none text-white sm:text-[28px] md:text-[30px] lg:text-[29px] xl:text-[31px] ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.1s_forwards]" : "translate-y-12 opacity-0"}`} style={{ fontFamily: "cursive" }}>
+//             If you follow the
+//           </div> */}
+
+//           {/* ================= H1 - WORD BY WORD REVEAL ONLY ================= */}
+//           {/* <h1 className="max-w-[560px] text-[50px] font-bold leading-[0.96] tracking-[-0.045em] sm:text-[60px] md:text-[68px] lg:text-[64px] xl:text-[72px]"> */}
+//           <h1 className="max-w-[560px] text-[32px] font-bold leading-[0.96] tracking-[-0.045em] min-[400px]:text-[38px] min-[480px]:text-[46px] sm:text-[60px] md:text-[68px] lg:text-[64px] xl:text-[72px]">
+//             {/* <span className="block">
+//               {"Sherpa Strategy,".split("").map((letter, index) => (
+//                 <span
+//                   key={index}
+//                   className={`inline-block ${visible
+//                     ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]"
+//                     : "translate-y-[120%] opacity-0"
+//                     }`}
+//                   style={{
+//                     animationDelay: `${index * 0.045}s`,
+//                     ...(letter === " " ? { width: "12px" } : {}),
+//                   }}
+//                 >
+//                   {letter}
+//                 </span>
+//               ))}
+//             </span> */}
+//             <span className="block">
+//               {"Every Brand".split(" ").map((word, wordIndex, words) => {
+//                 const offset = words
+//                   .slice(0, wordIndex)
+//                   .reduce((sum, w) => sum + w.length + 1, 0);
+
+//                 return (
+//                   <span key={wordIndex} className="inline-block whitespace-nowrap">
+//                     {word.split("").map((letter, index) => (
+//                       <span
+//                         key={index}
+//                         className={`inline-block ${visible
+//                           ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]"
+//                           : "translate-y-[120%] opacity-0"
+//                           }`}
+//                         style={{ animationDelay: `${(offset + index) * 0.045}s` }}
+//                       >
+//                         {letter}
+//                       </span>
+//                     ))}
+//                     {wordIndex < words.length - 1 && <span className="inline-block w-[0.25em]" />}
+//                   </span>
+//                 );
+//               })}
+//             </span>
+
+//             <span className="block ">
+//               {"Needs a Sherpa".split("").map((letter, index) => (
+//                 <span key={index} className={`inline-block text-[#ffd21c] ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{
+//                   animationDelay: `${0.4 + index * 0.045}s`,
+//                   ...(letter === " " ? { width: "12px" } : {}),
+//                 }}>
+//                   {letter}
+//                 </span>
+//               ))}
+//             </span>
+   
+//             <span className="block">
+//               <span className="inline-block">
+//                 {"And".split("").map((letter, index) => (
+//                   <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${0.95 + index * 0.045}s` }}>
+//                     {letter}
+//                   </span>
+//                 ))}
+//               </span>
+
+//                 <span className="inline-block ml-[0.2em]">
+//                 {"We".split("").map((letter, index) => (
+//                   <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${1.1 + index * 0.045}s` }}>
+//                     {letter}
+//                   </span>
+//                 ))}
+//               </span>
+
+//               <span className="inline-block ml-[0.2em]">
+//                 {"Are".split("").map((letter, index) => (
+//                   <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${1.1 + index * 0.045}s` }}>
+//                     {letter}
+//                   </span>
+//                 ))}
+//               </span>
+
+//                <span className="inline-block ml-[0.2em]">
+//                 {"The".split("").map((letter, index) => (
+//                   <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${1.1 + index * 0.045}s` }}>
+//                     {letter}
+//                   </span>
+//                 ))}
+//               </span>
+
+//                <span className="inline-block ml-[0.2em]">
+//                 {"One".split("").map((letter, index) => (
+//                   <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${1.1 + index * 0.045}s` }}>
+//                     {letter}
+//                   </span>
+//                 ))}
+//               </span>
+
+             
+//             </span>
+
+//             <span className="block">
+//               {"Konsole Group".split("").map((letter, index) => (
+//                 <span key={index} className={` text-[#ff6969] inline-block ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{
+//                   animationDelay: `${1.55 + index * 0.045}s`,
+//                   ...(letter === " " ? { width: "12px" } : {}),
+//                 }}>
+//                   {letter}
+//                 </span>
+//               ))}
+//             </span>
+
+//           </h1>
+
+//           {/* ================= DESCRIPTION - FADE UP ================= */}
+//           <p className={`mt-8 max-w-[500px] text-[17px] font-normal leading-[1.5] tracking-[-0.01em] text-[#f1f3f3] sm:text-[18px] md:text-[19px] lg:mt-9 ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.75s_forwards]" : "translate-y-12 opacity-0"}`}>
+//             We blend creativity, culture and strategy to help brands, leaders and institutions stay relevant, trusted and ahead.
+//           </p>
+
+//           {/* ================= CTA - FADE UP ================= */}
+//           <div className={`mt-8 sm:mt-9 ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.9s_forwards]" : "translate-y-12 opacity-0"}`}>
+//               <Link
+//     to="/services/memeandmomentmarketing"
+//      className="animate-bounce group inline-flex h-[56px] items-center gap-7 rounded-full bg-white px-7 text-[16px] font-semibold text-[#111516] transition-all duration-300 hover:gap-9 hover:bg-[#f5f5f5] sm:h-[58px] sm:px-9 sm:text-[17px]">
+//               <span>Explore Our Services</span>
+
+//               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.2} />
+//             </Link>
+//           </div>
+
+//         </div>
+
+//         {/* ================= RIGHT IMAGE - FADE UP ================= */}
+//         <div className="relative w-full px-6 pb-12 sm:px-10 md:px-14 lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-[56%] lg:px-0 lg:pb-0">
+//           <div className={`relative h-full w-full ${visible ? "animate-[fadeUp_1.1s_cubic-bezier(0.22,1,0.36,1)_0.3s_forwards]" : "translate-y-20 opacity-0"}`}>
+//             <img
+//               src="images/artwork.png"
+//               alt="Strategic storytelling artwork"
+//               className="mx-auto h-auto w-full max-w-[520px] object-contain lg:absolute lg:right-0 lg:top-[45%] lg:mx-0 lg:h-[600px] lg:w-full lg:max-w-none lg:-translate-y-1/2 lg:object-center"
+//             />
+//           </div>
+//         </div>
+
+//       </div>
+//       {/* ================= HIRING BUTTON - BOTTOM RIGHT ================= */}
+//       <button
+//   type="button"
+//   onClick={openHiring}
+//   className="absolute bottom-5 right-5 z-30 inline-flex animate-pulse items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1fc66b] to-[#16a34a] px-5 py-3 text-[15px] font-semibold text-white shadow-[0_8px_30px_rgba(31,198,107,0.4)] transition-transform duration-300 hover:scale-105 sm:bottom-8 sm:right-8 sm:px-6 sm:py-3.5 sm:text-[16px]"
+// >
+//   <Sparkles className="h-5 w-5" strokeWidth={2} />
+//   <span>We're Hiring</span>
+// </button>
+//     </section>
+//   );
+// }
+
+
+
+
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useHiringPopup } from "../HiringForm/HiringPopup";
 import { Link } from "react-router-dom";
+
+/**
+ * One headline line, revealed letter by letter.
+ * Every word is wrapped in a whitespace-nowrap box, so the line can only
+ * wrap BETWEEN words, never in the middle of a word.
+ */
+function AnimatedLine({ text, visible, delay = 0, className = "" }) {
+  const words = text.split(" ");
+
+  return (
+    <span className={`block ${className}`}>
+      {words.map((word, wordIndex) => {
+        const offset = words
+          .slice(0, wordIndex)
+          .reduce((sum, w) => sum + w.length + 1, 0);
+
+        return (
+          <span key={wordIndex} className="inline-block whitespace-nowrap">
+            {word.split("").map((letter, index) => (
+              <span
+                key={index}
+                className={`inline-block ${
+                  visible
+                    ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]"
+                    : "translate-y-[120%] opacity-0"
+                }`}
+                style={{ animationDelay: `${delay + (offset + index) * 0.045}s` }}
+              >
+                {letter}
+              </span>
+            ))}
+            {wordIndex < words.length - 1 && (
+              <span className="inline-block w-[0.25em]" />
+            )}
+          </span>
+        );
+      })}
+    </span>
+  );
+}
 
 export default function StrategicStorytellingHero() {
   const { openHiring } = useHiringPopup();
@@ -24,154 +261,83 @@ export default function StrategicStorytellingHero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative min-h-[650px] overflow-hidden bg-[#0b0f10] text-white">
-      <div className="mx-auto flex min-h-[650px] w-full max-w-[1440px] flex-col lg:flex-row">
+    <section
+      ref={sectionRef}
+      className="relative min-h-[650px] overflow-hidden bg-[#0b0f10] text-white"
+    >
+      {/* FIX 2: added `relative` so the absolutely positioned image is placed
+          inside this 1440px box, not at the far edge of a wide monitor. */}
+      <div className="relative mx-auto flex min-h-[650px] w-full max-w-[1440px] flex-col lg:flex-row">
 
         {/* ================= LEFT CONTENT ================= */}
         <div className="relative z-20 flex w-full flex-col justify-center px-6 py-16 sm:px-10 md:px-14 lg:w-[48%] lg:px-14 lg:py-20 xl:px-[60px]">
 
-          {/* ================= EYEBROW - FADE UP ================= */}
-          {/* <div className={`mb-6 text-[25px] leading-none text-white sm:text-[28px] md:text-[30px] lg:text-[29px] xl:text-[31px] ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.1s_forwards]" : "translate-y-12 opacity-0"}`} style={{ fontFamily: "cursive" }}>
-            If you follow the
-          </div> */}
-
-          {/* ================= H1 - WORD BY WORD REVEAL ONLY ================= */}
-          {/* <h1 className="max-w-[560px] text-[50px] font-bold leading-[0.96] tracking-[-0.045em] sm:text-[60px] md:text-[68px] lg:text-[64px] xl:text-[72px]"> */}
-          <h1 className="max-w-[560px] text-[32px] font-bold leading-[0.96] tracking-[-0.045em] min-[400px]:text-[38px] min-[480px]:text-[46px] sm:text-[60px] md:text-[68px] lg:text-[64px] xl:text-[72px]">
-            {/* <span className="block">
-              {"Sherpa Strategy,".split("").map((letter, index) => (
-                <span
-                  key={index}
-                  className={`inline-block ${visible
-                    ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]"
-                    : "translate-y-[120%] opacity-0"
-                    }`}
-                  style={{
-                    animationDelay: `${index * 0.045}s`,
-                    ...(letter === " " ? { width: "12px" } : {}),
-                  }}
-                >
-                  {letter}
-                </span>
-              ))}
-            </span> */}
-            <span className="block">
-              {"Every Brand".split(" ").map((word, wordIndex, words) => {
-                const offset = words
-                  .slice(0, wordIndex)
-                  .reduce((sum, w) => sum + w.length + 1, 0);
-
-                return (
-                  <span key={wordIndex} className="inline-block whitespace-nowrap">
-                    {word.split("").map((letter, index) => (
-                      <span
-                        key={index}
-                        className={`inline-block ${visible
-                          ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]"
-                          : "translate-y-[120%] opacity-0"
-                          }`}
-                        style={{ animationDelay: `${(offset + index) * 0.045}s` }}
-                      >
-                        {letter}
-                      </span>
-                    ))}
-                    {wordIndex < words.length - 1 && <span className="inline-block w-[0.25em]" />}
-                  </span>
-                );
-              })}
-            </span>
-
-            <span className="block ">
-              {"Needs a Sherpa".split("").map((letter, index) => (
-                <span key={index} className={`inline-block text-[#ffd21c] ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{
-                  animationDelay: `${0.4 + index * 0.045}s`,
-                  ...(letter === " " ? { width: "12px" } : {}),
-                }}>
-                  {letter}
-                </span>
-              ))}
-            </span>
-   
-            <span className="block">
-              <span className="inline-block">
-                {"And".split("").map((letter, index) => (
-                  <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${0.95 + index * 0.045}s` }}>
-                    {letter}
-                  </span>
-                ))}
-              </span>
-
-                <span className="inline-block ml-[0.2em]">
-                {"We".split("").map((letter, index) => (
-                  <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${1.1 + index * 0.045}s` }}>
-                    {letter}
-                  </span>
-                ))}
-              </span>
-
-              <span className="inline-block ml-[0.2em]">
-                {"Are".split("").map((letter, index) => (
-                  <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${1.1 + index * 0.045}s` }}>
-                    {letter}
-                  </span>
-                ))}
-              </span>
-
-               <span className="inline-block ml-[0.2em]">
-                {"The".split("").map((letter, index) => (
-                  <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${1.1 + index * 0.045}s` }}>
-                    {letter}
-                  </span>
-                ))}
-              </span>
-
-               <span className="inline-block ml-[0.2em]">
-                {"One".split("").map((letter, index) => (
-                  <span key={index} className={`inline-block  ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{ animationDelay: `${1.1 + index * 0.045}s` }}>
-                    {letter}
-                  </span>
-                ))}
-              </span>
-
-             
-            </span>
-
-            <span className="block">
-              {"Konsole Group".split("").map((letter, index) => (
-                <span key={index} className={` text-[#ff6969] inline-block ${visible ? "animate-[letterReveal_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]" : "translate-y-[120%] opacity-0"}`} style={{
-                  animationDelay: `${1.55 + index * 0.045}s`,
-                  ...(letter === " " ? { width: "12px" } : {}),
-                }}>
-                  {letter}
-                </span>
-              ))}
-            </span>
-
+          {/* ================= H1 ================= */}
+          {/* FIX 1: from lg up, the font size scales with the viewport width
+              (4.2vw) and is capped at 68px, so "Needs a Sherpa" always fits
+              inside the 48% column on 1024px - 1440px screens. */}
+          <h1 className="max-w-[600px] text-[32px] font-bold leading-[0.96] tracking-[-0.045em] min-[400px]:text-[38px] min-[480px]:text-[46px] sm:text-[60px] md:text-[68px] lg:text-[length:min(4.2vw,68px)]">
+            <AnimatedLine text="Every Brand" visible={visible} delay={0} />
+            <AnimatedLine
+              text="Needs a Sherpa"
+              visible={visible}
+              delay={0.4}
+              className="text-[#ffd21c]"
+            />
+            <AnimatedLine text="And We Are The One" visible={visible} delay={0.95} />
+            <AnimatedLine
+              text="Konsole Group"
+              visible={visible}
+              delay={1.55}
+              className="text-[#ff6969]"
+            />
           </h1>
 
-          {/* ================= DESCRIPTION - FADE UP ================= */}
-          <p className={`mt-8 max-w-[500px] text-[17px] font-normal leading-[1.5] tracking-[-0.01em] text-[#f1f3f3] sm:text-[18px] md:text-[19px] lg:mt-9 ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.75s_forwards]" : "translate-y-12 opacity-0"}`}>
+          {/* ================= DESCRIPTION ================= */}
+          <p
+            className={`mt-8 max-w-[500px] text-[17px] font-normal leading-[1.5] tracking-[-0.01em] text-[#f1f3f3] sm:text-[18px] md:text-[19px] lg:mt-9 ${
+              visible
+                ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.75s_forwards]"
+                : "translate-y-12 opacity-0"
+            }`}
+          >
             We blend creativity, culture and strategy to help brands, leaders and institutions stay relevant, trusted and ahead.
           </p>
 
-          {/* ================= CTA - FADE UP ================= */}
-          <div className={`mt-8 sm:mt-9 ${visible ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.9s_forwards]" : "translate-y-12 opacity-0"}`}>
-              <Link
-    to="/services/memeandmomentmarketing"
-     className="animate-bounce group inline-flex h-[56px] items-center gap-7 rounded-full bg-white px-7 text-[16px] font-semibold text-[#111516] transition-all duration-300 hover:gap-9 hover:bg-[#f5f5f5] sm:h-[58px] sm:px-9 sm:text-[17px]">
+          {/* ================= CTA ================= */}
+          <div
+            className={`mt-8 sm:mt-9 ${
+              visible
+                ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.9s_forwards]"
+                : "translate-y-12 opacity-0"
+            }`}
+          >
+            <Link
+              to="/services/memeandmomentmarketing"
+              className="animate-bounce group inline-flex h-[56px] items-center gap-7 rounded-full bg-white px-7 text-[16px] font-semibold text-[#111516] transition-all duration-300 hover:gap-9 hover:bg-[#f5f5f5] sm:h-[58px] sm:px-9 sm:text-[17px]"
+            >
               <span>Explore Our Services</span>
-
-              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.2} />
+              <ArrowRight
+                className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+                strokeWidth={2.2}
+              />
             </Link>
           </div>
 
         </div>
 
-        {/* ================= RIGHT IMAGE - FADE UP ================= */}
+        {/* ================= RIGHT IMAGE ================= */}
         <div className="relative w-full px-6 pb-12 sm:px-10 md:px-14 lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-[56%] lg:px-0 lg:pb-0">
-          <div className={`relative h-full w-full ${visible ? "animate-[fadeUp_1.1s_cubic-bezier(0.22,1,0.36,1)_0.3s_forwards]" : "translate-y-20 opacity-0"}`}>
+          <div
+            className={`relative h-full w-full ${
+              visible
+                ? "animate-[fadeUp_1.1s_cubic-bezier(0.22,1,0.36,1)_0.3s_forwards]"
+                : "translate-y-20 opacity-0"
+            }`}
+          >
+            {/* FIX 3: leading slash so the path works on every route */}
             <img
-              src="images/artwork.png"
+              src="/images/artwork.png"
               alt="Strategic storytelling artwork"
               className="mx-auto h-auto w-full max-w-[520px] object-contain lg:absolute lg:right-0 lg:top-[45%] lg:mx-0 lg:h-[600px] lg:w-full lg:max-w-none lg:-translate-y-1/2 lg:object-center"
             />
@@ -179,15 +345,16 @@ export default function StrategicStorytellingHero() {
         </div>
 
       </div>
+
       {/* ================= HIRING BUTTON - BOTTOM RIGHT ================= */}
       <button
-  type="button"
-  onClick={openHiring}
-  className="absolute bottom-5 right-5 z-30 inline-flex animate-pulse items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1fc66b] to-[#16a34a] px-5 py-3 text-[15px] font-semibold text-white shadow-[0_8px_30px_rgba(31,198,107,0.4)] transition-transform duration-300 hover:scale-105 sm:bottom-8 sm:right-8 sm:px-6 sm:py-3.5 sm:text-[16px]"
->
-  <Sparkles className="h-5 w-5" strokeWidth={2} />
-  <span>We're Hiring</span>
-</button>
+        type="button"
+        onClick={openHiring}
+        className="absolute bottom-5 right-5 z-30 inline-flex animate-pulse items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1fc66b] to-[#16a34a] px-5 py-3 text-[15px] font-semibold text-white shadow-[0_8px_30px_rgba(31,198,107,0.4)] transition-transform duration-300 hover:scale-105 sm:bottom-8 sm:right-8 sm:px-6 sm:py-3.5 sm:text-[16px]"
+      >
+        <Sparkles className="h-5 w-5" strokeWidth={2} />
+        <span>We're Hiring</span>
+      </button>
     </section>
   );
 }
