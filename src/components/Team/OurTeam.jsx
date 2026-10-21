@@ -1423,6 +1423,19 @@ const OurTeam = () => {
               Our Team
             </motion.p>
 
+            <div className="team-description">
+  <p className="team-description__lead bold text-[20px] leading-tight tracking-[-0.02em] sm:text-[22px]">
+    Konsole is where fresh Gen-Z perspective collides with a 25-year
+    treasure trove of industry experience.
+  </p>
+  <p className="team-description__body text-[16px] leading-[1.7] tracking-[-0.02em] sm:text-[18px]">
+    Built like a premier cricket team, our roster channels both raw creative
+    energy and deeply seasoned expertise. From aggressive openers breaking new
+    ground to analytical spinners fine-tuning strategy, we are led by dynamic
+    all-rounders who ensure legacy wisdom drives tomorrow's innovations.
+  </p>
+</div>
+
             {/* <h2
               className="max-w-[780px] text-left text-[40px] font-bold leading-[0.98] tracking-[-0.05em] sm:text-[54px] md:text-[64px] lg:text-[42px]"
               aria-label="Meet the minds driving our vision forward."
