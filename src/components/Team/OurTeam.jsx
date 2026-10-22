@@ -1,4 +1,3 @@
-
 // import React, { useRef, useState } from "react";
 // import {
 //   motion,
@@ -7,6 +6,14 @@
 //   useSpring,
 //   useTransform,
 // } from "motion/react";
+
+// const experts = [
+//   "Strategy Experts",
+//   "Meme Experts",
+//   "Content Experts",
+//   "Reel Experts",
+//   "Content Production Experts",
+// ];
 
 // /* =========================================================
 //    SHARED THEME
@@ -294,18 +301,32 @@
 // ========================================================= */
 
 // const OurTeam = () => {
-//   const teamMembers = [
-//     { imgSrc: "/images/team1.jpeg", role: "Founding Leadership" },
-//     { imgSrc: "/images/team2.jpeg", role: "Team member 2" },
-//     { imgSrc: "/images/team-1.jpg", role: "Team member 3" },
-//     { imgSrc: "/images/team-2.jpg", role: "Team member 4" },
-//   ];
-
-//   // Selected image is shown in the large photo on the left.
-//   const [selectedPhoto, setSelectedPhoto] = useState({
+//   // Large photo shown on the left.
+//   const [mainPhoto, setMainPhoto] = useState({
 //     src: "/images/team1.jpeg",
 //     alt: "Founding Leadership",
 //   });
+
+//   // Small thumbnails shown on the right.
+//   // NOTE: replace these with your real image filenames.
+//   const [thumbs, setThumbs] = useState([
+//     { src: "/images/team2.jpeg", alt: "Team member 1" },
+//     { src: "/images/team3.jpeg", alt: "Team member 2" },
+//     { src: "/images/team4.jpeg", alt: "Team member 3" },
+//     { src: "/images/team5.jpeg", alt: "Team member 4" },
+//     { src: "/images/team6.jpeg", alt: "Team member 5" },
+//     { src: "/images/team7.jpeg", alt: "Team member 6" },
+//     // add more images here
+//   ]);
+
+//   // Clicking a thumbnail: it becomes the large photo,
+//   // and the old large photo takes its place in the grid.
+//   const handleSwap = (index) => {
+//     const clicked = thumbs[index];
+
+//     setThumbs((prev) => prev.map((t, i) => (i === index ? mainPhoto : t)));
+//     setMainPhoto(clicked);
+//   };
 
 //   const heroRef = useRef(null);
 
@@ -503,7 +524,7 @@
 //                 className="mt-4 h-[4px] rounded-full bg-[#FF6268]"
 //               />
 
-//               <motion.p
+//               {/* <motion.p
 //                 initial={{ opacity: 0, y: 25, filter: "blur(5px)" }}
 //                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
 //                 transition={{
@@ -513,9 +534,12 @@
 //                 }}
 //                 className="mt-4 max-w-[550px] text-[16px] font-normal leading-[1.7] text-[#BFC5C5] sm:text-[18px]"
 //               >
-//                 We are digital thinkers, strategists, creators, and problem
-//                 solvers working together to build incredible web experiences.
-//               </motion.p>
+//                 Strategy Experts,
+//                 Meme Experts,
+//                 Content Experts,
+//                 Reel Experts,
+//                 Content Production Experts.
+//               </motion.p> */}
 //             </motion.div>
 
 //             {/* RIGHT HERO IMAGE */}
@@ -574,17 +598,55 @@
 //           {/* SECTION HEADING */}
 
 //           <div className="mb-6 flex flex-col items-start gap-3 sm:mb-7 md:mb-8">
-
 //             <motion.p
-
 //               className="text-left text-[22px] font-medium leading-tight tracking-[-0.02em] sm:text-[25px]"
 //               style={{ color: COLORS.coral }}
 //             >
 //               Our Team
 //             </motion.p>
 
+//             {/* <div className="team-description">
+//   <p className="team-description__lead bold text-[20px] leading-tight tracking-[-0.02em] sm:text-[22px]">
+//     Konsole is where fresh Gen-Z perspective collides with a 25-year
+//     treasure trove of industry experience.
+//   </p>
+//   <p className="team-description__body text-[16px] leading-[1.7] tracking-[-0.02em] sm:text-[18px]">
+//     Built like a premier cricket team, our roster channels both raw creative
+//     energy and deeply seasoned expertise. From aggressive openers breaking new
+//     ground to analytical spinners fine-tuning strategy, we are led by dynamic
+//     all-rounders who ensure legacy wisdom drives tomorrow's innovations.
+//   </p>
+// </div> */}
 
-//             <h2
+
+// {/* ================= DESCRIPTION - FADE UP ================= */}
+// <div className="mt-8 max-w-[540px] space-y-4 text-[17px] leading-[1.5] tracking-[-0.01em] text-[#f1f3f3] sm:text-[18px] md:text-[19px] lg:mt-9">
+//   <p
+//     className={`font-semibold text-white ${
+//       visible
+//         ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.75s_forwards]"
+//         : "translate-y-12 opacity-0"
+//     }`}
+//   >
+//     Konsole is where fresh Gen-Z perspective collides with a 25-year
+//     treasure trove of industry experience.
+//   </p>
+
+//   <p
+//     className={`font-normal ${
+//       visible
+//         ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_0.85s_forwards]"
+//         : "translate-y-12 opacity-0"
+//     }`}
+//   >
+//     Built like a premier cricket team, our roster channels both raw creative
+//     energy and deeply seasoned expertise. From aggressive openers breaking new
+//     ground to analytical spinners fine-tuning strategy, we are led by dynamic
+//     all-rounders who ensure legacy wisdom drives tomorrow&apos;s innovations.
+//   </p>
+// </div>
+
+//             {/* <h2
 //               className="max-w-[780px] text-left text-[40px] font-bold leading-[0.98] tracking-[-0.05em] sm:text-[54px] md:text-[64px] lg:text-[42px]"
 //               aria-label="Meet the minds driving our vision forward."
 //             >
@@ -595,7 +657,32 @@
 //               <span className="block" style={{ color: COLORS.coral }}>
 //                 and creators.
 //               </span>
-//             </h2>
+//             </h2> */}
+
+//             <ul className="w-full max-w-[560px]" aria-label="Our expertise">
+//   {experts.map((item, i) => (
+//     <motion.li
+//       key={item}
+//       initial={{ opacity: 0, x: -20 }}
+//       whileInView={{ opacity: 1, x: 0 }}
+//       viewport={{ once: true, amount: 0.5 }}
+//       transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+//       className="flex items-center gap-4 border-b py-2.5 sm:gap-5 sm:py-3"
+//       style={{ borderColor: "rgba(128,128,128,0.25)" }}
+//     >
+//       <span
+//         className="w-7 shrink-0 text-[12px] font-bold tracking-[0.05em]"
+//         style={{ color: i % 2 === 0 ? COLORS.coral : COLORS.yellow }}
+//       >
+//         {String(i + 1).padStart(2, "0")}
+//       </span>
+
+//       <span className="text-[24px] font-bold leading-tight tracking-[-0.03em] sm:text-[30px] lg:text-[34px]">
+//         {item}
+//       </span>
+//     </motion.li>
+//   ))}
+// </ul>
 
 //             <motion.div
 //               initial={{ scaleX: 0, opacity: 0 }}
@@ -615,19 +702,18 @@
 //             viewport={{ once: true, amount: 0.15 }}
 //             className="grid grid-cols-1 items-stretch gap-4 lg:grid-cols-12 lg:gap-5"
 //           >
-//             {/* LARGE SELECTED PHOTO ON THE LEFT */}
+//             {/* LARGE PHOTO ON THE LEFT */}
 
 //             <motion.div
-//               key={selectedPhoto.src}
+//               key={mainPhoto.src}
 //               initial={{ opacity: 0.7, scale: 0.985 }}
 //               animate={{ opacity: 1, scale: 1 }}
 //               transition={{ duration: 0.4, ease: EASE }}
 //               className="group relative min-h-[340px] overflow-hidden rounded-[20px] border border-[#D6D4CE] bg-[#EAE8E2] sm:min-h-[400px] lg:col-span-7 lg:min-h-[440px]"
 //             >
 //               <motion.img
-//                 key={selectedPhoto.src}
-//                 src={selectedPhoto.src}
-//                 alt={selectedPhoto.alt}
+//                 src={mainPhoto.src}
+//                 alt={mainPhoto.alt}
 //                 initial={{ scale: 1.04 }}
 //                 animate={{ scale: 1 }}
 //                 transition={{ duration: 0.6, ease: EASE }}
@@ -643,146 +729,38 @@
 
 //             <motion.div
 //               variants={cardsContainer}
-//               className="grid grid-cols-2 gap-4 lg:col-span-5 lg:gap-5"
+//               className="relative lg:col-span-5"
 //             >
-//               {teamMembers.map((member, index) => {
-//                 const isSelected = selectedPhoto.src === member.imgSrc;
-
-//                 return (
+//               {/* Scroll area: same height as the large photo on desktop,
+//                   fixed max height on mobile. Add more images in `thumbs`. */}
+//               <div className="grid max-h-[420px] grid-cols-2 gap-4 overflow-y-auto pr-2 [scrollbar-color:#FF6268_transparent] [scrollbar-width:thin] lg:absolute lg:inset-0 lg:max-h-none lg:gap-5 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#FF6268]/70 [&::-webkit-scrollbar-track]:bg-transparent">
+//                 {thumbs.map((thumb, index) => (
 //                   <motion.button
-//                     key={`${member.imgSrc}-${index}`}
+//                     key={index}
 //                     type="button"
-//                     onClick={() =>
-//                       setSelectedPhoto({
-//                         src: member.imgSrc,
-//                         alt: member.role || `Team member ${index + 1}`,
-//                       })
-//                     }
-//                     aria-label={`Show ${member.role || `team member ${index + 1}`} photo`}
-//                     aria-pressed={isSelected}
+//                     onClick={() => handleSwap(index)}
+//                     aria-label={`Show ${thumb.alt} as the main photo`}
 //                     whileHover={{ y: -3 }}
 //                     whileTap={{ scale: 0.98 }}
-//                     className={`group relative min-h-[180px] overflow-hidden rounded-[18px] border-2 bg-[#EAE8E2] text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3980FF] focus-visible:ring-offset-2 sm:min-h-[190px] lg:min-h-[210px] ${isSelected
-//                         ? "border-[#3980FF] shadow-[0_0_0_2px_rgba(57,128,255,0.12)]"
-//                         : "border-transparent hover:border-[#FF6268]"
-//                       }`}
+//                     className="group relative min-h-[180px] overflow-hidden rounded-[18px] border-2 border-transparent bg-[#EAE8E2] text-left transition-all duration-300 hover:border-[#FF6268] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3980FF] focus-visible:ring-offset-2 sm:min-h-[190px] lg:min-h-[210px]"
 //                   >
-//                     <img
-//                       src={member.imgSrc}
-//                       alt={member.role || `Team member ${index + 1}`}
+//                     <motion.img
+//                       key={thumb.src}
+//                       src={thumb.src}
+//                       alt={thumb.alt}
 //                       loading="lazy"
-//                       className={`absolute inset-0 h-full w-full object-cover transition-transform duration-500 ${isSelected
-//                           ? "scale-[1.03]"
-//                           : "group-hover:scale-[1.05]"
-//                         }`}
+//                       initial={{ opacity: 0, scale: 1.08 }}
+//                       animate={{ opacity: 1, scale: 1 }}
+//                       transition={{ duration: 0.5, ease: EASE }}
+//                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
 //                     />
 
 //                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080B0D]/20 to-transparent" />
-
-//                     {isSelected && (
-//                       <motion.div
-//                         layoutId="selected-team-photo"
-//                         className="pointer-events-none absolute inset-0 rounded-[16px] border-2 border-[#3980FF]"
-//                       />
-//                     )}
 //                   </motion.button>
-//                 );
-//               })}
+//                 ))}
+//               </div>
 //             </motion.div>
 //           </motion.div>
-//         </section>
-
-//         {/* PHILOSOPHY SECTION */}
-
-//         <section className="relative overflow-hidden bg-[#080B0D] px-6 py-12 text-white sm:px-10 sm:py-14 md:px-14 md:py-16 lg:px-[10%] lg:py-18">
-//           <div className="pointer-events-none absolute -right-24 top-0 h-[280px] w-[280px] rounded-full bg-[#FF6268]/[0.08] blur-[110px]" />
-
-//           <div className="pointer-events-none absolute -bottom-28 -left-20 h-[300px] w-[300px] rounded-full bg-[#3980FF]/[0.08] blur-[110px]" />
-
-//           <div className="relative z-10 mx-auto grid max-w-[1200px] grid-cols-1 gap-8 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
-//             {/* PHILOSOPHY HEADING */}
-
-//             <motion.div
-//               variants={sectionFade}
-//               initial="hidden"
-//               whileInView="visible"
-//               viewport={{ once: true, amount: 0.3 }}
-//             >
-//               <p className="mb-3 text-[20px] font-medium leading-tight text-[#FFD21C] sm:text-[22px]">
-//                 Our Philosophy
-//               </p>
-
-//               <h2 className="max-w-[450px] text-[38px] font-bold leading-[0.98] tracking-[-0.05em] text-white sm:text-[46px] md:text-[52px]">
-//                 We don't chase
-//                 <br />
-//                 attention.
-//                 <br />
-//                 <span className="text-[#FF6268]">We earn it.</span>
-//               </h2>
-
-//               <p className="mt-4 max-w-[360px] text-[13px] leading-[1.8] text-[#BFC5C5] sm:text-[14px]">
-//                 Brands, leaders and institutions come to us to stay relevant.
-//                 Three beliefs shape every project we take on.
-//               </p>
-//             </motion.div>
-
-//             {/* PHILOSOPHY PRINCIPLES */}
-
-//             <div className="flex flex-col">
-//               {[
-//                 {
-//                   title: "Culture before campaigns",
-//                   description:
-//                     "We study what people talk about, laugh at and share, then build ideas that belong in that conversation.",
-//                   color: COLORS.coral,
-//                 },
-//                 {
-//                   title: "Strategy before noise",
-//                   description:
-//                     "Every post, pitch and project starts with a clear goal and a way to measure it.",
-//                   color: COLORS.blue,
-//                 },
-//                 {
-//                   title: "Trust over reach",
-//                   description:
-//                     "Views mean little if people don't believe you. We build reputations that hold up.",
-//                   color: COLORS.green,
-//                 },
-//               ].map((item, index) => (
-//                 <motion.div
-//                   key={item.title}
-//                   initial={{ opacity: 0, y: 18 }}
-//                   whileInView={{ opacity: 1, y: 0 }}
-//                   viewport={{ once: true, amount: 0.3 }}
-//                   transition={{
-//                     duration: 0.6,
-//                     delay: index * 0.1,
-//                     ease: EASE,
-//                   }}
-//                   className="border-t border-white/15 py-4 first:border-t"
-//                 >
-//                   <div className="flex gap-3">
-//                     <span
-//                       className="mt-0.5 text-[27px] font-medium leading-none"
-//                       style={{ color: item.color }}
-//                     >
-//                       /
-//                     </span>
-
-//                     <div>
-//                       <h3 className="text-[16px] font-semibold leading-tight tracking-[-0.025em] text-white sm:text-[18px]">
-//                         {item.title}
-//                       </h3>
-
-//                       <p className="mt-1.5 max-w-[460px] text-[12px] leading-[1.7] text-[#BFC5C5] sm:text-[13px]">
-//                         {item.description}
-//                       </p>
-//                     </div>
-//                   </div>
-//                 </motion.div>
-//               ))}
-//             </div>
-//           </div>
 //         </section>
 
 //         {/* BOTTOM ACCENT */}
@@ -815,6 +793,8 @@
 // };
 
 // export default OurTeam;
+
+
 
 import React, { useRef, useState } from "react";
 import {
@@ -1423,18 +1403,33 @@ const OurTeam = () => {
               Our Team
             </motion.p>
 
-            <div className="team-description">
-  <p className="team-description__lead bold text-[20px] leading-tight tracking-[-0.02em] sm:text-[22px]">
-    Konsole is where fresh Gen-Z perspective collides with a 25-year
-    treasure trove of industry experience.
-  </p>
-  <p className="team-description__body text-[16px] leading-[1.7] tracking-[-0.02em] sm:text-[18px]">
-    Built like a premier cricket team, our roster channels both raw creative
-    energy and deeply seasoned expertise. From aggressive openers breaking new
-    ground to analytical spinners fine-tuning strategy, we are led by dynamic
-    all-rounders who ensure legacy wisdom drives tomorrow's innovations.
-  </p>
-</div>
+            {/* ================= DESCRIPTION ================= */}
+            <div className="max-w-[620px] space-y-4 tracking-[-0.01em] text-[#080B0D]">
+              <motion.p
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+                className="text-[20px] font-semibold leading-tight tracking-[-0.02em] sm:text-[22px]"
+              >
+                Konsole is where fresh Gen-Z perspective collides with a 25-year
+                treasure trove of industry experience.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.8, delay: 0.22, ease: EASE }}
+                className="text-[16px] font-normal leading-[1.7] text-[#080B0D]/75 sm:text-[18px]"
+              >
+                Built like a premier cricket team, our roster channels both raw
+                creative energy and deeply seasoned expertise. From aggressive
+                openers breaking new ground to analytical spinners fine-tuning
+                strategy, we are led by dynamic all-rounders who ensure legacy
+                wisdom drives tomorrow&apos;s innovations.
+              </motion.p>
+            </div>
 
             {/* <h2
               className="max-w-[780px] text-left text-[40px] font-bold leading-[0.98] tracking-[-0.05em] sm:text-[54px] md:text-[64px] lg:text-[42px]"
@@ -1450,29 +1445,29 @@ const OurTeam = () => {
             </h2> */}
 
             <ul className="w-full max-w-[560px]" aria-label="Our expertise">
-  {experts.map((item, i) => (
-    <motion.li
-      key={item}
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
-      className="flex items-center gap-4 border-b py-2.5 sm:gap-5 sm:py-3"
-      style={{ borderColor: "rgba(128,128,128,0.25)" }}
-    >
-      <span
-        className="w-7 shrink-0 text-[12px] font-bold tracking-[0.05em]"
-        style={{ color: i % 2 === 0 ? COLORS.coral : COLORS.yellow }}
-      >
-        {String(i + 1).padStart(2, "0")}
-      </span>
+              {experts.map((item, i) => (
+                <motion.li
+                  key={item}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+                  className="flex items-center gap-4 border-b py-2.5 sm:gap-5 sm:py-3"
+                  style={{ borderColor: "rgba(128,128,128,0.25)" }}
+                >
+                  <span
+                    className="w-7 shrink-0 text-[12px] font-bold tracking-[0.05em]"
+                    style={{ color: i % 2 === 0 ? COLORS.coral : COLORS.yellow }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
 
-      <span className="text-[24px] font-bold leading-tight tracking-[-0.03em] sm:text-[30px] lg:text-[34px]">
-        {item}
-      </span>
-    </motion.li>
-  ))}
-</ul>
+                  <span className="text-[24px] font-bold leading-tight tracking-[-0.03em] sm:text-[30px] lg:text-[34px]">
+                    {item}
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
 
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }}

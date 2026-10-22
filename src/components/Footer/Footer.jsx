@@ -642,8 +642,8 @@ export default function Footer() {
               </motion.div>
               <motion.div whileHover={{ x: 6 }} className="flex items-center gap-3">
                 <Globe className="h-4 w-4 shrink-0 text-red-500" />
-                <a href="" className="transition-colors hover:text-white">
-                  www.abcd.com
+                <a href="https://www.konsolegroup.com/" className="transition-colors hover:text-white">
+                  www.konsolegroup.com
                 </a>
               </motion.div>
               <motion.div whileHover={{ x: 6 }} className="flex items-center gap-3">
