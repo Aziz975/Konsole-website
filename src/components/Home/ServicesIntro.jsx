@@ -132,6 +132,102 @@
 
 
 
+// import React, { useEffect, useRef, useState } from "react";
+// import CountUp from "./CountUp";
+
+// const stats = [
+//   { number: "5000+", title: "Campaigns" },
+//   { number: "40+", title: "Brands" },
+//   { number: "70M+", title: "Impact" },
+//   { number: "55B+", title: "Views" },
+// ];
+
+// export default function ServicesIntro() {
+//   const sectionRef = useRef(null);
+//   const [visible, setVisible] = useState(false);
+
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         setVisible(entry.isIntersecting);
+//       },
+//       { threshold: 0.15 }
+//     );
+
+//     if (sectionRef.current) {
+//       observer.observe(sectionRef.current);
+//     }
+
+//     return () => observer.disconnect();
+//   }, []);
+
+//   return (
+//     <section ref={sectionRef} className="w-full bg-[#faf9f6] text-[#080b0b]">
+
+//       {/* ================= STATS ================= */}
+//       <div className="border-b border-[#d7d7d4] px-10 py-16 sm:px-8 sm:py-20 md:px-10 md:py-24 lg:px-12 lg:py-[105px] xl:px-[60px]">
+
+//         <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center lg:grid-cols-[minmax(420px,1.5fr)_repeat(4,minmax(180px,0.75fr))]">
+
+//           {/* Main statement */}
+//           {/* FIX: removed the empty 25px div and gap-7 that were pushing the heading right */}
+//           <div className="relative flex items-center justify-center pb-12 lg:justify-start lg:pb-0 lg:pr-10">
+//             <h2
+//               className={`mx-auto w-full max-w-[500px] text-balance text-center text-[34px] font-bold leading-[1.05] tracking-[-0.045em] min-[400px]:text-[38px] sm:text-[50px] md:text-[55px] lg:mx-0 lg:text-left lg:text-[48px] xl:text-[54px] ${
+//                 visible
+//                   ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.15s_forwards]"
+//                   : "translate-y-[35px] opacity-0"
+//               }`}
+//             >
+//               Ideas that <br className="hidden sm:block" />
+//               create influence.
+//             </h2>
+//           </div>
+
+//           {/* Stats */}
+//           {stats.map((stat, index) => (
+//             <div
+//               key={stat.title}
+//               className="border-t border-[#d0d0cd] py-8 text-center lg:border-l lg:border-t-0 lg:px-10 lg:py-0 lg:text-left xl:px-12"
+//             >
+//               <div
+//                 className={`text-[48px] font-bold leading-[0.95] tracking-[-0.045em] sm:text-[54px] md:text-[58px] lg:text-[48px] xl:text-[54px] ${
+//                   visible
+//                     ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]"
+//                     : "translate-y-[35px] opacity-0"
+//                 }`}
+//                 style={{ animationDelay: `${0.3 + index * 0.15}s` }}
+//               >
+//                 <CountUp value={stat.number} duration={700} />
+//               </div>
+
+//               <div
+//                 className={`text-[18px] font-normal leading-[1.25] sm:text-[19px] md:text-[20px] ${
+//                   visible
+//                     ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]"
+//                     : "translate-y-[35px] opacity-0"
+//                 }`}
+//                 style={{ animationDelay: `${0.4 + index * 0.15}s` }}
+//               >
+//                 {stat.title}
+//                 {stat.subtitle && (
+//                   <>
+//                     <br />
+//                     {stat.subtitle}
+//                   </>
+//                 )}
+//               </div>
+//             </div>
+//           ))}
+
+//         </div>
+//       </div>
+
+//     </section>
+//   );
+// }
+
+
 import React, { useEffect, useRef, useState } from "react";
 import CountUp from "./CountUp";
 
@@ -140,6 +236,15 @@ const stats = [
   { number: "40+", title: "Brands" },
   { number: "70M+", title: "Impact" },
   { number: "55B+", title: "Views" },
+];
+
+// Divider / padding per stat, depending on which column it lands in:
+//   phone: 1 column | sm: 2 columns | lg: 4 columns under the heading | xl: 4 columns beside the heading
+const statEdges = [
+  "lg:pl-0 xl:border-l xl:pl-6", // 1st in every row, except beside the heading
+  "sm:border-l", // 2nd: right column on sm, 2nd column on lg
+  "lg:border-l", // 3rd: left column on sm (no divider), 3rd column on lg
+  "sm:border-l", // 4th: right column on sm, last column on lg
 ];
 
 export default function ServicesIntro() {
@@ -167,13 +272,17 @@ export default function ServicesIntro() {
       {/* ================= STATS ================= */}
       <div className="border-b border-[#d7d7d4] px-10 py-16 sm:px-8 sm:py-20 md:px-10 md:py-24 lg:px-12 lg:py-[105px] xl:px-[60px]">
 
-        <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center lg:grid-cols-[minmax(420px,1.5fr)_repeat(4,minmax(180px,0.75fr))]">
+        {/* Layout by screen width:
+            phone      -> everything in one column
+            sm         -> heading on top, stats in 2 x 2
+            lg         -> heading on top, 4 stats in one row
+            xl (1280+) -> heading on the left, 4 stats beside it */}
+        <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-[minmax(440px,1.6fr)_repeat(4,minmax(0,1fr))]">
 
           {/* Main statement */}
-          {/* FIX: removed the empty 25px div and gap-7 that were pushing the heading right */}
-          <div className="relative flex items-center justify-center pb-12 lg:justify-start lg:pb-0 lg:pr-10">
+          <div className="relative flex items-center justify-center pb-10 sm:col-span-2 lg:col-span-4 lg:justify-start lg:pb-12 xl:col-span-1 xl:pb-0 xl:pr-8">
             <h2
-              className={`mx-auto w-full max-w-[500px] text-balance text-center text-[34px] font-bold leading-[1.05] tracking-[-0.045em] min-[400px]:text-[38px] sm:text-[50px] md:text-[55px] lg:mx-0 lg:text-left lg:text-[48px] xl:text-[54px] ${
+              className={`mx-auto w-full max-w-[520px] text-balance text-center text-[34px] font-bold leading-[1.05] tracking-[-0.045em] min-[400px]:text-[38px] sm:text-[50px] md:text-[55px] lg:mx-0 lg:text-left lg:text-[54px] ${
                 visible
                   ? "animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_0.15s_forwards]"
                   : "translate-y-[35px] opacity-0"
@@ -188,10 +297,10 @@ export default function ServicesIntro() {
           {stats.map((stat, index) => (
             <div
               key={stat.title}
-              className="border-t border-[#d0d0cd] py-8 text-center lg:border-l lg:border-t-0 lg:px-10 lg:py-0 lg:text-left xl:px-12"
+              className={`border-t border-[#d0d0cd] py-8 text-center sm:py-9 lg:px-8 lg:text-left xl:border-t-0 xl:px-6 ${statEdges[index]}`}
             >
               <div
-                className={`text-[48px] font-bold leading-[0.95] tracking-[-0.045em] sm:text-[54px] md:text-[58px] lg:text-[48px] xl:text-[54px] ${
+                className={`text-[44px] font-bold leading-[0.95] tracking-[-0.045em] min-[400px]:text-[48px] sm:text-[54px] lg:text-[48px] xl:text-[44px] min-[1360px]:text-[54px] ${
                   visible
                     ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]"
                     : "translate-y-[35px] opacity-0"
@@ -202,7 +311,7 @@ export default function ServicesIntro() {
               </div>
 
               <div
-                className={`text-[18px] font-normal leading-[1.25] sm:text-[19px] md:text-[20px] ${
+                className={`mt-1 text-[18px] font-normal leading-[1.25] sm:text-[19px] md:text-[20px] ${
                   visible
                     ? "animate-[fadeUp_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]"
                     : "translate-y-[35px] opacity-0"
