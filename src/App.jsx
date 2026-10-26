@@ -24,6 +24,7 @@ import OurTeam from './components/Team/OurTeam';
 import Hiring from './components/Hiring/Hiring';
 import OurManagement from './components/Management/ManagementTeam';
 // import HiringForm from './components/HiringForm/HiringForm';
+import OurGroupCompanies from './components/OurCompanies/OurGroupCompanies';
 
 
 
@@ -64,6 +65,7 @@ const App = () => {
           <Route path="/ourteam" element={<OurTeam />} />
           <Route path="/ourmanagement" element={<OurManagement />} />
           <Route path="/hiring" element={<Hiring />} />
+          <Route path="/ourgroupcompanies" element={<OurGroupCompanies />} />
           {/* <Route path="/hiringform" element={<HiringForm />} /> */}
 
 
